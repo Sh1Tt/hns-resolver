@@ -16,7 +16,11 @@ const Form = () =>
 	{
 		setMessage( `Σ（ﾟдﾟlll）Something went wrong. ${handshakename}/ could not be resolved by hns.is. Please try another Handshake resolver..` )
 
-		setTimeout( () => { setMessage( INITIAL_MESSAGE ) }, 15000 )
+		setTimeout( () =>
+		{ 
+			setMessage( INITIAL_MESSAGE )
+
+		}, 15000 )
 
 	}
 
@@ -28,7 +32,7 @@ const Form = () =>
 
 		setMessage( `Resolving...` )
 
-		if ( !handshakename || handshakename == '' || handshakename.indexOf( ` ` ) > 0 ) 
+		if ( !handshakename || handshakename == '' || handshakename.indexOf( ` ` ) >= 0 ) 
 		{
 			errorMessage()
 
