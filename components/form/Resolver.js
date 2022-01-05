@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
+import v1 from '../../utils/Resolve'
+
 import styles from '../../styles/Resolver.module.css'
 
-const INITIAL = "Resolve your handshakename here.."
+const INITIAL = "Surf the web using handshakenames.."
 
 const noTrailingSlash = n => n.slice( -1 ) === `/` ? n.slice( 0, -1 ) : n
 
@@ -35,23 +37,7 @@ const Form = () =>
 		{
 			try
 			{
-				const url = `https://${handshakename}.hns.is/`
-
-				location.href = url
-
-				// await fetch( url, { 
-				// 	// mode: 'no-cors' 
-				// 	headers:
-				// 	{
-				// 		'Allow-Acces-Control-Origin': '*'
-				// 	}
-				// } )
-				// .then( res =>
-				// { 
-				// 	console.log ( res )
-				// 
-				// } )
-
+				v1( handshakename )
 			}
 			catch( err )
 			{
