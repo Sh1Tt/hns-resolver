@@ -4,23 +4,23 @@ import v1 from '../../utils/Resolve'
 
 import styles from '../../styles/Resolver.module.css'
 
-const INITIAL = "Surf the web using handshakenames.."
-
-const noTrailingSlash = n => n.slice( -1 ) === `/` ? n.slice( 0, -1 ) : n
+const INITIAL_MESSAGE = "Surf the web using handshakenames.."
 
 const Form = () =>
 {
 	const [ handshakename, setHandshakename ] = useState( `` )
 
-	const [ message, setMessage ] = useState( INITIAL )
+	const [ message, setMessage ] = useState( INITIAL_MESSAGE )
 
 	const errorMessage = () =>
 	{
 		setMessage( `Σ（ﾟдﾟlll）Something went wrong. ${handshakename}/ could not be resolved by hns.is. Please try another Handshake resolver..` )
 
-		setTimeout( () => { setMessage( INITIAL ) }, 10000 )
+		setTimeout( () => { setMessage( INITIAL_MESSAGE ) }, 15000 )
 
 	}
+
+	const removeTrailingSlash = n => n.slice( -1 ) === `/` ? n.slice( 0, -1 ) : n
 
 	const resolve = async e =>
 	{
@@ -28,7 +28,7 @@ const Form = () =>
 
 		setMessage( `Resolving...` )
 
-		if ( !handshakename || handshakename == '' || handshakename == ' ' ) 
+		if ( !handshakename || handshakename == '' || handshakename.indexOf( ` ` ) > 0 ) 
 		{
 			errorMessage()
 
@@ -38,6 +38,7 @@ const Form = () =>
 			try
 			{
 				v1( handshakename )
+
 			}
 			catch( err )
 			{
@@ -60,7 +61,7 @@ const Form = () =>
 					id="handshakename"
 					name="handshakename" 
 					placeholder="Enter a handshake name (e.g. welcome.nb)" 
-					onChange={e => setHandshakename( noTrailingSlash( e.target.value ) )}
+					onChange={e => setHandshakename( removeTrailingSlash( e.target.value ).toString() )}
 				/>
 				<button 
 					className={styles.submit} 
