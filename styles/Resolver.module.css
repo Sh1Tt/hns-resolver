@@ -1,0 +1,87 @@
+.resolver
+{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: rgba(255,255,255,.1);
+	border-radius: 8px;
+	width: calc( 50vw );
+	border: 1px solid rgba(0,0,0,.02);
+	box-shadow: 0;
+	position: relative;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 100;
+	-webkit-transition: box-shadow .2s ease, background-color .2s ease;
+	transition: box-shadow .2s ease, background-color .2s ease;
+}
+
+.input
+{
+    width: 50vw;
+    height: 100%;
+    padding: .5em 1em;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    border-radius: .25em;
+    color: var( --og-white );
+}
+.input:focus
+{
+	outline: 1px solid var( --og-grey );
+}
+
+.submit
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+    height: 100%;
+    width: 56px;
+    padding: 0.5em 0;
+    border: none;
+    background-color: transparent;
+    color: var( --og-silver );
+    z-index: 9872634984639;
+    border-radius: 0 .25em .25em 0;
+}
+
+.submit:hover,
+.submit:hover > .input
+{
+	background-color: var( --og-silver );
+	color: var( --og-dark );
+}
+
+.error
+{
+	position: fixed;
+	top: 70px;
+	left: 0;
+	height: 90vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: var( --og-silver );
+}
+.message
+{
+	width: 30%;
+	min-width: 360px;
+	height: auto;
+}

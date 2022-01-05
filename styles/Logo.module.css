@@ -1,0 +1,107 @@
+.wrapper {
+	position: absolute;
+	width: auto;
+	height: min-content;
+	margin: 0;
+	padding: 0;
+}
+
+.logo {
+    display:inline-block; 
+    margin: .25em .5em;
+    padding: 0;
+    font-size: 18px;
+	font-weight: 1200;
+    color:transparent;
+    background-color: var( --og-black );
+    overflow:hidden;
+    filter: saturate( 150% );
+}
+
+.text
+{
+	background: var( --og-silver );
+	-webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: block;
+}
+.text:hover {
+	background: linear-gradient( var( --lg-deg ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ) );
+	animation-name: rainbow;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+	-webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@KEYFRAMES rainbow
+{
+	0%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    10%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    20%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    30%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    40%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    50%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    60%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    70%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    80%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-8 ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+    90%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-9 ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+	100%
+	{
+		background: linear-gradient( var( --lg-deg ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ) );	
+		-webkit-text-fill-color: transparent;
+	    -webkit-background-clip: text;
+    }
+}
