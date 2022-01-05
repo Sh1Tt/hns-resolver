@@ -6,7 +6,7 @@ const INITIAL = "Resolve your handshakename here.."
 
 const noTrailingSlash = n => n.slice( -1 ) === `/` ? n.slice( 0, -1 ) : n
 
-export default () =>
+const Form = () =>
 {
 	const [ handshakename, setHandshakename ] = useState( `` )
 
@@ -38,7 +38,7 @@ export default () =>
 				const url = `https://${handshakename}.hns.is/`
 
 				location.href = url
-				
+
 				// await fetch( url, { 
 				// 	// mode: 'no-cors' 
 				// 	headers:
@@ -92,3 +92,5 @@ export default () =>
 	)
 
 }
+
+export default Form
