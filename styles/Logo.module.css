@@ -17,6 +17,7 @@
     background-color: var( --og-black );
     overflow: hidden;
     filter: saturate( 150% );
+    cursor: pointer;
 }
 
 .text
