@@ -16,6 +16,12 @@ a {
 }
 
 #__next {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var( --og-dark );
   color: var( --og-silver );
+  position: static;
 }

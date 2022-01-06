@@ -2,29 +2,33 @@ import { useState } from 'react'
 
 import v1 from '../../utils/Resolve'
 
+import CMS from '../../cms/'
+
 import styles from '../../styles/Resolver.module.css'
 
-const INITIAL_MESSAGE = "Surf the web using handshakenames.."
+import stylesMsg from '../../styles/Message.module.css'
 
 const Form = () =>
 {
+	const INITIAL = CMS.CONTENT.HOME.MESSAGE
+
 	const [ handshakename, setHandshakename ] = useState( `` )
 
-	const [ message, setMessage ] = useState( INITIAL_MESSAGE )
-
-	const errorMessage = () =>
+	const [ message, setMessage ] = useState( INITIAL )
+	
+	const showErrMsg = () =>
 	{
 		setMessage( `Σ（ﾟдﾟlll）Something went wrong. ${handshakename}/ could not be resolved by hns.is. Please try another Handshake resolver..` )
 
 		setTimeout( () =>
 		{ 
-			setMessage( INITIAL_MESSAGE )
+			setMessage( INITIAL )
 
 		}, 15000 )
 
 	}
 
-	const removeTrailingSlash = n => n.slice( -1 ) === `/` ? n.slice( 0, -1 ) : n
+	const removeTrailingSlash = n => n.endsWith( `/` ) ? n.slice( 0, -1 ) : n
 
 	const resolve = async e =>
 	{
@@ -34,7 +38,7 @@ const Form = () =>
 
 		if ( !handshakename || handshakename == '' || handshakename.indexOf( ` ` ) >= 0 ) 
 		{
-			errorMessage()
+			showErrMsg()
 
 		}
 		else
@@ -46,13 +50,16 @@ const Form = () =>
 			}
 			catch( err )
 			{
-				errorMessage()
+				showErrMsg()
 
 			}			
 			
 		}
 
-		setTimeout( () => { document.getElementById( `handshakename` ).value = `` }, 50 )
+		setTimeout( () => 
+		{ 
+			document.getElementById( `handshakename` ).value = ``
+		}, 50 )
 
 	}
 
@@ -74,8 +81,8 @@ const Form = () =>
 					→
 				</button>
 			</form>
-			<div className={styles.error}>
-				<p className={styles.message}>
+			<div className={stylesMsg.wrapper}>
+				<p className={stylesMsg.content}>
 					{message}
 				</p>
 			</div>

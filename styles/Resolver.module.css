@@ -26,6 +26,16 @@
 	-webkit-transition: box-shadow .2s ease, background-color .2s ease;
 	transition: box-shadow .2s ease, background-color .2s ease;
 }
+@media only screen and ( max-width: 580px )
+{
+	.resolver
+	{
+		margin-left: 12.5%;
+		width: auto;
+		flex: .85;
+		text-align: left;
+	}
+}
 
 .input
 {
@@ -50,8 +60,9 @@
 	top: 0;
 	right: 0;
     height: 100%;
-    width: 56px;
-    padding: 0.5em 0;
+    width: 13%;
+    max-width: 56px;
+    padding: .5em 0;
     border: none;
     background-color: transparent;
     color: var( --og-silver );
@@ -64,24 +75,4 @@
 {
 	background-color: var( --og-silver );
 	color: var( --og-dark );
-}
-
-.error
-{
-	position: fixed;
-	top: 70px;
-	left: 0;
-	height: 90vh;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	color: var( --og-silver );
-}
-.message
-{
-	width: 30%;
-	min-width: 360px;
-	height: auto;
 }

@@ -1,0 +1,21 @@
+.wrapper
+{
+	position: fixed;
+	top: 45vh;
+	left: 0;
+	height: max-content;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: var( --og-silver );
+}
+.content
+{
+	position: relative;
+	margin: auto;
+	width: 30%;
+	min-width: 360px;
+	height: min-content;
+}
