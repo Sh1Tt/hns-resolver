@@ -1,20 +1,21 @@
 .wrapper {
 	position: absolute;
-	width: auto;
-	height: min-content;
+	width: min-content;
+	height: auto;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .logo {
-    display:inline-block; 
-    margin: .25em .5em;
+    display: inline-block; 
+    margin: .125em .25em;
     padding: 0;
-    font-size: 18px;
-	font-weight: 1200;
-    color:transparent;
+    color: transparent;
     background-color: var( --og-black );
-    overflow:hidden;
+    overflow: hidden;
     filter: saturate( 150% );
 }
 
@@ -24,6 +25,9 @@
 	-webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     display: block;
+    margin: 0;
+    font-size: 18px;
+	font-weight: 500;
 }
 .text:hover {
 	background: linear-gradient( var( --lg-deg ), var( --rb-0 ), var( --rb-1 ), var( --rb-2 ), var( --rb-3 ), var( --rb-4 ), var( --rb-5 ), var( --rb-6 ), var( --rb-7 ), var( --rb-8 ), var( --rb-9 ) );
