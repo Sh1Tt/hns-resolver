@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
-import v1 from '../../utils/Resolve'
+import { v1, v2 } from '../../utils/Resolve'
 
-import CMS from '../../cms/'
+import { valid, removeTrailingSlash } from '../../utils/Handshakename'
+
+import CMS from '../../cms'
 
 import styles from '../../styles/Resolver.module.css'
 
@@ -10,25 +12,27 @@ import stylesMsg from '../../styles/Message.module.css'
 
 const Form = () =>
 {
-	const INITIAL = CMS.CONTENT.HOME.MESSAGE
+	const initialState = CMS.CONTENT.HOME.MESSAGE
 
 	const [ handshakename, setHandshakename ] = useState( `` )
 
-	const [ message, setMessage ] = useState( INITIAL )
+	const [ message, setMessage ] = useState( initialState )
 	
-	const showErrMsg = () =>
+	const errorMessage = () =>
 	{
-		setMessage( `Σ（ﾟдﾟlll）Something went wrong. ${handshakename}/ could not be resolved by hns.is. Please try another Handshake resolver..` )
+		setMessage( `
+			Σ（ﾟдﾟlll）Something went wrong.
+			${handshakename}/ could not be resolved by ${CMS.META.DOMAIN}. 
+			Please try another Handshake resolver..
+		` )
 
 		setTimeout( () =>
 		{ 
-			setMessage( INITIAL )
+			setMessage( initialState )
 
 		}, 15000 )
 
 	}
-
-	const removeTrailingSlash = n => n.endsWith( `/` ) ? n.slice( 0, -1 ) : n
 
 	const resolve = async e =>
 	{
@@ -36,9 +40,9 @@ const Form = () =>
 
 		setMessage( `Resolving...` )
 
-		if ( !handshakename || handshakename == '' || handshakename.indexOf( ` ` ) >= 0 ) 
+		if ( !handshakename || handshakename == '' || !valid( handshakename ) ) 
 		{
-			showErrMsg()
+			errorMessage()
 
 		}
 		else
@@ -50,7 +54,7 @@ const Form = () =>
 			}
 			catch( err )
 			{
-				showErrMsg()
+				errorMessage()
 
 			}			
 			
@@ -59,6 +63,7 @@ const Form = () =>
 		setTimeout( () => 
 		{ 
 			document.getElementById( `handshakename` ).value = ``
+
 		}, 50 )
 
 	}
@@ -72,7 +77,7 @@ const Form = () =>
 					id="handshakename"
 					name="handshakename" 
 					placeholder="Enter a handshake name (e.g. welcome.nb)" 
-					onChange={e => setHandshakename( removeTrailingSlash( e.target.value ).toString() )}
+					onChange={e => setHandshakename( removeTrailingSlash( e.target.value ) )}
 				/>
 				<button 
 					className={styles.submit} 

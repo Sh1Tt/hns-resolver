@@ -1,0 +1,47 @@
+.container {
+  flex: 0 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.credits
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 85vw;
+  border-top: 1px solid rgba( 68, 68, 68, .68 );
+}
+
+.credit
+{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: .5em 1em; 
+}
+
+.credit code
+{
+  font-size: 12px;
+  padding-top: .25em;
+}
+
+.credit code:hover
+{
+  color: orangered;
+  text-decoration: 1px underline rgba( 68, 68, 68, .68 );
+}
+
+.credit h4
+{
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: .01em underline currentcolor;
+  padding: 0 .375em;
+}

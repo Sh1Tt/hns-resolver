@@ -1,9 +1,19 @@
+// ### Resolver mechanisms ### //
 const v1 = handshakename =>
 {
 	const url = `https://${handshakename}.hns.is/`
 
 	location.href = url
-	
+
 }
 
-export default v1
+const v2 = handshakename =>
+{
+	// method 
+
+}
+
+export {
+	v1,
+	v2
+}

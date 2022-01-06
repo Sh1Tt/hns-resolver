@@ -4,10 +4,10 @@ import Resolver from './form/Resolver'
 
 import CMS from '../cms'
 
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Nav.module.css'
 
 const Nav = () => (
-	<nav className={styles.nav}>
+	<nav className={styles.container}>
 		<Logo text={CMS.META.NAME} />
 		<Resolver />
 	</nav>

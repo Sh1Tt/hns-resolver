@@ -1,23 +1,24 @@
-import BASE_URL from '../config/Domain'
+import config from '../config/resolver'
 
-import dynamicLogo from '../utils/Logocreator'
+import pointerLogo from '../utils/Pointerlogo'
 
 const CMS = 
 {
 	META:
 	{
-		URL: `https://${BASE_URL}/`,
-		NAME: dynamicLogo( BASE_URL ),
-		AUTHOR: `https://sh1tt.${BASE_URL}/`,
-		THEME: `#000000`
+		URL: `https://${config.domain}/`,
+		DOMAIN: config.domain,
+		NAME: pointerLogo( config.domain ),
+		AUTHOR: `https://sh1tt.${config.domain}/`,
+		THEME: `#111111`
 	},
 	CONTENT: 
 	{
 		HOME: 
 		{
-			TITLE: dynamicLogo( BASE_URL ),
+			TITLE: pointerLogo( config.domain ),
 			DESC: "Browse the web using handshakenames",
-			HEADER: BASE_URL,
+			HEADER: config.domain,
 			MESSAGE: "Surf the web using handshakenames.."
 		}
 	}

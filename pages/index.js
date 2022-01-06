@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-import Nav from '../components/Nav'
-
 import Header from '../components/Header'
 
 import Main from '../components/Main'
@@ -19,7 +17,6 @@ const Home = () =>
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={META.THEME} />
         <meta name="description" content={PAGE.DESC} />
@@ -32,7 +29,6 @@ const Home = () =>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="78x78" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Nav />
       <Header />
       <Main />
       <Footer />
