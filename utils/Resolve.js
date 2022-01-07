@@ -1,7 +1,9 @@
+import config from '../config/domain'
+
 // ### Resolver mechanisms ### //
 const v1 = handshakename =>
 {
-	const url = `https://${handshakename}.hns.is/`
+	const url = `https://${handshakename}.${config.domain}/`
 
 	location.href = url
 
@@ -9,7 +11,7 @@ const v1 = handshakename =>
 
 const v2 = handshakename =>
 {
-	// method 
+	// hdns resolver ... or something
 
 }
 

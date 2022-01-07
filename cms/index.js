@@ -1,4 +1,4 @@
-import config from '../config/resolver'
+import config from '../config/domain'
 
 import pointerLogo from '../utils/Pointerlogo'
 
@@ -10,7 +10,7 @@ const CMS =
 		DOMAIN: config.domain,
 		NAME: pointerLogo( config.domain ),
 		AUTHOR: `https://sh1tt.${config.domain}/`,
-		THEME: `#111111`
+		THEME: `#000000`
 	},
 	CONTENT: 
 	{
