@@ -30,6 +30,13 @@ export default class resolverApp extends App {
       userHistory
     } )
     
+    const app = document.getElementById( `__next` )
+    setTimeout( () =>
+    {
+      if( !app.classList.contains( `colorfull` ) )  app.classList.add( `colorfull` )
+
+    }, 1000 )
+
   }
 
   rememberVisited = hnsname => 

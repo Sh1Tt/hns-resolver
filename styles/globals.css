@@ -52,6 +52,7 @@ a {
     flex-direction: column;
     background-color: var( --og-dark );
     color: var( --og-silver );
+    transition: 1s ease-in;
   }
   .colorfull
   {
