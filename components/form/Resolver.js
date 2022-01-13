@@ -68,7 +68,13 @@ const Form = () =>
 		{ 
 			resetInput()
 
-		}, 50 )
+			setTimeout( () =>
+			{
+				setMessage( initialState )
+				
+			}, 1400 )
+
+		}, 100 )
 
 	}
 
