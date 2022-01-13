@@ -34,13 +34,23 @@
 		width: auto;
 		flex: .8;
 	}
+	.icon
+	{
+		display: none;
+	}
 	.input
 	{
 		width: 100% !important;
 		text-align: left !important;
 	}
 }
-
+.icon
+{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	left: .375em;
+}
 .input
 {
     width: 50vw;

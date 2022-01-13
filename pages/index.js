@@ -1,18 +1,17 @@
 import Head from 'next/head'
 
-import Header from '../components/Header'
+import Home from '../components/home'
 
-import Main from '../components/Main'
+import Footer from '../components/footer'
 
-import Footer from '../components/Footer'
-
-import CMS from '../cms/'
+import CMS from '../cms'
 
 import styles from '../styles/Home.module.css'
 
-const Home = () =>
+const Homepage = () =>
 {
-  const PAGE = CMS.CONTENT.HOME, META = CMS.META
+  const META = CMS.META,
+        PAGE = CMS.CONTENT.HOME
 
   return (
     <>
@@ -29,12 +28,11 @@ const Home = () =>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="78x78" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Header />
-      <Main />
+      <Home />
       <Footer />
     </>
   )
 
 }
 
-export default Home
+export default Homepage

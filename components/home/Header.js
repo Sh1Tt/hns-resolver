@@ -1,6 +1,6 @@
-import CMS from '../cms'
+import CMS from '../../cms'
 
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 
 const Header = () => (
 	<header className={styles.header}>

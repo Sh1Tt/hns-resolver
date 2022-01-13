@@ -1,7 +1,7 @@
 import config from '../config/domain'
 
-// ### Resolver mechanisms ### //
-const v1 = handshakename =>
+// ### Resolver ### //
+function v1 ( handshakename )
 {
 	const url = `https://${handshakename}.${config.domain}/`
 
@@ -9,13 +9,6 @@ const v1 = handshakename =>
 
 }
 
-const v2 = handshakename =>
-{
-	// hdns resolver ... or something
-
-}
-
-export {
-	v1,
-	v2
+export { 
+	v1 
 }

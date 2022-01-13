@@ -1,7 +1,7 @@
 .container
 {
   position: fixed;
-  position: sticky !important;
+  /*position: sticky !important;*/
   top: 0;
   left: 0;
   height: max-content;
@@ -13,4 +13,13 @@
   justify-content: flex-start;
   align-items: center; 
   background-color: var( --og-black );
+  z-index: 97459872659869857234;
+  overflow: hidden;
+}
+
+.modeBtn
+{
+  position: absolute;
+  right: 1em;
+  z-index: 8965679879657978658589738646354896728;
 }

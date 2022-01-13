@@ -5,6 +5,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .header h1 {
@@ -16,6 +17,384 @@
 
 .main {
   flex: 1 1;
+  width: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  position: relative;
 }
+
+.section
+{
+  position: relative;
+  height: max-content;
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 999999;
+}
+
+.section > div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section > div > *
+{
+  flex: .81;
+}
+
+.sectionHeader
+{
+  display: inline-block;
+  margin: .5em .5em 0;
+  font-weight: 450;
+  color: var( --og-white );
+  text-shadow: 2px 2px 3px rgba( 2, 2, 2, .85 );
+
+}
+
+.pageTop
+{
+  margin: 2.5em -.375em 0;
+  border-radius: .5em;
+  display: inline-flex;
+  align-items: flex-start;
+  padding: .5em 1em;
+}
+ 
+.pageTop h2
+{
+  margin: 0 .375em 0 0;
+  font-weight: 800;
+  font-size: 18px;
+}
+.pageTop img
+{
+  margin: 0 .1775em 0 0;
+}
+
+
+
+
+
+
+
+
+.visitedShowcase
+{
+  position: relative;
+  width: 100%;
+  height: 23em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  width: 85vw;
+  border-radius: 1em;
+  z-index: 105;
+  overflow: hidden;
+}
+@media only screen and ( max-width: 638px )
+{
+  .visitedShowcase
+  { 
+    justify-content: space-between;
+  }
+
+}
+
+.visitedWrapper
+{
+  flex: 1;
+  min-width: 10.5em;
+  max-width: 11.5em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: .5em .25em 0;
+  transition: .1s ease-in-out;
+}
+
+.visitedCard
+{
+  width: 100%;
+  height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 2px 2px 3px rgba( 2, 2, 2, .85 );
+  border-radius: .5em;
+  border: 1px solid rgba( 141, 141, 141, .2 );
+  /*box-shadow: 3px 5px 21px rgba( 0, 0, 0, .75 );*/
+  word-break: break-all;
+  padding: .375em .75em;
+  margin: 0;
+  background-color: rgba( 8, 8, 8, .85 );
+  overflow: hidden;
+  position: relative;
+  transition: .1s linear;
+}
+
+.visitedWrapper:hover
+{
+  transform: scale(1.03);
+}
+.visitedCard > *
+{
+  margin-left: .25em;
+  margin: .375em 0;
+  padding: 0;
+}
+.visitedCard h5
+{
+  max-height: 57px;
+  overflow: hidden;
+  font-size: 14px;
+  color: var( --og-white );
+}
+
+.visitedCard:hover h5 code
+{
+  text-decoration: 1px underline solid currentcolor;
+}
+
+.visitedCounter
+{
+  width: 90%;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: var( --og-grey );
+  text-shadow: 1px 1px 0px var( --og-black );
+}
+.visitedCounter code
+{
+  font-size: 12px;
+  color: var( --og-silver );
+}
+
+.visitedForget
+{
+  position: absolute;
+  top: -2.5%;
+  left: 87.5%;
+  display: none;
+  box-sizing: border-box;
+  background-color: var( --og-silver );
+  color: var( --og-white );
+  border: 1px dotted rgba( 141, 141, 141, 1 );
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  font-size: 85%;
+  width: 24px;
+  height: 23px;
+}
+.visitedForget:hover
+{
+  background-color: var( --og-white );
+  color: var( --og-dark );
+  border: 1px solid var( --og-silver );
+}
+
+.visitedWrapper:hover > .visitedForget
+{
+  display: block;
+}
+
+
+
+
+/*SITE LINKS*/
+.siteShowcase
+{
+  position: relative;
+  height: calc( 2 * ( 73px + ( 1.5em ) ) );
+  height: max-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  width: 85vw;
+  border-radius: 1em;
+  z-index: 105;
+}
+@media only screen and ( max-width: 638px )
+{
+  .siteShowcase
+  {
+    flex-wrap: wrap;
+  }
+}
+
+.siteWrapper
+{
+  flex: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: .5em .25em 0;
+  transition: .1s ease-in-out;
+}
+
+.siteWrapper:hover
+{
+  transform: scale(1.05);
+}
+.siteWrapper:hover .siteIcon
+{
+  background-color: rgba( 173, 173, 173, .85 );
+  box-shadow: 1px 1px 3px rgba( 2, 2, 2, .5 );
+}
+
+.siteIcon
+{
+  width: 73px;
+  height: 73px;
+  border: 1px solid rgba( 67, 67, 67, .4 );
+  border-radius: .75em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba( 8, 8, 8, 1 );
+  margin: 0 0;
+  box-shadow: 1px 1px 3px rgba( 2, 2, 2, .85 );
+}
+.siteName
+{
+  margin-top: .33em;
+  font-size: 11px;
+  color: var( --og-silver );
+  text-shadow: 1px 2px 3px rgba( 2, 2, 2 , .85 );
+}
+
+
+
+
+
+.widgetsShowcase
+{
+  position: relative;
+  height: max-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 85vw;
+  border-radius: 1em;
+  z-index: 105;
+}
+
+.widgetWrapper
+{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: .5em .25em 0;
+  transition: .1s ease-in-out;  
+}
+
+.widgetWrapper div
+{
+  font-family: Arial;
+  left: 0;
+  margin: .175em 0;
+  font-size: 60px;
+  font-weight: 100;
+  text-shadow: 1px 2px 3px rgba( 2, 2, 2 , .85 );
+    
+}
+
+.widgetInfo
+{
+  font-size: 18px;
+  margin: .5em 1em;
+  text-align: center;
+
+}
+
+.widgetExchange
+{
+  color: dodgerblue;
+}
+
+  .Pair
+  {
+    position: relative;
+    display: flex;
+  }
+
+  .PairHeader
+  {
+    flex: 1 1 50%;
+    position: relative;
+    display: inline-block;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .PairPercent
+  {
+    flex: 1 1 50%;
+  }
+
+  .PairPrice
+  {
+    white-space: nowrap;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: .25em !important;
+    font-weight: 300;
+    color: var( --og-white );
+  }
+
+.widgetClock
+{
+  color: rgba( 189, 17, 11, 1 );
+}
+
+  .Clock
+  {
+    position: relative;
+    display: flex;
+  }
+
+  .Time
+  {
+    flex: 1 1 50%;
+    position: relative;
+    display: inline-block;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .Date
+  {
+    white-space: nowrap;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: .25em !important;
+    font-weight: 300;
+    color: var( --og-white );
+  }
