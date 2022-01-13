@@ -26,12 +26,6 @@ const Form = () =>
 	{
 		setMessage( <Error handshakename={handshakename} /> )
 
-		setTimeout( () =>
-		{ 
-			setMessage( initialState )
-
-		}, 15000 )
-
 	}
 
 	const submitHandler = e =>
@@ -72,7 +66,7 @@ const Form = () =>
 			{
 				setMessage( initialState )
 				
-			}, 1400 )
+			}, 14900 )
 
 		}, 100 )
 

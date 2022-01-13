@@ -20,6 +20,7 @@
 .modeBtn
 {
   position: absolute;
-  right: 1em;
+  right: 2.5vw;
+  top: 125%;
   z-index: 8965679879657978658589738646354896728;
 }
