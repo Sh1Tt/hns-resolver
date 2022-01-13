@@ -46,7 +46,7 @@
 
 .section > div > *
 {
-  flex: .85;
+  flex: .875;
 }
 
 .sectionHeader
@@ -91,37 +91,42 @@
   position: relative;
   width: 100%;
   height: 23em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax( 8.7em, 175px ));
   margin: 0;
-  width: 85vw;
   border-radius: 1em;
   z-index: 105;
   overflow: hidden;
+  justify-content: flex-start;
 }
 @media only screen and ( max-width: 638px )
 {
   .visitedShowcase
+  {
+
+  }
+
+
+}
+@media only screen and ( max-width: 404px )
+{
+  .visitedShowcase
   { 
-    width: 95vw;
-    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax( 10%, 158px ));
+    /*justify-content: space-between;*/
   }
 
 
 }
 
+
 .visitedWrapper
 {
   flex: 1;
-  min-width: 8.7em;
-  max-width: 8.7em;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   margin: .5em .25em 0;
   transition: .1s ease-in-out;
@@ -138,7 +143,6 @@
   box-shadow: 2px 2px 3px rgba( 2, 2, 2, .85 );
   border-radius: .5em;
   border: 1px solid rgba( 141, 141, 141, .2 );
-  /*box-shadow: 3px 5px 21px rgba( 0, 0, 0, .75 );*/
   word-break: break-all;
   padding: .375em .75em;
   margin: 0;
@@ -226,9 +230,9 @@
   position: relative;
   height: calc( 2 * ( 69px + ( 1.5em ) ) );
   height: max-content;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax( 67px, 77px ));
+  justify-content: space-between;
   margin: 0;
   width: 85vw;
   border-radius: 1em;
@@ -238,13 +242,14 @@
 {
   .siteShowcase
   {
+    /*width: 95vw;*/
     flex-wrap: wrap;
+    /*justify-content: space-evenly;*/
   }
 }
 
 .siteWrapper
 {
-  flex: 0;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -268,7 +273,7 @@
 {
   width: 69px;
   height: 69px;
-  border: 1px solid rgba( 67, 67, 67, .4 );
+  border: 1px solid rgba( 167, 167, 167, .15 );
   border-radius: .75em;
   display: inline-flex;
   justify-content: center;
