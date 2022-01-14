@@ -46,7 +46,7 @@ a {
   #__next {
     width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
