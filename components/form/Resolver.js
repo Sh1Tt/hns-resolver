@@ -55,9 +55,15 @@ const Form = () =>
 				
 				setTimeout( () =>
 				{
-					setMessage( initialState )
+					setMessage( "Redirecting.." )
 					
-				}, 4_000 )
+					setTimeout( () =>
+					{
+						setMessage( initialState )
+						
+					}, 2_000 )
+
+				}, 3_000 )
 	
 			}
 			catch( err )
