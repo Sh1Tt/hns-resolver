@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import Director from './Director'
 
 import Organisation from './Organisation'

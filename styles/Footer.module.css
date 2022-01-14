@@ -16,6 +16,7 @@
   align-items: center;
   width: 85vw;
   border-top: 1px solid rgba( 68, 68, 68, .68 );
+  flex-wrap: wrap;
 }
 
 .credit
