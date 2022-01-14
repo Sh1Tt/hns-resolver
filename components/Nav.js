@@ -10,26 +10,27 @@ import styles from '../styles/Nav.module.css'
 
 function toggleMode()
 {
-	const classId = `colorfull`
+	const darkClass = `isNight`
 
-	const app = document.getElementById( '__next' )
+	const background = document.getElementById( '__bg' )
 
-	if ( app.classList.contains( classId ) )
+	if ( background.classList.contains( darkClass ) )
 	{
-		app.classList.remove( classId )
+		background.classList.remove( darkClass )
+
+		document.getElementById( '__lightmode' ).style.display = `none`
+	
+		document.getElementById( '__darkmode' ).style.display = `block`
+
+	}
+	else 
+	{
+		background.classList.add( darkClass )
 
 		document.getElementById( '__darkmode' ).style.display = `none`
 
 		document.getElementById( '__lightmode' ).style.display = `block`
-	
-	}
-	else 
-	{
-		app.classList.add( classId )
 
-		document.getElementById( '__darkmode' ).style.display = `block`
-
-		document.getElementById( '__lightmode' ).style.display = `none`
 	}
 
 }

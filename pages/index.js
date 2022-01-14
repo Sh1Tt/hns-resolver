@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+import Image from 'next/image'
+
 import Home from '../components/home'
 
 import Footer from '../components/footer'
@@ -7,6 +9,8 @@ import Footer from '../components/footer'
 import CMS from '../cms'
 
 import styles from '../styles/Home.module.css'
+
+import ocean_ZetongLi from '../public/zetong-li-V9x4M_y5Pqg-unsplash(og-size).jpg'
 
 const Homepage = () =>
 {
@@ -28,6 +32,17 @@ const Homepage = () =>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="78x78" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
+      <Image
+        className="bg"
+        id="__bg"
+        src={ocean_ZetongLi}
+        alt="Background HNS Resolver"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        loading="lazy"
+        // placeholder="blur"
+      />
       <Home />
       <Footer />
     </>

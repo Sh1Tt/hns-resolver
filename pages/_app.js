@@ -29,13 +29,6 @@ export default class resolverApp extends App {
     if ( userHistory ) this.setState( { 
       userHistory
     } )
-    
-    const app = document.getElementById( `__next` )
-    setTimeout( () =>
-    {
-      if( !app.classList.contains( `colorfull` ) )  app.classList.add( `colorfull` )
-
-    }, 500 )
 
   }
 
