@@ -1,5 +1,3 @@
-
-
 // const valid = n => !/[^a-zA-Z0-9-_.]/.test( n )
 const valid = n => !/[`~!@#$%^&*()+={}|[\]\\;:\'\"<>,\/?]/.test( n )
 

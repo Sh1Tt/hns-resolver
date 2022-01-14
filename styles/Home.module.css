@@ -167,12 +167,12 @@
   margin: .375em 0;
   padding: 0;
 }
-.visitedCard h5
+.visitedCard span
 {
   max-height: 57px;
   overflow: hidden;
-  font-size: 12px;
-  color: var( --og-white );
+  font-size: 13px;
+  /*color: var( --og-white );*/
 }
 
 .visitedCard:hover h5 code

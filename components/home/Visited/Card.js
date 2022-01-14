@@ -16,7 +16,7 @@ const Card = ( { handshakename, visited, no } ) =>
 
     const { rememberVisited, forgetVisited } = useContext( UserContext )
 
-    const isPunycode = handshakename.slice( 0, 4 ) == 'xn--'
+    const isPunycode = /\p{Extended_Pictographic}/u.test( handshakename )
 
     function customLinkHandler( e )
     {
@@ -36,19 +36,13 @@ const Card = ( { handshakename, visited, no } ) =>
                     data-bg={no}
                     onClick={e => { customLinkHandler( e ) }}
                 >
-                    {isPunycode ? 
                         <>
                             <span>
-                                {punycode.toUnicode( handshakename )}/
+                                {handshakename}/
                             </span>
-                            <code>{handshakename}</code>
-                        </>
-                    : 
-                        <h5>
-                            <code>{handshakename}</code>/
-                        </h5>
-                    }
 
+                            {isPunycode && <code>{punycode.toASCII( handshakename )}</code>}
+                        </>
                 </a>
             </Link>
             <input
