@@ -25,7 +25,13 @@ const Form = () =>
 	const errorHandler = () =>
 	{
 		setMessage( <Error handshakename={handshakename} /> )
-
+		
+		setTimeout( () =>
+		{
+			setMessage( initialState )
+			
+		}, 15_000 )
+	
 	}
 
 	const submitHandler = e =>
@@ -46,7 +52,13 @@ const Form = () =>
 			try
 			{
 				v1( handshakename )
-
+				
+				setTimeout( () =>
+				{
+					setMessage( initialState )
+					
+				}, 4_000 )
+	
 			}
 			catch( err )
 			{
@@ -54,19 +66,13 @@ const Form = () =>
 
 				errorHandler()
 
-			}			
+			}	
 			
 		}
 
 		setTimeout( () => 
 		{ 
 			resetInput()
-
-			setTimeout( () =>
-			{
-				setMessage( initialState )
-				
-			}, 14900 )
 
 		}, 100 )
 

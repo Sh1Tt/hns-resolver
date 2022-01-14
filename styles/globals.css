@@ -60,3 +60,12 @@ a {
     background-size: cover;
     background-position: top center;
   }
+
+  #__lightmode
+  {
+    display: none;
+  }
+  #__darkmode
+  {
+    display: block;
+  }

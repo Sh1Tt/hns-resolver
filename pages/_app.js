@@ -35,7 +35,7 @@ export default class resolverApp extends App {
     {
       if( !app.classList.contains( `colorfull` ) )  app.classList.add( `colorfull` )
 
-    }, 10 )
+    }, 500 )
 
   }
 

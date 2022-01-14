@@ -17,10 +17,31 @@
   overflow: hidden;
 }
 
-.modeBtn
+.nightMode
+{
+  position: fixed;
+  right: 3.5%;
+  top: 5vh;
+  z-index: 9745987265986985723486;
+  background-color: rgba( 0, 0, 0, 0);
+  width: 44px;
+  height: 44px;
+}
+.nightModeSwitch
+{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-radius: .5em;
+  border: none;
+  color: var( --og-white );
+  background-color: inherit;
+  width: 100%;
+  height: 100%;
+}
+.modeIcon
 {
   position: absolute;
-  right: 2.5vw;
-  top: 125%;
-  z-index: 8965679879657978658589738646354896728;
+  width: 100%;
+  height: 100%;
 }
