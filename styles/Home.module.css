@@ -162,7 +162,7 @@
   margin: .375em 0;
   padding: 0;
 }
-.visitedCard h5, .visitedCard span
+.visitedCard h5
 {
   max-height: 57px;
   overflow: hidden;
