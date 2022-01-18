@@ -65,6 +65,7 @@ export default class resolverApp extends App {
 
     const userHistory = sorted.map( hnsname => `${hnsname}:${visits[hnsnames.indexOf( hnsname )]}` ).join()
 
+
     localStorage.setItem( this.store_id.history, userHistory )
 
     this.setState( {
