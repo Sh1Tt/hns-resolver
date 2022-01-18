@@ -8,33 +8,6 @@ import CMS from '../cms'
 
 import styles from '../styles/Nav.module.css'
 
-function toggleMode()
-{
-	const darkClass = `isNight`
-
-	const background = document.getElementById( '__bg' )
-
-	if ( background.classList.contains( darkClass ) )
-	{
-		background.classList.remove( darkClass )
-
-		document.getElementById( '__lightmode' ).style.display = `none`
-	
-		document.getElementById( '__darkmode' ).style.display = `block`
-
-	}
-	else 
-	{
-		background.classList.add( darkClass )
-
-		document.getElementById( '__darkmode' ).style.display = `none`
-
-		document.getElementById( '__lightmode' ).style.display = `block`
-
-	}
-
-}
-
 const Nav = () => (
 	<nav className={styles.container}>
 		<Logo text={CMS.META.NAME} />
