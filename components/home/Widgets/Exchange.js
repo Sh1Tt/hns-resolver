@@ -17,19 +17,20 @@ const Exchange = () =>
 			percent_change_24h: 0.00
 		},
 	}
-	const t = new Date().toLocaleString( 'en-US', { 
-		hour: '2-digit', 
-		minute: '2-digit' 
-	} )
 
 	const [ pair, updatePair ] = useState( initialState )
 
-	const [ time, updateTime ] = useState( t )
+	const [ time, updateTime ] = useState( '00:00 AM' )
 
-	useEffect( async () =>
+	useEffect( () =>
 	{
 		const intRefId = setInterval( () => {
-			updateTime( t )
+			updateTime(
+				new Date().toLocaleString( 'en-US', { 
+					hour: '2-digit', 
+					minute: '2-digit' 
+				} )
+			)
 		}, 1_000 )
 
 		function trimPrice(r)
@@ -46,36 +47,41 @@ const Exchange = () =>
 			return Math.round( p * 100 ) / 100
 		}
 
-		await fetch( `https://naturalmystic.shop/api/v1/exchange-proxy/latest/?id=1,5221&NM_API_KEY=ush88989-ahd986t-auhcd7787-x7`,
+		async function fetchData()
 		{
-			method: "GET",
-			headers:
+			await fetch( `https://naturalmystic.shop/api/v1/exchange-proxy/latest/?id=1,5221&NM_API_KEY=ush88989-ahd986t-auhcd7787-x7`,
 			{
-				"Accept":"application/json",
-			},
-		} )
-		.then( res => res.json() )
-		.then( json => json.data )
-		.then( data =>
-		{
-			updatePair( {
-				hns:
+				method: "GET",
+				headers:
 				{
-					price: trimPrice( data[5221].quote.USD.price ),
-					percent_change_24h: trimPercent( data[5221].quote.USD.percent_change_24h )
+					"Accept":"application/json",
 				},
-				btc:
-				{
-					price: trimPrice( data[1].quote.USD.price ),
-					percent_change_24h: trimPercent( data[1].quote.USD.percent_change_24h )
-				}
 			} )
+			.then( res => res.json() )
+			.then( json => json.data )
+			.then( data =>
+			{
+				updatePair( {
+					hns:
+					{
+						price: trimPrice( data[5221].quote.USD.price ),
+						percent_change_24h: trimPercent( data[5221].quote.USD.percent_change_24h )
+					},
+					btc:
+					{
+						price: trimPrice( data[1].quote.USD.price ),
+						percent_change_24h: trimPercent( data[1].quote.USD.percent_change_24h )
+					}
+				} )
 
-		} )
-		.catch( err =>
-		{ 
-			console.log( err )
-		} )
+			} )
+			.catch( err =>
+			{ 
+				console.log( err )
+			} )
+		}
+
+		fetchData()
 
 	}, [])
 
@@ -85,7 +91,7 @@ const Exchange = () =>
 				<div className={styles.widgetClock}>
 					<div className={styles.Clock}>
 						<h5 className={styles.Time}>
-							{t}
+							{time}
 						</h5>
 						<div className={styles.Date}>
 							{new Date().toLocaleString( 'en-US', {
