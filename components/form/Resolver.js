@@ -1,76 +1,76 @@
-import { useState, useContext } from 'react'
+import { useState, useContext } from "react";
 
-import UserContext from '../context/User'
+import UserContext from "../context/User";
 
-import { v1 } from '../../utils/Resolve'
+import { v1 } from "../../utils/Resolve";
 
-import { valid, removeTrailingSlash } from '../../utils/Handshakename'
+import { valid, removeTrailingSlash } from "../../utils/Handshakename";
 
-import Error from '../message/Error'
+import Error from "../message/Error";
 
-import Working from '../message/Resolving'
+import Working from "../message/Resolving";
 
-import styles from '../../styles/Resolver.module.css'
+import styles from "../../styles/Resolver.module.css";
 
 const Form = () =>
 {
-	const initialState = ``
+	const initialState = "";
 
-	const { rememberVisited } = useContext( UserContext )
+	const { rememberVisited } = useContext( UserContext );
 	
-	const [ handshakename, setHandshakename ] = useState( initialState )
+	const [ handshakename, setHandshakename ] = useState( initialState );
 
-	const [ message, setMessage ] = useState( initialState )
+	const [ message, setMessage ] = useState( initialState );
 
 	const errorHandler = () =>
 	{
-		setMessage( <Error handshakename={handshakename} /> )
+		setMessage( <Error handshakename={handshakename} /> );
 		
 		setTimeout( () =>
 		{
-			setMessage( initialState )
+			setMessage( initialState );
 			
-		}, 15_000 )
+		}, 15_000 );
 	
 	}
 
 	const submitHandler = e =>
 	{
-		e.preventDefault()
+		e.preventDefault();
 
-		setMessage( <Working /> )
+		setMessage( <Working /> );
 
-		if ( !handshakename || handshakename == '' || !valid( handshakename ) ) 
+		if ( !handshakename || handshakename == "" || !valid( handshakename ) )
 		{
-			errorHandler()
+			errorHandler();
 
 		}
 		else
 		{
-			rememberVisited( handshakename )
+			rememberVisited( handshakename );
 
 			try
 			{
-				v1( handshakename )
+				v1( handshakename );
 				
 				setTimeout( () =>
 				{
-					setMessage( "Redirecting.." )
+					setMessage( "Redirecting.." );
 					
 					setTimeout( () =>
 					{
-						setMessage( initialState )
+						setMessage( initialState );
 						
-					}, 2_000 )
+					}, 2_000 );
 
-				}, 3_000 )
+				}, 3_000 );
 	
 			}
 			catch( err )
 			{
-				console.log( err )
+				console.log( err );
 
-				errorHandler()
+				errorHandler();
 
 			}	
 			
@@ -78,15 +78,15 @@ const Form = () =>
 
 		setTimeout( () => 
 		{ 
-			resetInput()
+			resetInput();
 
-		}, 100 )
+		}, 100 );
 
 	}
 
 	function resetInput()
 	{
-		document.getElementById( `handshakename` ).value = ``
+		document.getElementById( `handshakename` ).value = ``;
 	}
 
 
@@ -113,8 +113,8 @@ const Form = () =>
 			</form>
 			{message}
 		</>
-	)
+	);
 
 }
 
-export default Form
+export default Form;

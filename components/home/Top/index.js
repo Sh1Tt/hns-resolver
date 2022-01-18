@@ -1,4 +1,4 @@
-import styles from '../../../styles/Home.module.css'
+import styles from "../../../styles/Home.module.css";
 
 const Top = () => (
     <section className={styles.section}>
@@ -8,4 +8,4 @@ const Top = () => (
     </section>
 )
 
-export default Top
+export default Top;

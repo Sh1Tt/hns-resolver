@@ -1,40 +1,35 @@
-// import NightModeSwitch from '../Button/NightModeSwitch'
+import CMS from "../../cms";
 
-import CMS from '../../cms'
+import styles from "../../styles/Home.module.css";
 
-import styles from '../../styles/Home.module.css'
+import navStyles from "../../styles/Nav.module.css";
 
-import navStyles from '../../styles/Nav.module.css'
-
-
-import Image from 'next/image'
-
-// import styles from '../../styles/Nav.module.css'
+import Image from "next/image";
 
 const NightModeSwitch = () => {
 
 	function toggleMode()
 	{
-		const darkClass = `isNight`
+		const darkClass = `isNight`;
 
-		const background = document.getElementById( '__bg' )
+		const background = document.getElementById( "__bg" );
 
 		if ( background.classList.contains( darkClass ) )
 		{
-			background.classList.remove( darkClass )
+			background.classList.remove( darkClass );
 
-			document.getElementById( '__lightmode' ).style.display = `none`
+			document.getElementById( "__lightmode" ).style.display = `none`;
 		
-			document.getElementById( '__darkmode' ).style.display = `block`
+			document.getElementById( "__darkmode" ).style.display = `block`;
 
 		}
 		else 
 		{
-			background.classList.add( darkClass )
+			background.classList.add( darkClass );
 
-			document.getElementById( '__darkmode' ).style.display = `none`
+			document.getElementById( "__darkmode" ).style.display = `none`;
 
-			document.getElementById( '__lightmode' ).style.display = `block`
+			document.getElementById( "__lightmode" ).style.display = `block`;
 
 		}
 
@@ -51,7 +46,7 @@ const NightModeSwitch = () => {
 				</span>
 			</button>
 		</div>
-	)
+	);
 
 }
 
@@ -65,4 +60,4 @@ const Header = () => (
 	</header>
 )
 
-export default Header
+export default Header;

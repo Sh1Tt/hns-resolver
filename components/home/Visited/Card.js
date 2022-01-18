@@ -1,30 +1,32 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { useContext } from 'react'
+import { useContext } from "react";
 
-import punycode from 'punycode'
+import punycode from "punycode";
 
-import UserContext from '../../context/User'
+import UserContext from "../../context/User";
 
-import config from '../../../config/domain'
+import config from "../../../config/domain";
 
-import styles from '../../../styles/Home.module.css'
+import styles from "../../../styles/Home.module.css";
+
+import { v1 } from "../../../utils/Resolve";
 
 const Card = ( { handshakename, visited, no } ) => 
 {
-    const link = `http://${handshakename}.${config.domain}/`
+    const link = `http://${handshakename}.${config.domain}/`;
 
-    const { rememberVisited, forgetVisited } = useContext( UserContext )
+    const { rememberVisited, forgetVisited } = useContext( UserContext );
 
-    const isPunycode = /\p{Extended_Pictographic}/u.test( handshakename )
+    const isPunycode = /\p{Extended_Pictographic}/u.test( handshakename );
 
     function customLinkHandler( e )
     {
-        e.preventDefault()
+        e.preventDefault();
 
-        rememberVisited( handshakename )
+        rememberVisited( handshakename );
 
-        location.href = link
+        v1( handshakename );
 
     }
 
@@ -56,7 +58,7 @@ const Card = ( { handshakename, visited, no } ) =>
                 visited: <code>{visited}</code>
             </span>
         </div>
-    )
+    );
 }
 
-export default Card
+export default Card;

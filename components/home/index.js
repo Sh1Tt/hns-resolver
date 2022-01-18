@@ -1,12 +1,12 @@
-import Header from './Header'
+import Header from "./Header";
 
-import Main from './Main'
+import Main from "./Main";
 
 const Home = () => (
 	<>
 		<Header />
 		<Main />
 	</>
-)
+);
 
-export default Home
+export default Home;

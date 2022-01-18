@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 const websites = [
 	{
@@ -62,6 +62,6 @@ const websites = [
 			</svg>
 		)
 	}
-]
+];
 
-export default websites
+export default websites;

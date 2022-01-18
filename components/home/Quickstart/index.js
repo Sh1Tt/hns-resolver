@@ -1,8 +1,8 @@
-import Icon from './Icon'
+import Icon from "./Icon";
 
-import websites from './manifest'
+import websites from "./manifest";
 
-import styles from '../../../styles/Home.module.css'
+import styles from "../../../styles/Home.module.css";
 
 const Quickstart = () => (
 	<section className={styles.section}>
@@ -19,6 +19,6 @@ const Quickstart = () => (
 			</div>
 		</div>
 	</section>
-)
+);
 
-export default Quickstart
+export default Quickstart;

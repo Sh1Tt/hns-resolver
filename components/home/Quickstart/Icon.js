@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import styles from '../../../styles/Home.module.css'
+import styles from "../../../styles/Home.module.css";
 
 const Icon = ( { sitename, url, svg } ) => (
 	<Link href={url}>
@@ -13,6 +13,6 @@ const Icon = ( { sitename, url, svg } ) => (
 			</span>
 		</a>
 	</Link>
-)
+);
 
-export default Icon
+export default Icon;

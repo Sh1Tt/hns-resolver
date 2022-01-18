@@ -1,6 +1,7 @@
 const conf =
 {
-	domain: 'hns.is'
+	domain: "hns.is",
+	protocol: "http",
 }
 
-export default conf
+export default conf;

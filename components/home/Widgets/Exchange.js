@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
-import styles from '../../../styles/Home.module.css'
+import styles from "../../../styles/Home.module.css";
 
 const Exchange = () =>
 {
@@ -16,28 +16,27 @@ const Exchange = () =>
 			price: 0.00000000,
 			percent_change_24h: 0.00
 		},
-	}
+	};
 
-	const [ pair, updatePair ] = useState( initialState )
+	const [ pair, updatePair ] = useState( initialState );
 
-	const [ time, updateTime ] = useState( '00:00 AM' )
+	const [ time, updateTime ] = useState( "00:00 AM" );
 
 	useEffect( () =>
 	{
 		const intRefId = setInterval( () => {
 			updateTime(
-				new Date().toLocaleString( 'en-US', { 
-					hour: '2-digit', 
-					minute: '2-digit' 
+				new Date().toLocaleString( "en-US", {
+					hour: "2-digit",
+					minute: "2-digit"
 				} )
 			)
-		}, 1_000 )
+		}, 1_000 );
 
-		function trimPrice(r)
+		function trimPrice( r )
 		{
 			const n = r < 1 ? 100_000_000 : 100
 
-			return r
 			return Math.round( r * n ) / n
 
 		}
@@ -77,13 +76,13 @@ const Exchange = () =>
 			} )
 			.catch( err =>
 			{ 
-				console.log( err )
+				console.log( err );
 			} )
 		}
 
-		fetchData()
+		fetchData();
 
-	}, [])
+	}, [] );
 
 	return (
 		<>
@@ -94,14 +93,14 @@ const Exchange = () =>
 							{time}
 						</h5>
 						<div className={styles.Date}>
-							{new Date().toLocaleString( 'en-US', {
-								day: 'numeric',
-								month: 'long',
-								year: 'numeric'
+							{new Date().toLocaleString( "en-US", {
+								day: "numeric",
+								month: "long",
+								year: "numeric"
 							} )}
 
-							{`, ${new Date().toLocaleString( 'en-US', {
-														weekday: 'long'
+							{`, ${new Date().toLocaleString( "en-US", {
+														weekday: "long"
 													} )}`}
 						</div>
 					</div>
@@ -123,8 +122,8 @@ const Exchange = () =>
 				</div>
 			</div>
 		</>
-	)
+	);
 
 }
 
-export default Exchange
+export default Exchange;
