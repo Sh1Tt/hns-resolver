@@ -76,7 +76,7 @@
     height: 100%;
     width: 13%;
     max-width: 56px;
-    padding: .5em 0;
+    padding: 0;
     border: none;
     background-color: transparent;
     color: var( --og-silver );

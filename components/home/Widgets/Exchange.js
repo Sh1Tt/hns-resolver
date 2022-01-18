@@ -52,7 +52,6 @@ const Exchange = () =>
 			headers:
 			{
 				"Accept":"application/json",
-				// "X-NM_API_KEY": "ush88989-ahd986t-auhcd7787-x7", 
 			},
 		} )
 		.then( res => res.json() )

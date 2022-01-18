@@ -1,7 +1,7 @@
 .container
 {
   position: fixed;
-  /*position: sticky !important;*/
+  position: sticky !important;
   top: 0;
   left: 0;
   height: max-content;
@@ -19,9 +19,9 @@
 
 .nightMode
 {
-  position: fixed;
+  position: absolute;
   right: 3.5%;
-  top: 5vh;
+  top: 4.2vh;
   z-index: 9745987265986985723486;
   background-color: rgba( 0, 0, 0, 0);
   width: 44px;
@@ -39,9 +39,11 @@
   width: 100%;
   height: 100%;
 }
+
 .modeIcon
 {
   position: absolute;
   width: 100%;
   height: 100%;
+  filter: brightness( .5 );
 }

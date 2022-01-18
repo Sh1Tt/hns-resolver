@@ -12,7 +12,7 @@ import styles from '../../../styles/Home.module.css'
 
 const Card = ( { handshakename, visited, no } ) => 
 {
-    const link = `https://${handshakename}.${config.domain}/`
+    const link = `http://${handshakename}.${config.domain}/`
 
     const { rememberVisited, forgetVisited } = useContext( UserContext )
 
