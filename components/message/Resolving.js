@@ -1,4 +1,4 @@
-import styles from '../../styles/Message.module.css'
+import styles from "../../styles/Message.module.css";
 
 const Message = ( { handshakename } ) => ( 
 	<div className={styles.wrapper}>
@@ -8,6 +8,6 @@ const Message = ( { handshakename } ) => (
 			</p>
 		</div>
 	</div>
-)
+);
 
-export default Message
+export default Message;

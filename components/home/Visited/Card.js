@@ -58,7 +58,7 @@ const Card = ( { handshakename, visited, no } ) =>
                 visited: <code>{visited}</code>
             </span>
         </div>
-    );
+    )
 }
-
+ 
 export default Card;

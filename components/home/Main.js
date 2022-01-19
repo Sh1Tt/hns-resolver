@@ -1,12 +1,12 @@
-import Top from './Top'
+import Top from "./Top";
 
-import Visited from './Visited'
+import Visited from "./Visited";
 
-import Quickstart from './Quickstart'
+import Quickstart from "./Quickstart";
 
-import Widgets from './Widgets'
+import Widgets from "./Widgets";
 
-import styles from '../../styles/Home.module.css'
+import styles from "../../styles/Home.module.css";
 
 // const About = () => (
 //     <section className={styles.section}>
@@ -33,6 +33,6 @@ const Main = () => (
         <Top />
         {/*<About />*/}
     </main>
-)
+);
 
-export default Main
+export default Main;

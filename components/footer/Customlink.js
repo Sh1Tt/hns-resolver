@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import styles from '../../styles/Footer.module.css'
+import styles from "../../styles/Footer.module.css";
 
 const Customlink = ( { link, children } ) => (
 	<Link href={link}>
@@ -8,6 +8,6 @@ const Customlink = ( { link, children } ) => (
 			{children}
 		</a>
 	</Link>	
-)
+);
 
-export default Customlink
+export default Customlink;

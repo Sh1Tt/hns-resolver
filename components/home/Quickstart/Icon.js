@@ -14,5 +14,5 @@ const Icon = ( { sitename, url, svg } ) => (
 		</a>
 	</Link>
 );
-
+ 
 export default Icon;

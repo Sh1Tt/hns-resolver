@@ -14,7 +14,7 @@ const Quickstart = () => (
 		<div>
 			<div className={styles.siteShowcase}>
 				{websites.map( ( site, i ) => (
-					<Icon key={i} sitename={site.name} url={site.link} svg={site.svg()} />	
+					<Icon key={i} sitename={site.name} url={site.link} svg={site.svg} />	
 				) )}
 			</div>
 		</div>

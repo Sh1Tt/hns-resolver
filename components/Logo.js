@@ -1,4 +1,4 @@
-import styles from '../styles/Logo.module.css'
+import styles from "../styles/Logo.module.css";
 
 const Logo = ( { text } ) => (
 	<div className={styles.wrapper}>
@@ -8,6 +8,6 @@ const Logo = ( { text } ) => (
 			</span>
 		</h2>
 	</div>
-)
+);
 
-export default Logo
+export default Logo;

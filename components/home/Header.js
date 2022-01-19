@@ -58,6 +58,6 @@ const Header = () => (
 		</h1>
 		<NightModeSwitch />
 	</header>
-)
+);
 
 export default Header;

@@ -1,4 +1,4 @@
-import Poweredby from './Customlink'
+import Poweredby from "./Customlink";
 
 const Director = ( { name, link } ) => (
 	<Poweredby link={link}>
@@ -9,6 +9,6 @@ const Director = ( { name, link } ) => (
 			/
 		</p>
 	</Poweredby>
-)
+);
 
-export default Director
+export default Director;

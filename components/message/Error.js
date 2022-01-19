@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import CMS from '../../cms'
+import CMS from "../../cms";
 
-import styles from '../../styles/Message.module.css'
+import styles from "../../styles/Message.module.css";
 
 const Message = ( { handshakename } ) => ( 
 	<div className={styles.wrapper}>
@@ -20,6 +20,6 @@ const Message = ( { handshakename } ) => (
 			</Link>
 		</div>
 	</div>
-)
+);
 
-export default Message
+export default Message;

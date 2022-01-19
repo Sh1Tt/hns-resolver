@@ -1,4 +1,4 @@
-import Poweredby from './Customlink'
+import Poweredby from "./Customlink";
 
 const Organisation = ( { name, link, svg } ) => (
 	<Poweredby link={link}>
@@ -7,7 +7,6 @@ const Organisation = ( { name, link, svg } ) => (
 			{name}
 		</h4>
 	</Poweredby>
-)
+);
 
-
-export default Organisation
+export default Organisation;

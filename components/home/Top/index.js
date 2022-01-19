@@ -6,6 +6,6 @@ const Top = () => (
             <div className={styles.pageTop} />
         </div>
     </section>
-)
+);
 
 export default Top;

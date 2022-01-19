@@ -1,12 +1,12 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import Director from './Director'
+import Director from "./Director";
 
-import Organisation from './Organisation'
+import Organisation from "./Organisation";
 
-import CMS from '../../cms'
+import CMS from "../../cms";
 
-import styles from '../../styles/Footer.module.css'
+import styles from "../../styles/Footer.module.css";
 
 const Footer = () => (
 	<footer className={styles.container}>
@@ -19,6 +19,6 @@ const Footer = () => (
 			) )}
 		</div>
 	</footer>
-)
+);
 
-export default Footer
+export default Footer;

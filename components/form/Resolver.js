@@ -86,7 +86,7 @@ const Form = () =>
 
 	function resetInput()
 	{
-		document.getElementById( `handshakename` ).value = ``;
+		document.getElementById( "handshakename" ).value = ``;
 	}
 
 

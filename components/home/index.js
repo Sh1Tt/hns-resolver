@@ -8,5 +8,5 @@ const Home = () => (
 		<Main />
 	</>
 );
-
+ 
 export default Home;

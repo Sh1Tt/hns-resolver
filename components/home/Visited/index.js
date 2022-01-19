@@ -1,20 +1,20 @@
-import { useContext } from 'react'
+import { useContext } from "react";
 
-import UserContext from '../../context/User'
+import UserContext from "../../context/User";
 
-import Card from './Card'
+import Card from "./Card";
 
-import CMS from '../../../cms'
+import CMS from "../../../cms";
 
-import styles from '../../../styles/Home.module.css'
+import styles from "../../../styles/Home.module.css";
 
 const Visited = () => 
 {
-    const { userHistory } = useContext( UserContext )
+    const { userHistory } = useContext( UserContext );
 
-    let handshakenames = userHistory ? [ ...userHistory.split( /,/ ).map( r =>  r.split( ':' )[0] ) ] : []
+    let handshakenames = userHistory ? [ ...userHistory.split( /,/ ).map( r =>  r.split( ":" )[0] ) ] : [];
     
-    let visits =  userHistory ? [ ...userHistory.split( /,/ ).map( r => parseInt( r.split( ':' )[1] ) ) ] : []
+    let visits =  userHistory ? [ ...userHistory.split( /,/ ).map( r => parseInt( r.split( ":" )[1] ) ) ] : [];
 
     return (
         <section className={styles.section}>
@@ -36,7 +36,7 @@ const Visited = () =>
                 </div>
             </div>
         </section>
-        )
+    );
 }
 
-export default Visited
+export default Visited;
