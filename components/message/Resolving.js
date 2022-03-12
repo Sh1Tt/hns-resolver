@@ -1,13 +1,22 @@
-import styles from "../../styles/Message.module.css";
-
-const Message = ( { handshakename } ) => ( 
-	<div className={styles.wrapper}>
-		<div className={styles.content}>
-			<p className={styles.title}>
-				Resolving..
-			</p>
-		</div>
-	</div>
+const ShakeHandsAnimation = () => ( 
+	<style>{`
+		@KEYFRAMES shakehands
+		{
+			0%
+			{
+				text-shadow: 1px 1px 13px white;
+			}
+			100%
+			{
+				text-shadow: 3px 3px 33px white;
+				filter: brightness( 1.75 );
+			}
+		}
+		#submit-icon
+		{
+			animation: shakehands .56s linear infinite;
+		}
+	`}</style>
 );
 
-export default Message;
+export default ShakeHandsAnimation;

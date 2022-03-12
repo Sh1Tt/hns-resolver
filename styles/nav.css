@@ -1,0 +1,39 @@
+nav
+{
+  height: 66px;
+  padding: .125rem 0 0;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  background: var( --og-tech-tile-bg );
+  background: linear-gradient( 180deg, rgba( 8, 8, 8, 1 ), rgba( 43, 43, 43, 1 ), rgba( 0, 0, 0, 1 ) );
+  z-index: 97459872659869857234;
+}
+
+.stickyPosition
+{
+  position: fixed;
+  position: sticky !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  box-shadow: 1px 1px 15px darkslateblue;
+}
+
+.topPosition
+{
+  position: relative;
+  width: auto;
+  margin: 304px auto -304px;
+  border-radius: .5em;
+}
+
+@media (hover: none)
+{
+  #__emojis
+  {
+    display: none !important;
+  }
+}

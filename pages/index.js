@@ -1,16 +1,22 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import Image from 'next/image'
+import Image from "next/image";
 
-import Home from '../components/home'
+import Home from "../components/home";
 
-import Footer from '../components/footer'
+import CMS from "../cms";
 
-import CMS from '../cms'
+import styles from "../styles/Home.module.css";
 
-import styles from '../styles/Home.module.css'
+// import bgImg from "../public/1982394.jpg";
+// import bgImg from "../public/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds.jpg";
+// import bgImg from "../public/wallpapersden.com_minecraft-dungeons-4k_2560x1080.jpg";
+// import bgImg from "../public/wallpapersden.com_artistic-forest-4k_3840x2305.jpg"; 
+import bgImg from "../public/arname_draft.png"; 
+// import bgImg from "../public/shubham-dhage-IlUq1ruyv0Q-unsplash.jpg"; 
+// import bgImg from "../public/zetong-li-V9x4M_y5Pqg-unsplash(og-size).jpg"; 
 
-import ocean_ZetongLi from '../public/zetong-li-V9x4M_y5Pqg-unsplash(og-size).jpg'
+
 
 const Homepage = () =>
 {
@@ -32,22 +38,22 @@ const Homepage = () =>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="78x78" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Image
-        className="bg"
-        id="__bg"
-        src={ocean_ZetongLi}
-        alt="Background HNS Resolver"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-        loading="lazy"
-        // placeholder="blur"
-      />
+      <span className="bg">
+        <Image
+          id="__bg"
+          src={bgImg}
+          alt="Background HNS Resolver"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          loading="lazy"
+          placeholder="blur"
+        />
+      </span>
       <Home />
-      <Footer />
     </>
   )
 
 }
 
-export default Homepage
+export default Homepage;

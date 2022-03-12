@@ -4,16 +4,24 @@ import UserContext from "../components/context/User";
 
 import Nav from "../components/Nav";
 
+import Footer from "../components/footer";
+
 import "../styles/root.css";
 
 import "../styles/globals.css";
 
+import "../styles/nav.css";
+
 import "../styles/card-bg-gradients.css";
+
+import "../styles/emojipicker.css";
 
 export default class resolverApp extends App {
   initialState = {
     userHistory: null,
     userRawHistory: null,
+    userSymbols: [],
+    bridgeMode: false
   }
 
   state = this.initialState;
@@ -22,16 +30,65 @@ export default class resolverApp extends App {
   {
     history: "cool-history",
     raw_history: "cool-raw-history",
-    favorite: "cool-favorite",
+    used_emoji: "cool-emoji",
+    symbols: "cool-symbols",
   }
 
   componentDidMount = () =>
   {
     const userHistory = localStorage.getItem( this.store_id.history );
 
-    if ( userHistory ) this.setState( { 
-      userHistory
-    } );
+    if ( userHistory ) 
+    {
+      this.setState( { 
+        userHistory
+      } );
+    }
+
+  }
+
+  toggleBridgeMode = () =>
+  {
+    this.setState( {
+      bridgeMode: !this.state.bridgeMode
+    })
+  }
+
+  storeSymbols = symbols =>
+  {
+    const v = symbols ? [ ...symbols ].join() : this.getStoreSymbols().join();
+
+    localStorage.setItem( this.store_id.symbols, v );
+
+  }
+
+  getStoreSymbols = () =>
+  {
+    if ( !localStorage.getItem( this.store_id.symbols ) ) localStorage.setItem( this.store_id.symbols, "1,1027,2010,5426,52,7186,8916,10903,7064,5221,5824,8353,3575,5632" );//"1,5221,8916,1027,7064,8353" );
+
+    const storeSymbols = localStorage.getItem( this.store_id.symbols ).replace( /[\"]/g, "" ) || null;
+
+    return storeSymbols ? [ ...storeSymbols.split( /,/ ) ] : [];
+
+  }
+
+  storeEmoji = emoji =>
+  {
+    const storeEmojis = this.getStoreEmoji();
+
+    const usedEmoji = storeEmojis ? [ emoji , ...storeEmojis.filter( storeEmoji => storeEmoji != emoji ) ] : [ emoji ];
+
+    localStorage.setItem( this.store_id.used_emoji, usedEmoji.filter( ( e, i ) => i < 30 ).join() );
+
+  }
+
+  getStoreEmoji = () =>
+  {
+    if ( !localStorage.getItem( this.store_id.used_emoji ) ) localStorage.setItem( this.store_id.used_emoji, "" );
+
+    const storeEmojis = localStorage.getItem( this.store_id.used_emoji ).replace( /[\"]/g, "" ) || null;
+
+    return storeEmojis ? [ ...storeEmojis.split( /,/ ) ] : [];
 
   }
 
@@ -127,15 +184,21 @@ export default class resolverApp extends App {
     return (
       <UserContext.Provider value={ { 
           userHistory: this.state.userHistory, 
-          userRawHistory: this.state.userRawHistory, 
+          userRawHistory: this.state.userRawHistory,
+          bridgeMode: this.state.bridgeMode, 
           rememberVisited: this.rememberVisited, 
           forgetVisited: this.forgetVisited,
           deleteHistory: this.deleteHistory,
+          storeEmoji: this.storeEmoji,
+          getStoreEmoji: this.getStoreEmoji,
+          storeSymbols: this.storeSymbols,
+          getStoreSymbols: this.getStoreSymbols,
+          toggleBridgeMode: this.toggleBridgeMode
         } }>
         
         <Nav />
         <Component {...pageProps} />
-      
+        <Footer />
       </UserContext.Provider>
     );
 

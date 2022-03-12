@@ -1,0 +1,21 @@
+.emoji-mart-open
+{
+	background-color: rgba( 181, 181, 181, .675 );
+}
+
+
+.emoji-mart-emoji
+{
+	background: rgba( 0, 0, 0, 0 );
+	margin: 0;
+	border: none;
+	cursor: pointer;
+	/*border-radius: .325em .325em 0 0;*/
+
+}
+
+.emoji-mart-emoji:hover
+{
+	background-color: rgba( 181, 181, 181, .675 );
+	backdrop-filter: blur( 50px );
+}

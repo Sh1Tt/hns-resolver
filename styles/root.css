@@ -9,6 +9,9 @@
 
 	--og-title: transparent;
 
+	--og-tech-tile-bg:  rgba( 138, 78, 198, .81 );
+	--og-tech-tile-bg:  linear-gradient( 0deg, rgba( 8, 8, 8, .9 ), rgba( 43, 43, 43, .75 ), rgba( 8, 8, 8, .8 ) );
+
 	/*LOGO-ANIMATION*/
 	--lg-deg: 54deg;
 

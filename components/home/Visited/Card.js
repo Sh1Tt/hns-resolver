@@ -1,64 +1,57 @@
-import Link from "next/link";
-
 import { useContext } from "react";
-
-import punycode from "punycode";
 
 import UserContext from "../../context/User";
 
-import config from "../../../config/domain";
+import resolve_v2 from "../../../utils/Resolver";
 
-import styles from "../../../styles/Home.module.css";
+import { hasEmoji,toAscii } from "../../../utils/Handshakename"
 
-import { v1 } from "../../../utils/Resolve";
+import styles from "../../../styles/History.module.css";
 
 const Card = ( { handshakename, visited, no } ) => 
 {
-    const link = `http://${handshakename}.${config.domain}/`;
-
     const { rememberVisited, forgetVisited } = useContext( UserContext );
 
-    const isPunycode = /\p{Extended_Pictographic}/u.test( handshakename );
+    const isPunycode = hasEmoji( handshakename );
 
-    function customLinkHandler( e )
+    const customLinkHandler = e =>
     {
         e.preventDefault();
 
         rememberVisited( handshakename );
 
-        v1( handshakename );
+        resolve_v2( handshakename );
 
     }
 
     return (
-        <div className={styles.visitedWrapper}>
-            <Link href={link}>
-                <a    
-                    className={styles.visitedCard} 
-                    data-bg={no}
-                    onClick={e => { customLinkHandler( e ) }}
-                >
-                        <>
-                            <span>
-                                {handshakename}/
-                            </span>
-
-                            {isPunycode && <code>{punycode.toASCII( handshakename )}</code>}
-                        </>
-                </a>
-            </Link>
+        <div className={styles.topVisitedWrapper}>
+            <span    
+                className={styles.topVisitedCard} 
+                data-bg={no}
+                onClick={e => { customLinkHandler( e ) }}
+            >
+                {isPunycode ? handshakename : <div />}
+                <span className={styles.topVisitedCounter}>
+                    visited: <code>{visited}</code>
+                </span>
+            </span>
+            <span 
+                className={styles.topVisitedHandshakename}
+                onClick={e => { customLinkHandler( e ) }}
+            >
+                {isPunycode ? toAscii( handshakename ) : handshakename}/
+            </span>
             <input
                 type="button"
                 name={`forget_${handshakename}`}
-                className={styles.visitedForget}
+                className={styles.topVisitedForget}
                 value="x"
                 onClick={e => { forgetVisited( handshakename ) }}
             />
-            <span className={styles.visitedCounter}>
-                visited: <code>{visited}</code>
-            </span>
         </div>
-    )
+    );
+
 }
  
 export default Card;

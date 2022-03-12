@@ -22,7 +22,7 @@
   	color: var( --og-silver );
 
 	z-index: 978545927;
-	background-color: rgba( 8, 8, 8, 1 );
+	background-color: rgba( 255, 37, 188, 1 );
 }
 
 @media only screen and ( max-width: 638px )

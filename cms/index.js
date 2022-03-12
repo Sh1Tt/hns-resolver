@@ -1,24 +1,36 @@
-import config from "../config/domain";
+// import config from "../config/conf.domain";
 
 import pointerLogo from "../utils/Pointerlogo";
+
+const githubAvatar = name => `https://avatars.githubusercontent.com/${name}`;
+
+const conf = {
+	domain: process.env.HOST,
+	protocol: process.env.PROTOCOL,
+	logo: pointerLogo( process.env.HOST )
+};
 
 const CMS = 
 {
 	META:
 	{
-		URL: `https://${config.domain}/`,
-		DOMAIN: config.domain,
-		NAME: pointerLogo( config.domain ),
-		AUTHOR: `${config.protocol}://sh1tt.${config.domain}/`,
+		URL: `https://${conf.domain}/`,
+		HOST: conf.domain,
+		NAME: conf.logo,
+		AUTHOR: `${conf.protocol}://sh1tt.${conf.domain}/`,
 		THEME: "#000000",
+		MIRRORS: [
+			"hns.is",
+			"rsvr.xyz"
+		]
 	},
 	CONTENT: 
 	{
 		HOME: 
 		{
-			TITLE: pointerLogo( config.domain ),
-			DESC: "Browse the web using handshakenames",
-			HEADER: pointerLogo( config.domain ),
+			TITLE: conf.logo,
+			DESC: "handyBrowser squads any browser. Browse your handshakenames anywhere! Surf handshakenames on your own device using your own resolver, or, use it quickly and without any configuration by switching to bridge-mode. Happy browsing the (d)web!",
+			HEADER: conf.logo,
 		}
 	},
 	FOOTER:
@@ -27,9 +39,30 @@ const CMS =
 		{
 			DIRECTORS: [
 				{
+					id: 0,
 					name: "angrymouse",
 					link: "https://twitter.com/angrymouse_hns",
-				}
+					avatar: githubAvatar( "angrymouse" ),
+					wallet: "hs1ql2pfxgenmvmzaffkf7nk6y4f65nwl37z9z0fad",
+					role: "developer, bridgekeeper",
+				},
+				{
+					id: 1,
+					name: "stanzo89",
+					link: "https://twitter.com/stanzo_89",
+					avatar: githubAvatar( "stanzo89" ),
+					wallet: "",
+					role: "developer, bridgekeeper",
+				},
+				{
+					id: 2,
+					name: "sh1tt",
+					link: "https://twitter.com/_sh1tt",
+					avatar: githubAvatar( "Sh1Tt" ),
+					wallet: "hs1qv8rwh4zg3c352mq3qp6h5mjc4aclv4petlrem6",
+					role: "designer",
+				},
+
 			],
 			ORGANISATIONS: [
 				{

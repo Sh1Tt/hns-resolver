@@ -2,11 +2,17 @@ import Header from "./Header";
 
 import Main from "./Main";
 
-const Home = () => (
-	<>
-		<Header />
-		<Main />
-	</>
-);
- 
+import styles from "../../styles/Home.module.css";
+
+const Home = () =>
+{
+	return (
+		<>
+			<Header />
+			<Main />
+		</>
+	);
+
+}
+
 export default Home;

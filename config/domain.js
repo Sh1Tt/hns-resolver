@@ -1,8 +1,8 @@
-const conf =
+const config = 
 {
-	domain: "hns.is",
+	domainname: "hdns.one",
 	protocol: "http",
-}
+	locale: "nl-NL",
+};
 
-
-export default conf;
+export default config;
