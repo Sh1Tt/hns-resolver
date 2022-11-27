@@ -1,10 +1,7 @@
-const optimizedImages = require('next-optimized-images');
-
 module.exports = {
   reactStrictMode: true,
-  env:
+  env: 
   {
     LOCALE: "en-US"
-  },
-  optimizedImages
+  }
 }

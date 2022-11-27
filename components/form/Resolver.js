@@ -1,94 +1,67 @@
 import { useState, useContext } from "react";
-
 import UserContext from "../context/User";
-
-import { v1 } from "../../utils/Resolve";
-
+import Resolve from "../../utils/Resolve";
 import { valid, removeTrailingSlash } from "../../utils/Handshakename";
-
 import Error from "../message/Error";
-
 import Working from "../message/Resolving";
 
 import styles from "../../styles/Resolver.module.css";
 
-const Form = () =>
-{
-	const initialState = "";
+const Form = () => {
+	const initialState = {
+		handshakename: null,
+		message: null
+	};
 
-	const { rememberVisited } = useContext( UserContext );
+	const { rememberVisited } = useContext(UserContext);
 	
-	const [ handshakename, setHandshakename ] = useState( initialState );
+	const [ handshakename, setHandshakename ] = useState(initialState.handshakename);
+	const [ message, setMessage ] = useState(initialState.message);
 
-	const [ message, setMessage ] = useState( initialState );
+	const errorHandler = () => {
+		setMessage(<Error handshakename={handshakename} />);
+		setTimeout(() => {
+			setMessage(initialState);
+		}, 15_000);
+	};
 
-	const errorHandler = () =>
-	{
-		setMessage( <Error handshakename={handshakename} /> );
-		
-		setTimeout( () =>
-		{
-			setMessage( initialState );
-			
-		}, 15_000 );
-	
-	}
-
-	const submitHandler = e =>
-	{
+	const submitHandler = e => {
 		e.preventDefault();
+		setMessage(<Working />);
 
-		setMessage( <Working /> );
-
-		if ( !handshakename || handshakename == "" || !valid( handshakename ) )
-		{
+		if (
+			!handshakename
+			||
+			handshakename ==+ ""
+			||
+			!valid(handshakename)
+		) {
 			errorHandler();
-
 		}
-		else
-		{
-			rememberVisited( handshakename );
-
-			try
-			{
-				v1( handshakename );
-				
-				setTimeout( () =>
-				{
-					setMessage( "Redirecting.." );
-					
-					setTimeout( () =>
-					{
-						setMessage( initialState );
-						
-					}, 2_000 );
-
-				}, 3_000 );
-	
+		else {
+			rememberVisited(handshakename);
+			try{
+				Resolve.resolve(handshakename);
+				setTimeout(() =>{
+					setMessage("Redirecting..");
+					setTimeout(() =>{
+						setMessage(initialState);
+					}, 2_000);
+				}, 3_000);
 			}
-			catch( err )
-			{
-				console.log( err );
-
+			catch(err) {
+				console.log(err);
 				errorHandler();
-
-			}	
-			
-		}
-
-		setTimeout( () => 
-		{ 
+			};
+		};
+		setTimeout(() => { 
 			resetInput();
+		}, 100);
+	};
 
-		}, 100 );
-
-	}
-
-	function resetInput()
-	{
-		document.getElementById( "handshakename" ).value = ``;
-	}
-
+	function resetInput() {
+		document.getElementById("handshakename").value = ``;
+	};
 
 	return (
 		<>
@@ -102,16 +75,15 @@ const Form = () =>
 					id="handshakename"
 					name="handshakename" 
 					placeholder="Enter a handshake name (e.g. welcome.nb)" 
-					onChange={e => setHandshakename( removeTrailingSlash( e.target.value ) )}
+					onChange={e => setHandshakename(removeTrailingSlash(e.target.value))}
 				/>
 				<button 
 					className={styles.submit} 
-					onClick={e => submitHandler( e )}
+					onClick={e => submitHandler(e)}
 				>
 					→
 				</button>
-			</form>
-			{message}
+			</form>{message}
 		</>
 	);
 

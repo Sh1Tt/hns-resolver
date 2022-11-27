@@ -1,21 +1,24 @@
-import { useContext } from "react";
-
+import { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/User";
-
 import Card from "./Card";
-
 import CMS from "../../../cms";
 
 import styles from "../../../styles/Home.module.css";
 
-const Visited = () => 
-{
-    const { userHistory } = useContext( UserContext );
+const Visited = () => {
+    const { history } = useContext(UserContext);
+    console.log(history);
 
-    let handshakenames = userHistory ? [ ...userHistory.split( /,/ ).map( r =>  r.split( ":" )[0] ) ] : [];
+    const [ names, setNames ] = useState([]);
+    const [ visits, setVisits ] = useState([]);
     
-    let visits =  userHistory ? [ ...userHistory.split( /,/ ).map( r => parseInt( r.split( ":" )[1] ) ) ] : [];
-
+    useEffect(() => {
+        if (!history)
+            return;
+        setNames([...history.split(/,/).map(r => r.split(":")[0])] || []);
+        setVisits([...history.split(/,/).map(r => parseInt(r.split(":")[1]))] || []);
+    }, [history]);
+    
     return (
         <section className={styles.section}>
             <div>
@@ -25,18 +28,17 @@ const Visited = () =>
             </div>
             <div>
                 <div className={styles.visitedShowcase}>
-                    {handshakenames.length > 0 && handshakenames.filter( ( a, key ) => key <= 15 ).map( ( name, key ) => ( 
+                    {names.length > 0&&names.filter((a, i) => i <= 15).map((name, i) => (
                         <Card
-                            key={key} 
                             handshakename={name} 
-                            visited={visits[ handshakenames.indexOf( name )]}
-                            no={key}
+                            visited={visits[names.indexOf(name)]}
+                            no={i}
                         />
-                    ) )}
+                   ))}
                 </div>
             </div>
         </section>
-    );
+   );
 }
 
 export default Visited;

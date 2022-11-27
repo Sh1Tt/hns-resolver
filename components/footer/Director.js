@@ -1,14 +1,14 @@
-import Poweredby from "./Customlink";
+import Customlink from "./Customlink";
 
-const Director = ( { name, link } ) => (
-	<Poweredby link={link}>
+const Director = ({ name, link }) => (
+	<Customlink link={link}>
 		<code>
 			{name}
 		</code>
 		<p>
 			/
 		</p>
-	</Poweredby>
+	</Customlink>
 );
 
 export default Director;
