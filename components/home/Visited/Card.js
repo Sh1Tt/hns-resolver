@@ -21,7 +21,10 @@ const Card = ({ handshakename, visited, no }) => {
     };
 
     return (
-        <div className={styles.visitedWrapper}>
+        <div 
+            className={styles.visitedWrapper}
+            key={no}
+        >
             <span    
                 className={styles.visitedCard} 
                 data-bg={no}
