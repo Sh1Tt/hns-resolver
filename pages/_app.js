@@ -6,6 +6,10 @@ import "../styles/root.css";
 import "../styles/globals.css";
 import "../styles/card-bg-gradients.css";
 
+const Paralax = ({ children }) => <div className={['Paralax__container']}>
+  {children}
+</div>;
+
 export default class resolverApp extends App {
   initialState = {
     userHistory: null,
@@ -107,7 +111,9 @@ export default class resolverApp extends App {
           deleteHistory: this.deleteHistory,
         }}>
         <Nav />
-        <Component {...pageProps} />
+        <Paralax>
+          <Component {...pageProps} />
+        </Paralax>
       </UserContext.Provider>
    );
   };

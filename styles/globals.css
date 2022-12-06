@@ -50,10 +50,17 @@ a {
     background-color: var( --og-dark );
     color: var( --og-silver );
     transition: 1s ease-in;
-    min-height: 110vh;
     height: max-content;
   }
   
+  .Paralax__container {
+    height: calc((100vh) - var(--topbar-h));
+    overflow-y: scroll;
+  }
+
+  .closed {
+    display: none !important;
+  }
 
   .isNight
   {

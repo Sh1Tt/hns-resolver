@@ -30,6 +30,7 @@ const Visited = () => {
                 <div className={styles.visitedShowcase}>
                     {names.length > 0&&names.filter((a, i) => i <= 15).map((name, i) => (
                         <Card
+                            key={i}
                             handshakename={name} 
                             visited={visits[names.indexOf(name)]}
                             no={i}
