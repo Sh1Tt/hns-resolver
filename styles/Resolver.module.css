@@ -1,8 +1,4 @@
-.resolver
-{
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
+.resolver {
 	display: flex;
 	-webkit-box-pack: center;
 	-webkit-justify-content: center;
@@ -14,45 +10,20 @@
 	align-items: center;
 	background-color: rgba(255,255,255,.1);
 	border-radius: 8px;
-	width: calc( 50vw );
 	border: 1px solid rgba(0,0,0,.02);
 	box-shadow: 0;
 	position: relative;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	transform: translateX(-50%);
-	z-index: 100;
-	-webkit-transition: box-shadow .2s ease, background-color .2s ease;
 	transition: box-shadow .2s ease, background-color .2s ease;
 }
-@media only screen and ( max-width: 638px )
-{
-	.resolver
-	{
-		margin-left: 10%;
-		width: auto;
-		flex: .8;
-	}
-	.icon
-	{
-		display: none;
-	}
-	.input
-	{
-		width: 100% !important;
-		text-align: left !important;
-	}
-}
-.icon
-{
+
+.icon {
 	position: absolute;
 	margin: 0;
 	padding: 0;
 	left: .375em;
 }
-.input
-{
+
+.input {
     width: 50vw;
     height: 100%;
     padding: .5em 1em;
@@ -63,13 +34,12 @@
     border-radius: .25em;
     color: var( --og-white );
 }
-.input:focus
-{
+
+.input:focus {
 	outline: 1px solid var( --og-grey );
 }
 
-.submit
-{
+.submit {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -85,8 +55,24 @@
 }
 
 .submit:hover,
-.submit:hover > .input
-{
+.submit:hover > .input {
 	background-color: var( --og-silver );
 	color: var( --og-dark );
+}
+
+@media only screen and (max-width: 638px) {
+	.resolver {
+		margin-left: 10%;
+		width: auto;
+		flex: .8;
+	}
+
+	.icon {
+		display: none;
+	}
+	
+	.input {
+		width: 100% !important;
+		text-align: left !important;
+	}
 }

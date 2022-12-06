@@ -1,10 +1,10 @@
 import config from "../config";
 import pointerLogo from "../utils/Pointerlogo";
+import Icons from "./icons_base64";
 
 const { domain, protocol, themecolor, director } = config;
 
-const CMS = 
-{
+const CMS = {
 	META: {
 		URL: `https://${domain}/`,
 		DOMAIN: domain,
@@ -42,8 +42,8 @@ const CMS =
 	},
 	ERROR: {
 		LINK: "https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites"
-	}
-
+	},
+	ICONS: Icons
 };
 
 export default CMS;
