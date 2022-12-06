@@ -1,13 +1,9 @@
 import App from "next/app";
-
 import UserContext from "../components/context/User";
-
 import Nav from "../components/Nav";
 
 import "../styles/root.css";
-
 import "../styles/globals.css";
-
 import "../styles/card-bg-gradients.css";
 
 export default class resolverApp extends App {
