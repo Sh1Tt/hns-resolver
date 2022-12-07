@@ -1,9 +1,9 @@
 const config = {
 	protocol: "http",
 	themecolor: "#000000",
-	domain: "hns.is",
-	director: "angrymouse",
-	twitter: "angrymouse_hns",
+	domain: "rsvr.xyz",
+	director: "constanzo",
+	twitter: "Stanzo_89",
 };
 
 export default config;
