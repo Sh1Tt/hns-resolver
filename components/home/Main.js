@@ -12,6 +12,13 @@ const Main = () => (
         <Quickstart />
         <Widgets />
         <Top />
+        <section className={[styles.Below]}>
+            <div className={[styles.Below__container]}>
+                <div className={[styles.Below__card]}>           
+
+                </div>
+            </div>
+        </section>
     </main>
 );
 

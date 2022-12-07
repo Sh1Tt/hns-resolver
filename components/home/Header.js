@@ -5,7 +5,6 @@ import styles from "../../styles/Home.module.css";
 import navStyles from "../../styles/Nav.module.css";
 
 const NightModeSwitch = () => {
-
 	const toggleMode = () => {
 		const darkClass = `isNight`;
 		const background = document.getElementById("__bg");
@@ -41,7 +40,7 @@ const Header = () => (
 		<h1>
 			{CMS.CONTENT.HOME.TITLE}
 		</h1>
-		<NightModeSwitch />
+		{/*<NightModeSwitch />*/}
 	</header>
 );
 

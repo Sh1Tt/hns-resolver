@@ -1,19 +1,13 @@
 .resolver {
+	position: relative;
 	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
 	justify-content: center;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
 	background-color: rgba(255,255,255,.1);
-	border-radius: 8px;
+	border-radius: .125em;
 	border: 1px solid rgba(0,0,0,.02);
-	box-shadow: 0;
-	position: relative;
 	transition: box-shadow .2s ease, background-color .2s ease;
+	height: 20px;
 }
 
 .icon {
@@ -33,11 +27,14 @@
     text-align: center;
     border-radius: .25em;
     color: var( --og-white );
+    outline: 1px solid transparent;
 }
 
 .input:focus {
-	outline: 1px solid var( --og-grey );
+    outline: 1px solid var(--theme-main);
 }
+
+
 
 .submit {
 	position: absolute;

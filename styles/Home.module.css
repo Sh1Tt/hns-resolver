@@ -157,10 +157,15 @@
   transition: .1s linear;
 }
 
-.visitedWrapper:hover
-{
+.visitedWrapper:hover {
   transform: scale(1.03);
 }
+
+.visitedWrapper:hover .visitedCard {
+  box-shadow: 4px 4px 8px rgba( 2, 2, 2, .85 );
+  
+}
+
 .visitedCard > *
 {
   margin-left: .25em;
@@ -253,8 +258,7 @@
   }
 }
 
-.siteWrapper
-{
+.siteWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -264,18 +268,11 @@
   transition: .1s ease-in-out;
 }
 
-.siteWrapper:hover
-{
+.siteWrapper:hover {
   transform: scale(1.05);
 }
-.siteWrapper:hover .siteIcon
-{
-  background-color: rgba( 173, 173, 173, .85 );
-  box-shadow: 1px 1px 3px rgba( 2, 2, 2, .5 );
-}
 
-.siteIcon
-{
+.siteIcon{
   width: 69px;
   height: 69px;
   border: 1px solid rgba( 167, 167, 167, .15 );
@@ -283,16 +280,25 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba( 8, 8, 8, 1 );
-  margin: 0 0;
-  box-shadow: 1px 1px 3px rgba( 2, 2, 2, .85 );
+  background-color: rgba(31,38,46,.95);
+    margin: 0 0;
+    box-shadow: 1px 1px 2px rgb(2 2 2 / 85%);
 }
-.siteName
-{
+
+.siteName {
   margin-top: .33em;
   font-size: 11px;
   color: var( --og-silver );
-  text-shadow: 1px 2px 3px rgba( 2, 2, 2 , .85 );
+  text-shadow: 1px 2px 4px rgba(2,2,2,.85);
+}
+
+.siteWrapper:hover .siteIcon {
+  background-color: rgba(173,178,183,.85 );
+  box-shadow: 4px 4px 8px rgba(2,2,2,.5);
+}
+
+.siteWrapper:hover .siteName {
+  text-shadow: -2px 4px 8px rgba(2,2,2,.5);
 }
 
 
@@ -410,4 +416,27 @@
     font-size: .3em !important;
     font-weight: 300;
     color: var( --og-white );
+  }
+
+
+  .Below {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    transition: .1s ease-in-out;
+  }
+
+  .Below__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5em auto;
+    padding: 0;
+    min-height: 20rem;
   }

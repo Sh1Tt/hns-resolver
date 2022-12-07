@@ -54,7 +54,7 @@ a {
   }
   
   .Paralax__container {
-    height: calc((100vh) - var(--topbar-h));
+    height: calc((100vh) - var(--nav-height));
     overflow-y: scroll;
   }
 

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: max-content;
+  height: var(--nav-height);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -44,12 +44,42 @@
 .Menu__submenu {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .Menu__option {
   margin: 0;
-  padding: .375em .75em;
+  padding: .1875em .375em;
   font-size: 12pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Menu__option_icon {
+  position: relative;
+  flex: 0 0 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .75em 0 0;
+  padding: 0;
+}
+.Menu__option_text {
+  position: relative;
+  flex: 1 1 0px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 9pt
 }
 
 .Menu__title {

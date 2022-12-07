@@ -1,7 +1,6 @@
 module.exports = {
   reactStrictMode: true,
-  env: 
-  {
+  env: {
     LOCALE: "en-US"
   }
 }
