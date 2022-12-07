@@ -18,6 +18,9 @@ const CMS = {
 		NAME: pointerLogo(domain),
 		AUTHOR: `${protocol}://sh1tt.${domain}/`,
 		THEME: themecolor,
+		SITE: pointerLogo(domain),
+		TWITTER: `https://twitter.com/${twitterhandle}`,
+		IMAGE: `/cutout.png`
 	},
 	CONTENT: {
 		HOME: 
