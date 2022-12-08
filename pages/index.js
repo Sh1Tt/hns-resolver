@@ -19,7 +19,9 @@ const Homepage = () => {
       <meta property="og:title" content={PAGE.TITLE} />
       <meta property="og:description" content={PAGE.DESC} />
       <meta property="og:url" content={META.URL} />
-      <meta property="dc:creator" content={META.AUTHOR} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="/cutout.png" />
+      <link rel="canonical" href={META.URL} />
       <title>{PAGE.TITLE}</title>
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="78x78" />
       <link rel="manifest" href="/site.webmanifest" />
