@@ -10,7 +10,6 @@ import bg2 from "../public/forest.jpg";
 import bg3 from "../public/sea.jpg";
 import bg4 from "../public/fjord.jpg";
 import bg5 from "../public/mountain.jpg";
-import bg6 from "../public/red_blue.png";
 import bg7 from "../public/thai.jpg";
 import bg8 from "../public/top.jpg";
 import bg9 from "../public/trees.jpg";
@@ -18,7 +17,7 @@ import bg9 from "../public/trees.jpg";
 const Homepage = () => {
   const META = CMS.META,
         PAGE = CMS.CONTENT.HOME;
-  const backgrounds = [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9];
+  const backgrounds = [bg0, bg1, bg2, bg3, bg4, bg5, bg7, bg8, bg9];
   const iRand = parseInt(Math.floor(Math.random() * backgrounds.length - 1));
   
   return (<>
