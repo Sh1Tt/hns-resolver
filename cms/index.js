@@ -3,13 +3,14 @@ import config from "../config";
 import pointerLogo from "../utils/Pointerlogo";
 import Icons from "./icons_base64";
 
-const { 
-	domain,
+const {
 	protocol,
-	themecolor,
-	director,
-	twitterhandle
+	themecolor
 } = config;
+
+const domain = process.env.MIRROR;
+const twitterhandle = "AnotherSoftware";
+const director = "another.software";
 
 const CMS = {
 	META: {
