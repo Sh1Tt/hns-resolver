@@ -1,7 +1,7 @@
 const config = {
 	protocol: "http",
 	themecolor: "#000000",
-	domain: "hns.is",
+	domain: "rsvr.xyz",
 	director: "angrymouse",
 	twitter: "angrymouse_hns",
 };
