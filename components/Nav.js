@@ -15,10 +15,10 @@ const Nav = () => {
 	const toggleMenu = () => {
 		setMenu(!menu);
 	};
-	const { NAME } = CMS.META;
+	const mirror = process.env.MIRROR;
 	return (
 		<nav className={styles.Container}>
-			<Logo text={NAME} />
+			<Logo text={mirror} />
 			<Resolver />
 			<div className={[styles.Menu__container].join(` `)}>
 				<span
