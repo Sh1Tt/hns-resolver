@@ -26,12 +26,7 @@ const websites = [
 	},
 	{
 		name: "findwaldo",
-		link: "https://www.findwaldo",
-		icon: ``
-	},
-	{
-		name: "hnsnetwork",
-		link: "https://hnsnetwork.com",
+		link: "http://www.findwaldo",
 		icon: ``
 	},
 	{
@@ -42,16 +37,6 @@ const websites = [
 	{
 		name: "blockclock/",
 		link: "https://hns.blockclock",
-		icon: ``
-	},
-	{
-		name: "impervious",
-		link: "https://impervious.com",
-		icon: ``
-	},
-	{
-		name: "hnschat",
-		link: "https://hnschat/",
 		icon: ``
 	}
 ];

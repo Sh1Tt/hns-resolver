@@ -14,7 +14,6 @@ const Nav = () => {
 	const [ menu, setMenu ] = useState(initialState.menu);
 	const toggleMenu = () => {
 		setMenu(!menu);
-		console.log(menu);
 	};
 	const { NAME } = CMS.META;
 	return (

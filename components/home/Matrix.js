@@ -7,7 +7,7 @@ const Matrix = () => {
 	return (
 
         <div className={[styles.Container]}>
-			<Image className={[styles.Logo]} src={hns_logo} alt="HNS LOGO" width={24} height={24} layout="fill" objectFit="contain" />
+			{/* <Image className={[styles.Logo]} src={hns_logo} alt="HNS LOGO" width={24} height={24} layout="fill" objectFit="contain" /> */}
 		</div>
     );
 };

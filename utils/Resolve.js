@@ -1,8 +1,12 @@
 import config from "../config";
 
-const isTld = n => n.search( /./g ) == -1;
+const mirror = process.env.MIRROR || "hns.is";
 
-const hasProtocol = n => n.indexOf("://") > 1;
+const isTld = n => n.indexOf(".") === -1;
+
+const hasProtocol = n => n.indexOf("://") !== -1;
+
+const ensureProtocol = n => !hasProtocol(n) ? `${config.protocol}://${n}` : n;
 
 const search_v1 = input => {
 	const engines = {
@@ -21,13 +25,8 @@ const search_v1 = input => {
 	window.open(url, "_blanc");
 };
 
-const resolve_v1 = name => {
-	const url = `${config.protocol}://${name}.${config.domain}/`;
-	location.href = url;
-};
-
-const resolve_v3 = async ( url, behaviour ) => {
-    const _target = !hasProtocol(url) ? `http://${url}` : url;
+const resolve_v3 = async (target, behaviour) => {
+	const _target = ensureProtocol(target);
     const _url = !isTld(_target) ? _target : !_target.endsWith("/") ? _target + "/" : _target; 
     switch(behaviour) {
         case "open-tab": 
@@ -35,9 +34,16 @@ const resolve_v3 = async ( url, behaviour ) => {
             return;
         case "replace":
         default:
-             window.location.replace( _url );
+             window.location.replace(_url);
              return;
     };
+};
+
+const useProxy = async target => {
+	const _validate = target.replace("https://", "") + "." + mirror;
+	const _target = ensureProtocol(_validate);
+	const _url = !isTld(_target) ? _target : !_target.endsWith("/") ? _target + "/" : _target;
+	window.location.replace(_url);
 };
 
 const Resolve = {};
@@ -45,5 +51,6 @@ Resolve.isTld = isTld;
 Resolve.hasProtocol = hasProtocol;
 Resolve.search = search_v1;
 Resolve.resolve = resolve_v3;
+Resolve.proxy = useProxy;
 
 export default Resolve;

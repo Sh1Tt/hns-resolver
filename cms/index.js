@@ -15,19 +15,19 @@ const CMS = {
 	META: {
 		URL: `https://${domain}/`,
 		DOMAIN: domain,
-		NAME: pointerLogo(domain),
+		NAME: pointerLogo(),
 		AUTHOR: `${protocol}://sh1tt.${domain}/`,
 		THEME: themecolor,
-		SITE: pointerLogo(domain),
+		SITE: pointerLogo(),
 		TWITTER: `https://twitter.com/${twitterhandle}`,
 		IMAGE: `/cutout.png`
 	},
 	CONTENT: {
 		HOME: 
 		{
-			TITLE: pointerLogo(domain),
+			TITLE: pointerLogo(),
 			DESC: "Browse the web using handshakenames",
-			HEADER: pointerLogo(domain),
+			HEADER: pointerLogo(),
 		}
 	},
 	FOOTER: {

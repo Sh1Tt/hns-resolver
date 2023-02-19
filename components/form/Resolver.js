@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useRef, useContext } from "react";
 import UserContext from "../context/User";
 import Resolve from "../../utils/Resolve";
 import { valid, removeTrailingSlash } from "../../utils/Handshakename";
@@ -8,31 +8,36 @@ import Working from "../message/Resolving";
 import styles from "../../styles/Resolver.module.css";
 
 const Form = () => {
-	const initialState = {
-		handshakename: null,
-		message: null
+	const initial = {
+		state: {
+			message: null
+		},
+		ref: {
+			input: null
+		}
 	};
-
-	const { rememberVisited } = useContext(UserContext);
 	
-	const [ handshakename, setHandshakename ] = useState(initialState.handshakename);
-	const [ message, setMessage ] = useState(initialState.message);
+	const { rememberVisited } = useContext(UserContext);
+
+	const [ message, setMessage ] = useState(initial.state.message);
+
+	const input = useRef(initial.ref.input);
 
 	const errorHandler = () => {
-		setMessage(<Error handshakename={handshakename} />);
+		setMessage(<Error handshakename={input.current.value} />);
 		setTimeout(() => {
-			setMessage(initialState);
+			setMessage(initial.state.message);
 		}, 15_000);
 	};
 
 	const submitHandler = e => {
 		e.preventDefault();
 		setMessage(<Working />);
-
+		const handshakename = removeTrailingSlash(input.current.value);
 		if (
 			!handshakename
 			||
-			handshakename ==+ ""
+			handshakename === ""
 			||
 			!valid(handshakename)
 		) {
@@ -41,11 +46,11 @@ const Form = () => {
 		else {
 			rememberVisited(handshakename);
 			try{
-				Resolve.resolve(handshakename);
+				Resolve.proxy(handshakename);
 				setTimeout(() =>{
 					setMessage("Redirecting..");
 					setTimeout(() =>{
-						setMessage(initialState);
+						setMessage(initial.state.message);
 					}, 2_000);
 				}, 3_000);
 			}
@@ -60,7 +65,7 @@ const Form = () => {
 	};
 
 	function resetInput() {
-		document.getElementById("handshakename").value = ``;
+		input.current.value = "";
 	};
 
 	return (
@@ -74,8 +79,8 @@ const Form = () => {
 					type="text" 
 					id="handshakename"
 					name="handshakename" 
-					placeholder="Enter a handshake name (e.g. welcome.nb)" 
-					onChange={e => setHandshakename(removeTrailingSlash(e.target.value))}
+					placeholder="Enter a handshake name (e.g. 🦊nft.mauricestolk/)" 
+					ref={input}
 				/>
 				<button 
 					className={styles.submit} 

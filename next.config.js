@@ -1,6 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-    LOCALE: "en-US"
+    LOCALE: process.env.LOCALE,
+    MIRROR: process.env.MIRROR
   }
 }

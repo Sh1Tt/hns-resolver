@@ -1,9 +1,6 @@
 const config = {
 	protocol: "http",
-	themecolor: "#000000",
-	domain: "hns.is",
-	director: "angrymouse",
-	twitter: "angrymouse_hns",
+	themecolor: "#000000"
 };
 
 export default config;
