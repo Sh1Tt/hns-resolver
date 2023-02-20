@@ -1,9 +1,6 @@
 import { useState, useRef, useContext } from "react";
 import UserContext from "../context/User";
-import Resolve from "../../utils/Resolve";
-import { valid, removeTrailingSlash } from "../../utils/Handshakename";
-import Error from "../message/Error";
-import Working from "../message/Resolving";
+import { Error, Resolving } from "../message";
 
 import styles from "../../styles/Resolver.module.css";
 
@@ -17,9 +14,9 @@ const Form = () => {
 		}
 	};
 	
-	const { rememberVisited } = useContext(UserContext);
+	const { rememberVisited, resolve } = useContext(UserContext);
 
-	const [ message, setMessage ] = useState(initial.state.message);
+	const [message, setMessage] = useState(initial.state.message);
 
 	const input = useRef(initial.ref.input);
 
@@ -32,21 +29,19 @@ const Form = () => {
 
 	const submitHandler = e => {
 		e.preventDefault();
-		setMessage(<Working />);
-		const handshakename = removeTrailingSlash(input.current.value);
+		setMessage(<Resolving />);
+		const handshakename = input.current.value;
 		if (
 			!handshakename
 			||
 			handshakename === ""
-			||
-			!valid(handshakename)
 		) {
 			errorHandler();
 		}
 		else {
 			rememberVisited(handshakename);
 			try{
-				Resolve.proxy(handshakename);
+				resolve(handshakename);
 				setTimeout(() =>{
 					setMessage("Redirecting..");
 					setTimeout(() =>{

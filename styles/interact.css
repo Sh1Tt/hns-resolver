@@ -1,0 +1,4 @@
+.closed {
+    display: none;
+    visibility: collapse;
+}

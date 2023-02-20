@@ -1,5 +1,4 @@
-.wrapper
-{
+.wrapper {
 	position: fixed;
 	top: 7.5vh;
 	left: 0;
@@ -9,8 +8,8 @@
 	justify-content: center;
 	align-items: center;
 }
-.content
-{
+
+.content {
 	position: relative;
 	margin: auto;
 	padding: 1em .5em;
@@ -25,27 +24,18 @@
 	background-color: rgba( 8, 8, 8, 1 );
 }
 
-@media only screen and ( max-width: 638px )
-{
-	.content
-	{
+@media only screen and ( max-width: 638px ) {
+	.content {
 		font-size: 100%;
 	}
 
 }
 
-.title
-{
-	margin: 0;
-}
-
-.name
-{
+.name {
 	font-weight: bolder;
 	text-decoration: underline 1px currentcolor;
 }
 
-.link
-{
+.link {
 	text-decoration: underline 1px currentcolor;
 }

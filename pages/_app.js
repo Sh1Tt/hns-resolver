@@ -1,14 +1,15 @@
 import App from "next/app";
 import UserContext from "../components/context/User";
 import Nav from "../components/Nav";
+import { Hsd, Resolver, Coingecko } from "../utils";
 
-import "../styles/root.css";
+import "../styles/theme.css";
 import "../styles/globals.css";
-import "../styles/card-bg-gradients.css";
+import "../styles/scrollbar.css";
+import "../styles/interact.css";
+import "../styles/paralax.css";
 
-const Paralax = ({ children }) => <div className={['Paralax__container']}>
-  {children}
-</div>;
+import "../styles/card-bg-gradients.css";
 
 export default class resolverApp extends App {
   initialState = {
@@ -109,11 +110,13 @@ export default class resolverApp extends App {
           rememberVisited: this.rememberVisited, 
           forgetVisited: this.forgetVisited,
           deleteHistory: this.deleteHistory,
+          getBlockheight: Hsd.getBlockheight,
+          getAsvt: Hsd.getAsvt,
+          resolve: Resolver.proxy,
+          getQuotes: Coingecko.getQuotes
         }}>
         <Nav />
-        <Paralax>
-          <Component {...pageProps} />
-        </Paralax>
+        <Component {...pageProps} />
       </UserContext.Provider>
    );
   };

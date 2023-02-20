@@ -1,0 +1,82 @@
+:root {
+	/*THEME*/
+	--og-black: rgba(8,8,8,1);
+	--og-white: rgba(255,255,255,1);
+	--og-dark: rgba(8,6,7,.925);
+	--og-silver: rgba(239,239,239,.75);
+	--og-grey: rgba(239,239,239,.35);
+
+	--og-title: transparent;
+	
+	/* 2023 theme settings */
+	--og-font-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	--og-font-secondary: 'Roboto Mono', monospace;
+
+	--og-white-primary: rgba(255,255,255,1);
+	--og-white-secondary: rgba(255,255,255,.75);
+	--og-white-tertiary: rgba(255,255,255,.5);
+	--og-white-quaternary: rgba(255,255,255,.25);
+	--og-white-quinary: rgba(255,255,255,.1);
+
+	--og-black-primary: rgba(0,0,0,1);
+	--og-black-secondary: rgba(0,0,0,.75);
+	--og-black-tertiary: rgba(0,0,0,.5);
+	--og-black-quaternary: rgba(0,0,0,.25);
+	--og-black-quinary: rgba(0,0,0,.1);
+
+	--og-dark-primary: rgba(8,6,7,1);
+	--og-dark-secondary: rgba(8,6,7,.75);
+	--og-dark-tertiary: rgba(8,6,7,.5);
+	--og-dark-quaternary: rgba(8,6,7,.25);
+	--og-dark-quinary: rgba(8,6,7,.1);
+
+	--og-silver-primary: rgba(239,239,239,1);
+	--og-silver-secondary: rgba(239,239,239,.75);
+	--og-silver-tertiary: rgba(239,239,239,.5);
+	--og-silver-quaternary: rgba(239,239,239,.25);
+	--og-silver-quinary: rgba(239,239,239,.1);
+
+	--og-color-primary: rgba(194,0,0,.99);
+	--og-color-secondary: rgba(226,11,180,.99);
+	--og-color-tertiary: rgba(19,195,226,.99);
+	--og-color-quaternary: rgba(0,255,0,.99);
+	--og-color-quinary: rgba(219, 138, 15, 0.99);
+	--og-color-senary: rgba(228, 214, 17, 0.99);
+	--og-color-septenary: rgba(84, 12, 151, 0.99);
+	--og-color-octonary: rgba(16, 214, 105, 0.99);
+	--og-color-nonary: rgba(231, 86, 176, 0.99);
+	--og-color-denary: rgba(22, 255, 216, 0.99);
+
+	--og-bg-primary: rgba(23,26,32,1);
+	--og-bg-secondary: rgba(23,26,32,.75);
+	--og-bg-tertiary: rgba(23,26,32,.5);
+	--og-bg-quaternary: rgba(23,26,32,.25);
+	--og-bg-quinary: rgba(23,26,32,.1);
+
+	--og-nav-height: 38px;
+
+	--og-nav-bg: rgba(6,8,23,.99);
+
+	--og-text-shadow:
+		0px 1px 1px rgba(23,26,32,.09),
+		1px 2px 2px rgba(23,26,32,.09),
+		2px 4px 4px rgba(23,26,32,.09),
+		4px 8px 8px rgba(23,26,32,.09),
+		8px 16px 16px rgba(23,26,32,.09)
+	;
+
+	/* Logo used legacy */
+	--og-logo-deg: 54deg;
+	--rb-0: var(--og-color-primary);
+	--rb-1: var(--og-color-secondary);
+	--rb-2: var(--og-color-tertiary);
+	--rb-3: var(--og-color-quaternary);
+	--rb-4: var(--og-color-primary);
+	--rb-5: var(--og-color-senary);
+	--rb-6: var(--og-color-septenary);
+	--rb-7: var(--og-color-octonary);
+	--rb-8: var(--og-color-nonary);
+	--rb-9: var(--og-color-denary);
+}
+

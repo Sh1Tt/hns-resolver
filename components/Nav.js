@@ -17,7 +17,7 @@ const Nav = () => {
 	};
 	const mirror = process.env.MIRROR;
 	return (
-		<nav className={styles.Container}>
+		<nav id="__nav">
 			<Logo text={mirror} />
 			<Resolver />
 			<div className={[styles.Menu__container].join(` `)}>

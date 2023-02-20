@@ -1,23 +1,16 @@
-import Link from "next/link";
 import { useContext } from "react";
-import punycode from "punycode";
 import UserContext from "../../context/User";
-import config from "../../../config";
+import { hasEmoji, toAscii } from "../../../utils/Handshakename";
 
 import styles from "../../../styles/Home.module.css";
-import Resolve from "../../../utils/Resolve";
 
 const Card = ({ handshakename, visited, no }) => {
-    const url = `http://${handshakename}.${config.domain}/`;
-    
-    const { rememberVisited, forgetVisited } = useContext(UserContext);
-    
-    const isPunycode = /\p{Extended_Pictographic}/u.test(handshakename);
+    const { rememberVisited, forgetVisited, resolve } = useContext(UserContext);
 
-    const customLinkHandler = e => {
+    const clickHandler = e => {
         e.preventDefault();
         rememberVisited(handshakename);
-        Resolve.resolve(handshakename);
+        resolve(handshakename);
     };
 
     return (
@@ -25,26 +18,34 @@ const Card = ({ handshakename, visited, no }) => {
             className={styles.visitedWrapper}
             key={no}
         >
-            <span    
+            <div    
                 className={styles.visitedCard} 
                 data-bg={no}
-                onClick={e => { customLinkHandler(e) }}
+                onClick={e => {
+                    clickHandler(e);
+                }}
             >
                 <span>
                     {handshakename}/
                 </span>
-                {isPunycode&&<code>{punycode.toASCII(handshakename)}</code>}
-            </span>
+                {hasEmoji(handshakename)&&
+                    <code>
+                        {toAscii(handshakename)}
+                    </code>
+                }
+            </div>
             <input
                 type="button"
                 name={`forget_${handshakename}`}
                 className={styles.visitedForget}
                 value="x"
-                onClick={e => { forgetVisited(handshakename) }}
+                onClick={e => {
+                    forgetVisited(handshakename);
+                }}
             />
-            <span className={styles.visitedCounter}>
+            <div className={styles.visitedCounter}>
                 visited: <code>{visited}</code>
-            </span>
+            </div>
         </div>
    );
 };

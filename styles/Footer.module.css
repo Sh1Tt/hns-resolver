@@ -10,8 +10,7 @@
   z-index: 999999;
 }
 
-.credits
-{
+.credits {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -21,8 +20,7 @@
   flex-wrap: wrap;
 }
 
-.credit
-{
+.credit {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -30,19 +28,16 @@
   font-size: 10px;
 }
 
-.credit code
-{
+.credit code {
   padding-top: .25em;
 }
 
-.credit code:hover
-{
+.credit code:hover {
   color: orangered;
   text-decoration: 1px underline rgba( 68, 68, 68, .68 );
 }
 
-.credit h4
-{
+.credit h4 {
   font-weight: 600;
   text-decoration: .01em underline currentcolor;
   padding: 0 .375em;

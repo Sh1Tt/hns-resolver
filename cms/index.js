@@ -24,11 +24,52 @@ const CMS = {
 		IMAGE: `/cutout.png`
 	},
 	CONTENT: {
-		HOME: 
-		{
+		HOME: {
 			TITLE: pointerLogo(),
 			DESC: "Browse the web using handshakenames",
 			HEADER: pointerLogo(),
+			QUICKSTART: [
+				{
+					name: "theshake/",
+					link: "https://theshake/",
+					icon: ``
+				},
+				{
+					name: "x/piring",
+					link: "https://x/piring",
+					icon: ``
+				},
+				{
+					name: "niami/",
+					link: "https://niami/",
+					icon: ``
+				},
+				{
+					name: "nameserver",
+					link: "https://nameserver.pages.dev",
+					icon: ``
+				},
+				{
+					name: "twitter",
+					link: "https://twitter.com",
+					icon: ``
+				},
+				{
+					name: "findwaldo",
+					link: "http://www.findwaldo",
+					icon: ``
+				},
+				{
+					name: "hnsnetwork",
+					link: "https://hnsnetwork.com",
+					icon: ``
+				},
+				{
+					name: "blockclock/",
+					link: "https://hns.blockclock",
+					icon: ``
+				}
+			]
 		}
 	},
 	FOOTER: {
@@ -39,11 +80,6 @@ const CMS = {
 			}
 		],
 		ORGANISATIONS: [
-			{
-				name: "Vercel",
-				link: "https://vercel.com/",
-				logo: <svg height="12" viewBox="0 0 75 65" fill="#FFF"><path d="M37.59.25l36.95 64H.64l36.95-64z" /></svg>,
-			},
 			{
 				name: "Another Software",
 				link: "https://another.software/",

@@ -1,15 +1,9 @@
-import Exchange from "./Exchange";
+import Clock from "./Clock";
+import Hns from "./Hns";
+import Asvt from "./Asvt";
 
-import styles from "../../../styles/Home.module.css";
-
-const Widgets = () => (
-    <section className={styles.section}>
-        <div>
-            <div className={styles.widgetsShowcase}>
-                <Exchange />
-            </div>
-        </div>
-    </section>
-);
-
-export default Widgets;
+export {
+    Clock,
+    Hns,
+    Asvt
+};

@@ -1,6 +1,6 @@
 const pointerLogo = () => {
-  const logotext = process.env.MIRROR || "hns";
-  return logotext.replace(".", "↗")
+  const n = process.env.MIRROR;
+  return n.replace(".", "↗")
     .split()
     .map(c => c.toUpperCase())
     .join();

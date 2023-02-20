@@ -1,0 +1,34 @@
+#__nav {
+  position: sticky !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--og-nav-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  z-index: 999;
+  background-color: var(--og-nav-bg);
+}
+
+#__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+#__paralax {
+  position: relative;
+  width: 100%;
+  height: calc((100vh) - var(--og-nav-height));
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}

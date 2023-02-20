@@ -19,7 +19,6 @@ const Homepage = () => {
         PAGE = CMS.CONTENT.HOME;
   const backgrounds = [bg0, bg1, bg2, bg3, bg4, bg5, bg7, bg8, bg9];
   const iRand = parseInt(Math.floor(Math.random() * backgrounds.length - 1));
-  
   return (<>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,19 +35,23 @@ const Homepage = () => {
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="78x78" />
       <link rel="manifest" href="/site.webmanifest" />
     </Head>
-    <Image
-      className="bg"
-      id="__bg"
-      src={backgrounds[iRand]}
-      alt="Background HNS Resolver"
-      layout="fill"
-      objectFit="cover"
-      objectPosition="center"
-      loading="lazy"
-      placeholder="blur"
-    />
-    <Home />
-    <Footer />
+    <span id="__background">
+      <Image
+        className="bg"
+        id="alternate-bg"
+        src={backgrounds[iRand]}
+        alt="Background HNS Resolver"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        loading="lazy"
+        placeholder="blur"
+      />
+    </span>
+    <div id="__paralax">
+      <Home />
+      <Footer />
+    </div>
   </>);
 };
 
