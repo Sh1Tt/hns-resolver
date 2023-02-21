@@ -74,8 +74,7 @@ const Form = () => {
 					type="text" 
 					id="handshakename"
 					name="handshakename" 
-					placeholder="Enter a handshake name (e.g. 🦊nft.mauricestolk/)" 
-					ref={input}
+					placeholder="Enter a handshake name (e.g. theshake/ or hns.blockclock/)"
 				/>
 				<button 
 					className={styles.submit} 
