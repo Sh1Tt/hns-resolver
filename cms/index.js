@@ -31,17 +31,17 @@ const CMS = {
 			QUICKSTART: [
 				{
 					name: `theshake/`,
-					link: `https://theshake.${mirror}/`,
+					link: `http://theshake.${mirror}/`,
 					icon: ``
 				},
 				{
 					name: `x/piring`,
-					link: `https://x.${mirror}/piring`,
+					link: `http://x.${mirror}/piring`,
 					icon: ``
 				},
 				{
 					name: `niami/`,
-					link: `https://niami/`,
+					link: `https://niami.io/`,
 					icon: ``
 				},
 				{
@@ -66,7 +66,7 @@ const CMS = {
 				},
 				{
 					name: `blockclock/`,
-					link: `https://hns.blockclock.${mirror}/`,
+					link: `http://hns.blockclock.${mirror}/`,
 					icon: ``
 				}
 			]
