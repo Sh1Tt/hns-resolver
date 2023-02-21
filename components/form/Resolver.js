@@ -1,6 +1,7 @@
 import { useState, useRef, useContext } from "react";
 import UserContext from "../context/User";
-import { Error, Resolving } from "../message";
+import Error from "../message/Error";
+import Resolving from "../message/Resolving";
 
 import styles from "../../styles/Resolver.module.css";
 
@@ -74,7 +75,8 @@ const Form = () => {
 					type="text" 
 					id="handshakename"
 					name="handshakename" 
-					placeholder="Enter a handshake name (e.g. theshake/ or hns.blockclock/)"
+					placeholder="Enter a handshake name (e.g. theshake/ or hns.blockclock/)" 
+					ref={input}
 				/>
 				<button 
 					className={styles.submit} 
