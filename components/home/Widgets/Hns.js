@@ -1,10 +1,7 @@
-import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from '../../context/User';
 
 import styles from '../../../styles/Home.module.css';
-
-import hnsImage from '../../../public/handshake.png';
 
 const Hns = () => {
     const initial = {
