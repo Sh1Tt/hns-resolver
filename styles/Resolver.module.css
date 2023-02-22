@@ -57,7 +57,6 @@
 
 @media only screen and (max-width: 638px) {
 	.resolver {
-		margin-left: 10%;
 		width: auto;
 		flex: .8;
 	}

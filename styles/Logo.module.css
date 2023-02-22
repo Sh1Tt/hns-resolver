@@ -14,10 +14,11 @@
 	margin: .125em .25em;
 	padding: 0;
 	color: transparent;
-	background-color: var(--og-bg-primary);
+	background-color: inherit;
 	overflow: hidden;
 	filter: saturate(150%);
 	cursor: pointer;
+	height: 26px;
 }
 
 .text {
@@ -25,8 +26,11 @@
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	display: block;
-	font-size: 18px;
+	font-size: 15pt;
 	font-weight: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .text:hover {

@@ -1,9 +1,11 @@
 import Clock from "./Clock";
 import Hns from "./Hns";
-import Asvt from "./Asvt";
+import Exchange from "./Exchange";
+import Handycon from "./Handycon";
 
 export {
     Clock,
     Hns,
-    Asvt
+    Exchange,
+    Handycon
 };

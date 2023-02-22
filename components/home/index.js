@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import UserContext from "../context/User";
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
-import { Clock, Hns, Asvt } from "./Widgets";
+import { Clock, Hns, Exchange, Handycon } from "./Widgets";
+import Footer from "../footer";
 
 import styles from "../../styles/Home.module.css";
 
@@ -74,20 +75,50 @@ const Home = () => {
 				<Section>
 					<Quickstart />
 				</Section>
+				{w < 1260 && <>
+					<Section>
+						<div className={[styles.Widget__wrapper]}>
+							<Clock />
+						</div>
+					</Section>
+					<Section>
+						<div className={[styles.Widget__wrapper]}>
+							<Hns />
+						</div>
+					</Section>
+					<Section>
+						<div className={[styles.Widget__wrapper]}>
+							<Exchange />
+						</div>
+					</Section>
+					<Section>
+						<div className={[styles.Widget__wrapper]}>
+							<Handycon />
+						</div>
+					</Section>
+					<Section>
+						<Footer />
+					</Section>
+				</>}
 			</main>
-			{w > 1260 && <div className={[styles.aside]}>
-				<div className={[styles.Widgets__container]}>
-					<div className={[styles.Widget__wrapper]}>
-						<Clock />
-					</div>
-					<div className={[styles.Widget__wrapper]}>
-						<Hns />
-					</div>
-					<div className={[styles.Widget__wrapper]}>
-						<Asvt />
+			{w > 1260 && <>
+				<div className={[styles.aside]}>
+					<div className={[styles.Widgets__container]}>
+						<div className={[styles.Widget__wrapper]}>
+							<Clock />
+						</div>
+						<div className={[styles.Widget__wrapper]}>
+							<Hns />
+						</div>
+						<div className={[styles.Widget__wrapper]}>
+							<Exchange />
+						</div>
+						<div className={[styles.Widget__wrapper]}>
+							<Handycon />
+						</div>
 					</div>
 				</div>
-			</div>}
+			</>}
 		</div>
 	</>);
 };

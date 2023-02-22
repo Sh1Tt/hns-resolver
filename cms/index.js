@@ -76,7 +76,7 @@ const CMS = {
 		DIRECTORS: [
 			{
 				name: `${director}`,
-				link: `https:/.com/${twitterhandle}`,
+				link: `https://twitter.com/${twitterhandle}`,
 			}
 		],
 		ORGANISATIONS: [

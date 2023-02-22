@@ -21,8 +21,7 @@ export default class resolverApp extends App {
 
   store_id = {
     history: "cool-history",
-    raw_history: "cool-raw-history",
-    favorite: "cool-favorite",
+    raw_history: "cool-raw-history"
   };
 
   componentDidMount = () => {
@@ -111,7 +110,6 @@ export default class resolverApp extends App {
           forgetVisited: this.forgetVisited,
           deleteHistory: this.deleteHistory,
           getBlockheight: Hsd.getBlockheight,
-          getAsvt: Hsd.getAsvt,
           resolve: Resolver.proxy,
           getQuotes: Coingecko.getQuotes
         }}>

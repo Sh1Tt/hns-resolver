@@ -47,4 +47,6 @@ textarea {
   text-shadow: var(--og-text-shadow);
 
   transition: 1s ease-in;
+  transform-style: preserve-3d;
+  
 }
