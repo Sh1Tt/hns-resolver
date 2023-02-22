@@ -420,3 +420,19 @@
   font-size: 15pt;
   font-weight: 600;
 }
+
+.Handycon_button:hover {
+  background: rgba(244,215,26,.85);
+  color:rgba(2, 2, 2, .95);
+}
+
+.Handycon_button:active {
+  background: rgba(244, 186, 26, 0.75);
+  color:rgba(2, 2, 2, 1);
+}
+
+.Handycon_website {
+  padding: 1em;
+  color: darkcyan;
+  text-decoration: underline;
+}

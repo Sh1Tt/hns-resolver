@@ -63,6 +63,11 @@ const Handycon = () => {
                         Register for event
                     </a>
                 </Link>
+                <Link href="https://2023.handycon.xyz/">
+                    <a className={[styles.Handycon_website].join(" ")}>
+                        Handycon 2023 website
+                    </a>
+                </Link>
             </span>
         </div>
     );
