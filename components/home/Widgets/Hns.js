@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
-import UserContext from '../../context/User';
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../../context/User";
 
-import styles from '../../../styles/Home.module.css';
+import styles from "../../../styles/Home.module.css";
 
 const Hns = () => {
     const initial = {
@@ -25,7 +25,7 @@ const Hns = () => {
 
 	}, []);
 	
-    return (
+    return (<>
         <div className={[styles.Widget__card]}>
             <span className={styles.Hns__title}>
                 
@@ -34,7 +34,7 @@ const Hns = () => {
                 Current block: {height}
             </span>
         </div>
-    );
+    </>);
 };
 
 export default Hns;

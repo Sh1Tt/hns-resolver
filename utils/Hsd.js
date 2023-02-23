@@ -12,9 +12,24 @@ const getAsvt = async () => {
     return json.data.quote.USD.price;
 };
 
+const getQuotes = async () => {
+    try {
+
+        const res = await fetch(`https://donna.hsd.services/v1/exchange-proxy/resolver?x-api-key=Sxh90-8s00Y-D98dy-9jdpd`, {});
+        const json = await res.json();
+        const data = json.data;
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+        return [];
+    };
+};
+
 const Hsd = {};
 
 Hsd.getBlockheight = getBlockheight;
 Hsd.getAsvt = getAsvt;
+Hsd.getQuotes = getQuotes;
 
 export default Hsd;

@@ -432,7 +432,7 @@
 }
 
 .Handycon_website {
-  padding: 1em;
+  padding: 1em .25em .25em;
   color: darkcyan;
   text-decoration: underline;
 }

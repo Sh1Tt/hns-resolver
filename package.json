@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "next": "^12.3.4",
-    "punycode": "^2.1.1"
+    "punycode": "^2.1.1",
+    "qrcode": "^1.5.1"
   },
   "devDependencies": {
     "eslint": "8.6.0",

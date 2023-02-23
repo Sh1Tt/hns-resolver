@@ -1,11 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import UserContext from "../../context/User";
 
-import styles from "../../../styles/Home.module.css";
-
-const Fixed = n => n < 1 ? n.toFixed(3) : n.toFixed(2);
-
-const Asvt = () => {
+const Qrcode = () => {
     const initial = {
         state: {
             asvt: 0,
@@ -81,4 +77,4 @@ const Asvt = () => {
     );
 };
 
-export default Asvt;
+export default Qrcode;

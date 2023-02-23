@@ -1,51 +1,64 @@
-import { useState, useEffect, useContext } from "react";
-import UserContext from "../../context/User";
+import { useState, useEffect } from "react";
 import Hsd from "../../../utils/Hsd";
 
 import styles from "../../../styles/Home.module.css";
 
-const Fixed = n => n < 1 ? n.toFixed(3) : n.toFixed(2);
+const Fixed = n => n < 2 ? n.toFixed(8) : n.toFixed(2);
+
+const Pair = ({ name, value }) =>  (
+    <span className={styles.Quotes__price}>
+        <span>
+            {name}
+        </span>
+        <span>
+            ${Fixed(value)}
+        </span>
+    </span>
+);
 
 const Exchange = () => {
     const initial = {
         state: {
             asvt: 0,
-            hns: 0,
-            btc: 0,
-            eth: 0
+            quotes: []
         }
     };
-    
-    const { getQuotes } = useContext(UserContext);
 
     const [asvt, setAsvt] = useState(initial.state.asvt);
-    const [hns, setHns] = useState(initial.state.hns);
-    const [btc, setBtc] = useState(initial.state.btc);
-    const [eth, setEth] = useState(initial.state.eth);
+    const [quotes, setQuotes] = useState(initial.state.quotes);
 
     useEffect(() => {
-        const getData = async () => {
-            const quote = await Hsd.getAsvt();
-            setAsvt(Fixed(quote));
+        const getAsvtquote = async () => {
+            const data = await Hsd.getAsvt();
+            setAsvt(await data);
+            console.log(asvt)
         };
 
         if (typeof window !== "undefined")
-            getData();
+            getAsvtquote();
         
     }, []);
 
     useEffect(() => {
-        const getData = async () => {
-            const currencies = await getQuotes();
-            setHns(Fixed(currencies.handshake));
-            setBtc(Fixed(currencies.bitcoin));
-            setEth(Fixed(currencies.ethereum));
+        const getExchangedata = async () => {
+            const data = await Hsd.getQuotes();
+            const json = await data;
+            const all = [ "asvt", ...Object.keys(json) ];
+            setQuotes([]);
+            all.forEach(key => {
+                if (key === "asvt")
+                    setQuotes(prev => [...prev, <Pair name={key} value={asvt} />]);
+                else
+                    setQuotes(prev => [...prev, <Pair name={key.replace("-network","")} value={json[key].usd} />]);
+            });
         };
 
         if (typeof window !== "undefined")
-            getData();
-        
-    }, []);
+            getExchangedata();
+    
+    }, [asvt]);
+
+
 
     return (
         <div className={[styles.Widget__card]}>
@@ -53,30 +66,7 @@ const Exchange = () => {
                 Exchange Rates:
             </span>
             <div className={styles.Quotes__container}>
-                <span className={styles.Quotes__price}>
-                    <span>ASVT</span>
-                    <span>
-                        ${asvt}
-                    </span>
-                </span>
-                <span className={styles.Quotes__price}>
-                    <span>HNS:</span>
-                    <span>
-                        ${hns}
-                    </span>
-                </span>
-                <span className={styles.Quotes__price}>
-                    <span>BTC:</span>
-                    <span>
-                        ${btc}
-                    </span>
-                </span>
-                <span className={styles.Quotes__price}>
-                    <span>ETH:</span>
-                    <span>
-                        ${eth}
-                    </span>
-                </span>
+                {quotes}
             </div>
         </div>
     );
