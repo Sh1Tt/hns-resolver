@@ -5,8 +5,11 @@ import styles from "../../../styles/Home.module.css";
 
 const Fixed = n => n < 2 ? n.toFixed(8) : n.toFixed(2);
 
-const Quote = ({ token, value }) => (
-    <span className={styles.Quotes__price}>
+const Quote = ({ token, value, i }) => (
+    <span 
+        className={styles.Quotes__price}
+        key={i}
+    >
         <span>
             {token}
         </span>
@@ -17,15 +20,8 @@ const Quote = ({ token, value }) => (
 );
 
 const Exchange = () => {
-    const initial = {
-        state: {
-            asvt: 0,
-            quotes: []
-        }
-    };
-
-    const [asvt, setAsvt] = useState(initial.state.asvt);
-    const [quotes, setQuotes] = useState(initial.state.quotes);
+    const [asvt, setAsvt] = useState(0);
+    const [quotes, setQuotes] = useState([]);
 
     useEffect(() => {
         const getAsvtquote = async () => {
@@ -44,12 +40,12 @@ const Exchange = () => {
             const json = await data;
             const all = ["asvt", ...Object.keys(json)];
             setQuotes([]);
-            all.forEach(key => {
+            all.forEach((key,i) => {
                 const token = key.replace("-network", "");
                 if (token === "asvt")
-                    setQuotes(prev => [...prev, <Quote token={token} value={asvt} />]);
+                    setQuotes(prev => [...prev, <Quote key={i} i={i} token={token} value={asvt} />]);
                 else
-                    setQuotes(prev => [...prev, <Quote token={token.replace("-network", "")} value={json[key].usd} />]);
+                    setQuotes(prev => [...prev, <Quote key={i} i={i} token={token.replace("-network", "")} value={json[key].usd} />]);
             });
         };
 
