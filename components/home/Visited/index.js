@@ -14,8 +14,8 @@ const Visited = () => {
 
     const { history } = useContext(UserContext);
 
-    const [ names, setNames ] = useState(initial.state.names);
-    const [ visits, setVisits ] = useState(initial.state.visits);
+    const [ names, setNames ] = useState([]);
+    const [ visits, setVisits ] = useState([]);
     
     useEffect(() => {
         if (!history)
@@ -23,12 +23,12 @@ const Visited = () => {
 
         setNames([...history.split(/,/)
             .map(r => r.split(":")[0])] 
-            || initial.state.names
+            || []
         );
         
         setVisits([...history.split(/,/)
             .map(r => parseInt(r.split(":")[1]))] 
-            || initial.state.visits
+            || []
         );
 
     }, [history]);
