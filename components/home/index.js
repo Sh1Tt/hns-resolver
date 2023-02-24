@@ -1,5 +1,4 @@
-import { useState, useEffect, useContext } from "react";
-import UserContext from "../context/User";
+import { useState, useEffect } from "react";
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
 import { Clock, Hns, Exchange, Handycon } from "./Widgets";
@@ -20,8 +19,6 @@ const Home = () => {
 			y: 0,
 		}
 	};
-
-	const { getBlockheight } = useContext(UserContext);
 
 	const [w, setW] = useState(initial.state.w);
 	const [y, setY] = useState(initial.state.y);

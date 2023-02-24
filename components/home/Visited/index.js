@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../../context/User";
-import { Clock } from "../Widgets";
 import Card from "./Card";
 
 import styles from "../../../styles/Home.module.css";

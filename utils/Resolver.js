@@ -49,7 +49,7 @@ const proxy_v1 = (target, behaviour) => {
 const resolve_v3 = (target, behaviour) => {
 	const removeProtcol = target.replace(/(http\:\/\/|https\:\/\/)/, "");
 	const ensureSlash = removeProtcol.indexOf("/") === -1 ? removeProtcol+"/" : removeProtcol;
-	const _url = `https://${ensureSlash}`;
+	const _url = `http://${ensureSlash}`;
     switch(behaviour) {
         case "open-tab": 
             window.open(_url, "_blanc");
