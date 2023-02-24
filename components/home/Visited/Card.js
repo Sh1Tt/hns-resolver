@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import UserContext from "../../context/User";
 import { hasEmoji, toAscii } from "../../../utils/Handshakename";
+import Resolver from "../../../utils/Resolver";
 
 import styles from "../../../styles/Home.module.css";
 
 const Card = ({ handshakename, visited, no }) => {
-    const { rememberVisited, forgetVisited, resolve } = useContext(UserContext);
+    const { rememberVisited, forgetVisited, native } = useContext(UserContext);
 
     const clickHandler = e => {
         e.preventDefault();
         rememberVisited(handshakename);
-        resolve(handshakename);
+        Resolver.handle(handshakename, native ? "resolve" : "bridge");
     };
 
     return (

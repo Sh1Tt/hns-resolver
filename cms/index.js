@@ -55,7 +55,7 @@ const CMS = {
 					icon: ``
 				},
 				{
-					name: `findwaldo`,
+					name: `findwaldo/`,
 					link: `http://www.findwaldo.${mirror}/`,
 					icon: ``
 				},
@@ -67,6 +67,36 @@ const CMS = {
 				{
 					name: `blockclock/`,
 					link: `http://hns.blockclock.${mirror}/`,
+					icon: ``
+				},
+				{
+					name: `hnschat/`,
+					link: `https://hns.chat/`,
+					icon: ``
+				},
+				{
+					name: `varo/`,
+					link: `https://varo.io/`,
+					icon: ``
+				},
+				{
+					name: `github`,
+					link: `https://github.com/`,
+					icon: ``
+				},
+				{
+					name: `chatgpt`,
+					link: `https://chat.openai.com/`,
+					icon: ``
+				},
+				{
+					name: `hnssearch/`,
+					link: `https://hnssearch.io/`,
+					icon: ``
+				},
+				{
+					name: `impervious`,
+					link: `https://impervious.com/`,
 					icon: ``
 				}
 			]

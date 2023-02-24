@@ -5,10 +5,10 @@ import styles from "../../../styles/Home.module.css";
 
 const Fixed = n => n < 2 ? n.toFixed(8) : n.toFixed(2);
 
-const Pair = ({ name, value }) =>  (
+const Quote = ({ token, value }) =>  (
     <span className={styles.Quotes__price}>
         <span>
-            {name}
+            {token}
         </span>
         <span>
             ${Fixed(value)}
@@ -46,10 +46,11 @@ const Exchange = () => {
             const all = [ "asvt", ...Object.keys(json) ];
             setQuotes([]);
             all.forEach(key => {
-                if (key === "asvt")
-                    setQuotes(prev => [...prev, <Pair name={key} value={asvt} />]);
+                const token = key.replace("-network","");
+                if (token === "asvt")
+                    setQuotes(prev => [...prev, <Quote token={token} value={asvt} />]);
                 else
-                    setQuotes(prev => [...prev, <Pair name={key.replace("-network","")} value={json[key].usd} />]);
+                    setQuotes(prev => [...prev, <Quote token={token.replace("-network","")} value={json[key].usd} />]);
             });
         };
 
@@ -57,8 +58,6 @@ const Exchange = () => {
             getExchangedata();
     
     }, [asvt]);
-
-
 
     return (
         <div className={[styles.Widget__card]}>

@@ -1,5 +1,6 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import UserContext from "../context/User";
+import Resolver from "../../utils/Resolver";
 import Error from "../message/Error";
 import Resolving from "../message/Resolving";
 
@@ -8,15 +9,17 @@ import styles from "../../styles/Resolver.module.css";
 const Form = () => {
 	const initial = {
 		state: {
-			message: null
+			message: null,
+			type: "resolve"
 		},
 		ref: {
 			input: null
 		}
 	};
 	
-	const { rememberVisited, resolve } = useContext(UserContext);
+	const { rememberVisited, native } = useContext(UserContext);
 
+	const [type, setType] = useState(initial.state.type);
 	const [message, setMessage] = useState(initial.state.message);
 
 	const input = useRef(initial.ref.input);
@@ -28,40 +31,56 @@ const Form = () => {
 		}, 15_000);
 	};
 
-	const submitHandler = e => {
-		e.preventDefault();
-		setMessage(<Resolving />);
-		const handshakename = input.current.value;
-		if (
-			!handshakename
-			||
-			handshakename === ""
-		) {
-			errorHandler();
-		}
-		else {
-			rememberVisited(handshakename);
-			try{
-				resolve(handshakename);
-				setTimeout(() =>{
-					setMessage("Redirecting..");
-					setTimeout(() =>{
-						setMessage(initial.state.message);
-					}, 2_000);
-				}, 3_000);
-			}
-			catch(err) {
-				console.log(err);
-				errorHandler();
-			};
-		};
-		setTimeout(() => { 
-			resetInput();
-		}, 100);
+	const resetHandler= () => {
+		input.current.value = "";
 	};
 
-	function resetInput() {
-		input.current.value = "";
+	const submitHandler = e => {
+		e.preventDefault();
+			setMessage(<Resolving />);
+			const handshakename = input.current.value;
+			if (
+				!handshakename
+				||
+				handshakename === ""
+			) {
+				errorHandler();
+			}
+			else {
+				if (type === "resolve")
+					rememberVisited(handshakename);
+				
+				try{
+					Resolver.handle(handshakename, type);
+					setTimeout(() =>{
+						setMessage("Redirecting..");
+						setTimeout(() =>{
+							setMessage(initial.state.message);
+						}, 2_000);
+					}, 3_000);
+				}
+				catch(err) {
+					console.log(err);
+					errorHandler();
+				};
+			};
+			setTimeout(() => { 
+				resetHandler();
+			}, 100);
+
+	};
+
+	const keyHandler = e => {
+		if (e.key === "Enter")
+			submitHandler(e);
+
+	};
+
+	const changeHandler = () => {
+		if (input.current.value.includes(" "))
+			setType("search");
+		else
+			setType("resolve");
 	};
 
 	return (
@@ -77,10 +96,16 @@ const Form = () => {
 					name="handshakename" 
 					placeholder="Enter a handshake name (e.g. theshake/ or hns.blockclock/)" 
 					ref={input}
+					onKeyDown={e => {
+						keyHandler(e);
+						changeHandler();
+					}}
 				/>
 				<button 
 					className={styles.submit} 
-					onClick={e => submitHandler(e)}
+					onClick={e => {
+						submitHandler(e);
+					}}
 				>
 					→
 				</button>

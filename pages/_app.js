@@ -1,7 +1,7 @@
 import App from "next/app";
 import UserContext from "../components/context/User";
 import Nav from "../components/Nav";
-import { Hsd, Resolver, Coingecko } from "../utils";
+import { Hsd, Resolver } from "../utils";
 
 import "../styles/theme.css";
 import "../styles/globals.css";
@@ -14,31 +14,54 @@ import "../styles/card-bg-gradients.css";
 export default class resolverApp extends App {
   initialState = {
     userHistory: null,
-    userRawHistory: null
+    userRawHistory: null,
+    native: false,
+    searchengine: []
   };
 
   state = this.initialState;
 
   store_id = {
     history: "cool-history",
-    raw_history: "cool-raw-history"
+    raw_history: "cool-raw-history",
+    searchengine: "cool-searchengine",
+    manual: "cool-resolve"
   };
 
   componentDidMount = () => {
     const history = localStorage.getItem(this.store_id.history) || null;
+    const engine = localStorage.getItem(this.store_id.searchengine) || Object.keys(Resolver.searchEngines)[0];
+    const manual = localStorage.getItem(this.store_id.manual) || null;
+    const hasResolver = manual || this.test();
+    console.log(Resolver.searchEngines)
+    this.setState({
+      userHistory: history || this.initialState.userHistory,
+      userRawHistory: this.state.userRawHistory,
+      native: hasResolver,
+      searchengine: engine
+    }, () => {
+      console.log(this.state);
+    });
+  };
 
-    if (history) 
-      this.setState({ 
-        userHistory: history,
-        userRawHistory: this.state.userRawHistory
-      });
+  test = async () => {
+    try { 
+      const ssl = window.location.protocol === "https";
+      const target = ssl ? "https://theshake/" : "http://www.findwaldo/";
+      const res = await fetch(`${target}`);
+      console.log(res);
+      return res.status === 200;
+    }
+    catch (err) {
+      return false;
+    }
   };
 
   rememberVisited = hnsname => {
     const history = localStorage.getItem(this.store_id.history) || null;
 
-    let hnsnames = history ? [ ...history.split(/,/).map(r => r.split(":")[0]) ] : [];
-    let visits =  history ? [ ...history.split(/,/).map(r => parseInt(r.split(":")[1])) ] : [];
+    let hnsnames = history ? [...history.split(/,/).map(r => r.split(":")[0]) ] : [];
+    let visits =  history ? [...history.split(/,/).map(r => parseInt(r.split(":")[1])) ] : [];
 
     if (hnsnames.indexOf(hnsname) >= 0) {
       visits[hnsnames.indexOf(hnsname)]++;
@@ -109,9 +132,7 @@ export default class resolverApp extends App {
           rememberVisited: this.rememberVisited, 
           forgetVisited: this.forgetVisited,
           deleteHistory: this.deleteHistory,
-          getBlockheight: Hsd.getBlockheight,
-          resolve: Resolver.proxy,
-          getQuotes: Coingecko.getQuotes
+          getBlockheight: Hsd.getBlockheight
         }}>
         <Nav />
         <Component {...pageProps} />

@@ -312,10 +312,10 @@
     -4px 4px 16px rgba(2,2,2,.3)  
   ; */
   border: 1px solid rgba(141, 141, 141, .2);
-  background-color: rgba(16,17,23,.75);
+  background-color: rgba(16,17,23,.5);
   overflow: hidden;
   transition: .1s linear;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px);
 }
 
 .Clock__time {

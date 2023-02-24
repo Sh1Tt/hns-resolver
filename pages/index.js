@@ -25,13 +25,13 @@ const Desktopbackground = () => {
     bg8,
     bg9
   ];
-  const iRand = parseInt(Math.floor(Math.random() * backgrounds.length - 0));
+  const r = parseInt(Math.floor(Math.random() * backgrounds.length - 0));
   return (
     <span id="__background">
       <Image
         className="bg"
         id="alternate-bg"
-        src={backgrounds[iRand]}
+        src={backgrounds[r]}
         alt="Background HNS Resolver"
         layout="fill"
         objectFit="cover"
@@ -41,13 +41,11 @@ const Desktopbackground = () => {
       />
     </span>
   );
-  // backgrounds[iRand];
 };
 
 const Homepage = () => {
   const META = CMS.META,
         PAGE = CMS.CONTENT.HOME;
-
 
   return (<>
     <Head>
