@@ -65,10 +65,8 @@ export default class resolverApp extends App {
   ];
 
   checkResolver = async () => {
-    try { 
-      const ssl = window.location.protocol === "https";
-      const target = ssl ? "https://theshake/" : "http://www.findwaldo/";
-      const res = await fetch(`${target}`);
+    try {
+      const res = await fetch("https://theshake/");
       return res.status === 200;
     }
     catch (err) {
