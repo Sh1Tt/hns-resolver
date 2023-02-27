@@ -66,7 +66,7 @@ export default class resolverApp extends App {
 
   checkResolver = async () => {
     try { 
-      const res = await fetch("http://www.findwaldo/", {});
+      const res = await fetch("https://hnschat/favicon.ico", {});
       console.log(res)
       return res.status === 200;
     }
