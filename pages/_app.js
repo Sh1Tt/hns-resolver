@@ -44,7 +44,7 @@ export default class resolverApp extends App {
     this.setState({
       userHistory: history || this.initialState.userHistory,
       userRawHistory: this.state.userRawHistory,
-      native: manual || this.checkResolver(),
+      native: manual || await this.checkResolver(),
       searchengine: engine,
       qrcodes: qrcodes,
       user: remember 
