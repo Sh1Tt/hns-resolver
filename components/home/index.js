@@ -1,6 +1,6 @@
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
-import { useScreensize, useTheshake } from "../../hooks";
+import { useScreensize } from "../../hooks";
 import { Clock, Hns, Exchange, Handycon } from "./Widgets";
 import Footer from "../footer";
 
@@ -14,8 +14,6 @@ const Section = ({ children }) => (
 
 const Home = () => {
 	const { w } = useScreensize();
-	const { loading, error, articles } = useTheshake();
-
 	return(<>
 		<header className={styles.header}>
 			<h1>
@@ -62,21 +60,15 @@ const Home = () => {
 					<div className={[styles.Section__two_col]}>
 						<div className={[styles.Section__two_col__left]}>
 							<h4 className={[styles.Section__two_col__title]}>
-								Newsoutlet
+								News
 							</h4>
 							<div className={[styles.Section__two_col__content]}>
-								{loading ? <p>Loading...</p> 
-								: error ? <p>{error.toString()}</p> 
-								: articles.map((article, i) => (
-									<div key={i}>
-										<h5>{article.title}</h5>
-									</div>
-								))}
+
 							</div>
 						</div>
 						<div className={[styles.Section__two_col__right]}>
 							<h4 className={[styles.Section__two_col__title]}>
-								Title 2
+								Hilight
 							</h4>
 							<div className={[styles.Section__two_col__content]}>
 							

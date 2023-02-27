@@ -66,9 +66,10 @@ export default class resolverApp extends App {
 
   checkResolver = async () => {
     try {
-      const res = await fetch("https://theshake/", {
+      const res = await fetch("https://hnschat/", {
         mode: "no-cors"
       });
+      console.log(res)
       return res.status === 200;
     }
     catch (err) {
