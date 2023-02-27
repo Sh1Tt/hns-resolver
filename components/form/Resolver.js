@@ -80,7 +80,7 @@ const Form = () => {
 		if (input.current.value.includes(" "))
 			setType("search");
 		else
-			setType("resolve");
+			setType(native ? "resolve" : "proxy");
 	};
 
 	return (
