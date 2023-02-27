@@ -36,7 +36,7 @@ export default class resolverApp extends App {
   componentDidMount = async () => {
     const history = localStorage.getItem(this.store_id.history) || null;
     const engine = localStorage.getItem(this.store_id.searchengine) || Object.keys(Resolver.searchEngines)[0];
-    const manual = localStorage.getItem(this.store_id.manual) || null;
+    const resolver = localStorage.getItem(this.store_id.manual) || await this.checkResolver();
     const remember = localStorage.getItem(this.store_id.user) || null;
     const addresses = this.wallets();
     const QRCodes = await Promise.all([...addresses.map(w => this.generateQR(w.address))]);
@@ -44,7 +44,7 @@ export default class resolverApp extends App {
     this.setState({
       userHistory: history || this.initialState.userHistory,
       userRawHistory: this.state.userRawHistory,
-      native: manual || await this.checkResolver(),
+      native: resolver,
       searchengine: engine,
       qrcodes: qrcodes,
       user: remember 
