@@ -1,0 +1,77 @@
+.Color__hilight {
+  color: rgba(255, 188, 3, 0.781)
+}
+
+.Header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5em 0;
+}
+
+.Desktop__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+  
+.Main {
+    position: relative;
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Aside {
+    position: relative;
+    flex: 0 0 max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.News__messages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 90%;
+    max-width: 680px;
+}
+
+.News__message {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    margin: .375em .75em;
+    padding: .5em 1em;
+    backdrop-filter: blur(5px);
+    color: rgba(212,221,241,.99);
+    
+}
+
+.Transaction__field {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.Transaction__input {
+    background: inherit;
+}

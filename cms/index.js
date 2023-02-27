@@ -98,8 +98,18 @@ const CMS = {
 					name: `impervious`,
 					link: `https://impervious.com/`,
 					icon: ``
+				},
+				{
+					name: `nftsarestupid`,
+					link: `https://nftsarestupid.com/`,
+					icon: ``
 				}
 			]
+		},
+		NEWS: {
+			TITLE: "Another News | Handshake",
+			DESC: "An arweave based messaging service for the Handhsake community",
+			HEADER: "Another News",
 		}
 	},
 	FOOTER: {
@@ -115,10 +125,8 @@ const CMS = {
 				link: `https://another.software/`,
 				logo: <Image 
 					alt="Another software logo" 
-					width="24" 
+					width="24"
 					height="24" 
-					layout="fill" 
-					objectFit="contain" 
 					src={Icons.ANOTHERSOFTWARE}
 				/> ,
 			}

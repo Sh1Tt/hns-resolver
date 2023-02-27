@@ -41,10 +41,9 @@ const getQuotes = async () => {
 
 const getTxtrecords = async tld => {
     try {
-        const res = await fetch(`https://${host}/dev/dig/${tld}/TXT?x-api-key=${apiKey}`, {});
+        const res = await fetch(`https://${host}/dev/dig/${tld}/txt?x-api-key=${apiKey}`);
         const json = await res.json();
-        const data = json.data;
-        return data;
+        return json;
     }
     catch (error) {
         console.log(error);

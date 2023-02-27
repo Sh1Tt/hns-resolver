@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
+import { useScreensize, useTheshake } from "../../hooks";
 import { Clock, Hns, Exchange, Handycon } from "./Widgets";
 import Footer from "../footer";
 
@@ -13,52 +13,13 @@ const Section = ({ children }) => (
 );
 
 const Home = () => {
-	const initial = {
-		state: {
-			w: 0,
-			y: 0,
-		}
-	};
+	const { w } = useScreensize();
+	const { loading, error, articles } = useTheshake();
 
-	const [w, setW] = useState(initial.state.w);
-	const [y, setY] = useState(initial.state.y);
-	
-	useEffect(() => {
-		if (typeof window === "undefined")
-			return;
-
-		setW(window.innerWidth);
-		document.addEventListener("resize", () => {
-			setW(window.innerWidth);
-		});
-		return () => {
-			document.removeEventListener("resize", () => {
-				setW(window.innerWidth);
-			});
-		};
-	}, []);
-
-	useEffect(() => {
-		if (typeof window === "undefined")
-			return;
-
-		setY(window.scrollY);
-		document.addEventListener("scroll", () => {
-			setY(window.scrollY);
-			console.log(y);
-		});
-		return () => {
-			document.removeEventListener("scroll", () => {
-				setY(window.scrollY);
-				console.log(y);
-			});
-		};
-	}, []);
-		
 	return(<>
 		<header className={styles.header}>
 			<h1>
-				{/* {CMS.CONTENT.HOME.TITLE} */}
+				
 			</h1>
 		</header>
 		<div className={[styles.Desktop__container]}>
@@ -93,6 +54,37 @@ const Home = () => {
 							<Handycon />
 						</div>
 					</Section>
+				</>}
+				<Section>
+					<div className={styles.Section__space}></div>
+				</Section>
+				<Section>
+					<div className={[styles.Section__two_col]}>
+						<div className={[styles.Section__two_col__left]}>
+							<h4 className={[styles.Section__two_col__title]}>
+								Newsoutlet
+							</h4>
+							<div className={[styles.Section__two_col__content]}>
+								{loading ? <p>Loading...</p> 
+								: error ? <p>{error.toString()}</p> 
+								: articles.map((article, i) => (
+									<div key={i}>
+										<h5>{article.title}</h5>
+									</div>
+								))}
+							</div>
+						</div>
+						<div className={[styles.Section__two_col__right]}>
+							<h4 className={[styles.Section__two_col__title]}>
+								Title 2
+							</h4>
+							<div className={[styles.Section__two_col__content]}>
+							
+							</div>
+						</div>
+					</div>
+				</Section>
+				{w < 1260 && <>
 					<Section>
 						<Footer />
 					</Section>

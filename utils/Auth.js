@@ -1,7 +1,6 @@
-const config = {
-    key: "hns-auth"
-};
-const apiKey = process.env.HSD_API_KEY;
+import Hsd from "./Hsd.js";
+const label = "hns-waldo";
+
 const base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
     encode: function(e) {
@@ -103,10 +102,10 @@ const cyrb53 = (str, s = 0) => {
 };
 
 // d = domain, n = navigator, s = seed
-const l4tree = (d,n,s,salt="springField23") => {
-    const l1 = (d.length<8?d+salt:d).slice(1),
+const l4tree = (d,n,s,m="magicSalt23") => {
+    const l1 = (d.length<8?d+m:d).slice(1),
           l2 = n.userAgent.replace(/[ ]/g,""),
-          l3 = (d.length<8?d+salt:d).slice(-1),
+          l3 = (d.length<8?d+m:d).slice(-1),
           l4 = n.appVersion.replace(/[ ]/g,"");
     const c1 = cyrb53(l1, s),
           c2 = cyrb53(l2, s),
@@ -121,8 +120,50 @@ const l4tree = (d,n,s,salt="springField23") => {
 
 const randChar = l => [...Array(l)].fill().map((v,i)=>base64._keyStr[Math.floor(Math.random()*base64._keyStr.length)]).join("");
 
+const login = async input => {
+    const { domain, pass } = input;
+    return await new Promise(resolve => {
+        Hsd.getTxtrecords(domain)
+            .then(res => {
+                const record = `${label}=${pass}`;
+                resolve(res.includes(record) ? input 
+                    : { error: "Invalid domain or password" }
+                );
+            })
+            .catch(err => {
+                console.log(err);
+                resolve("");
+            });
+    });
+};
 
+const avatar = async domain => {
+    return await new Promise(resolve => {
+        Hsd.getTxtrecords(domain)
+            .then(res => {
+                res.map(r => {
+                    const [label, hash] = r.split("=");
+                    if (label === "profile avatar")
+                        resolve(hash);
 
-    fetch(`https://donna.hsd.services/dev/dig/${v}/TXT?x-api-key=${k}`, {
-        method: "GET",
-    })
+                });
+            })
+            .catch(err => {
+                console.log(err);
+                resolve("");
+            });
+    });
+};
+
+const readLabel = hash => base64.decode(hash);
+const writeLabel = text => base64.encode(text);
+
+const Auth = {};
+Auth.hash = l4tree;
+Auth.salt = randChar;
+Auth.login = login;
+Auth.avatar = avatar;
+Auth.readLabel = readLabel;
+Auth.writeLabel = writeLabel;
+
+export default Auth;

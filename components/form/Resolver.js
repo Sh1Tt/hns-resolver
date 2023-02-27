@@ -94,7 +94,7 @@ const Form = () => {
 					type="text" 
 					id="handshakename"
 					name="handshakename" 
-					placeholder="Enter a handshake name (e.g. theshake/ or hns.blockclock/)" 
+					placeholder="Enter a handshake domain (e.g. theshake/) or a search term (use a space)" 
 					ref={input}
 					onKeyDown={e => {
 						keyHandler(e);

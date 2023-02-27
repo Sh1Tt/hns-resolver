@@ -1,7 +1,8 @@
 import App from "next/app";
 import UserContext from "../components/context/User";
+import QRCode from "qrcode";
 import Nav from "../components/Nav";
-import { Hsd, Resolver } from "../utils";
+import { Hsd, Resolver, Auth } from "../utils";
 
 import "../styles/theme.css";
 import "../styles/globals.css";
@@ -16,7 +17,9 @@ export default class resolverApp extends App {
     userHistory: null,
     userRawHistory: null,
     native: false,
-    searchengine: []
+    searchengine: [],
+    qrcodes: [],
+    user: null
   };
 
   state = this.initialState;
@@ -25,38 +28,76 @@ export default class resolverApp extends App {
     history: "cool-history",
     raw_history: "cool-raw-history",
     searchengine: "cool-searchengine",
-    manual: "cool-resolve"
+    manual: "cool-resolve",
+    user: Auth.writeLabel("username-auth"),
+    seed: Auth.writeLabel("seed-auth")
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const history = localStorage.getItem(this.store_id.history) || null;
     const engine = localStorage.getItem(this.store_id.searchengine) || Object.keys(Resolver.searchEngines)[0];
     const manual = localStorage.getItem(this.store_id.manual) || null;
-    const hasResolver = manual || this.test();
-    console.log(Resolver.searchEngines)
+    const remember = localStorage.getItem(this.store_id.user) || null;
+    const addresses = this.wallets();
+    const QRCodes = await Promise.all([...addresses.map(w => this.generateQR(w.address))]);
+    const qrcodes = addresses.map((w, i) => ({...w, qrcode: QRCodes[i]})); 
     this.setState({
       userHistory: history || this.initialState.userHistory,
       userRawHistory: this.state.userRawHistory,
-      native: hasResolver,
-      searchengine: engine
-    }, () => {
-      console.log(this.state);
+      native: manual || await this.checkResolver(),
+      searchengine: engine,
+      qrcodes: qrcodes,
+      user: remember 
+    });
+    this.login({
+      domain: "sh1tt",
+      pass: "Mjg4NTk3Nzc4NDkwMTY1ODMyMzIxMzcyODkyNjAzOTM"
     });
   };
 
-  test = async () => {
+  wallets = () => [
+    { name: "HNS", address: "hs190a7stf8d698s87dsdi6t8bgs5r78sb5rf87rfd7" },
+    { name: "BTC", address: "bcsdskshyf9sy68sfdb9u6ms5vs76v98d6578vf8ub8" },
+    { name: "ETH", address: "0x0x87d986g97x6t87gx687xg6tx58fgiyuf5xuyx76" },
+    { name: "AR", address: "tbmVr5yiATdkKH1XQxuXPq3oPD8iRxYa4TWRHi3lANg" },
+    { name: "JUNO", address: "juno1xrg6w5ejjrxpzkmu6nsgjepd0zc5c4f0vlqzj2" },
+    { name: "ATOM", address: "cosmos1xrg6w5ejjrxpzkmu6nsgjepd0zc5c4f0vz5q2j" },
+  ];
+
+  checkResolver = async () => {
     try { 
       const ssl = window.location.protocol === "https";
       const target = ssl ? "https://theshake/" : "http://www.findwaldo/";
       const res = await fetch(`${target}`);
-      console.log(res);
       return res.status === 200;
     }
     catch (err) {
       return false;
-    }
+    };
   };
 
+  generateQR = address => {
+    return new Promise(resolve => {
+      QRCode.toDataURL(address, (err, url) => {
+        resolve(err?err:url);
+      });
+    });
+  };
+
+  login = async input => {
+    try {
+      const u = await Auth.login(input);
+      this.setState({ user: u.domain });
+      localStorage.setItem(this.store_id.user, u.domain);
+      console.log(`Logged in as ${localStorage.getItem(this.store_id.user)}`);
+      return true;
+    }
+    catch (err) {
+      console.log(err);
+      return false;
+    };
+  };
+  
   rememberVisited = hnsname => {
     const history = localStorage.getItem(this.store_id.history) || null;
 
@@ -128,13 +169,17 @@ export default class resolverApp extends App {
       <UserContext.Provider value={{ 
           userHistory: this.state.userHistory, 
           history: this.state.userHistory, 
-          userRawHistory: this.state.userRawHistory, 
+          userRawHistory: this.state.userRawHistory,
+          native: this.state.native,
+          searchengine: this.state.searchengine,
+          qrcodes: this.state.qrcodes,
+          user: this.state.user,
           rememberVisited: this.rememberVisited, 
           forgetVisited: this.forgetVisited,
           deleteHistory: this.deleteHistory,
           getBlockheight: Hsd.getBlockheight
         }}>
-        <Nav />
+        <Nav user={this.state.user} />
         <Component {...pageProps} />
       </UserContext.Provider>
    );

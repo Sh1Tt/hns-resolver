@@ -7,15 +7,13 @@ import CMS from "../cms";
 import styles from "../styles/Nav.module.css";
 import hns_logo from "../public/android-chrome-192x192.png";
 
-const Nav = () => {
-	const initialState = {
-		menu: false
-	};
-	const [ menu, setMenu ] = useState(initialState.menu);
+const mirror = process.env.MIRROR;
+
+const Nav = ({ user }) => {
+	const [menu, setMenu] = useState(false);
 	const toggleMenu = () => {
 		setMenu(!menu);
 	};
-	const mirror = process.env.MIRROR;
 	return (
 		<nav id="__nav">
 			<Logo text={mirror} />
@@ -62,6 +60,15 @@ const Nav = () => {
 							</label>
 							<span className={[styles.Menu__option_btn].join(` `)}>
 								<input id="use_gateway" type="checkbox" />
+							</span>
+						</div>
+
+						<div className={[styles.Menu__option, styles.Menu__title].join(` `)}>
+							<span className={[styles.Menu__option_icon].join(` `)}>
+								{/* <Image width={16} height={16} alt="icon <description_here>" src={hns_logo} /> */}
+							</span>
+							<span className={[styles.Menu__option_text].join(` `)}>
+								{user?user:`Log in`}
 							</span>
 						</div>
 					</div>
