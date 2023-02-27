@@ -68,7 +68,7 @@ export default class resolverApp extends App {
     try { 
       const ssl = window.location.protocol === "https";
       const target = ssl ? "https://theshake/" : "http://www.findwaldo/";
-      const res = await fetch("https://theshake/", { mode: "no-cors"});
+      const res = await fetch("https://theshake/", {});
       console.log(res)
       return res.status === 200;
     }
