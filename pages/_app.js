@@ -44,7 +44,7 @@ export default class resolverApp extends App {
     this.setState({
       userHistory: history || this.initialState.userHistory,
       userRawHistory: this.state.userRawHistory,
-      native: manual || await this.checkResolver(),
+      native: manual || this.checkResolver(),
       searchengine: engine,
       qrcodes: qrcodes,
       user: remember 
@@ -65,10 +65,10 @@ export default class resolverApp extends App {
   ];
 
   checkResolver = async () => {
-    try {
-      const res = await fetch("https://hnschat/", {
-        mode: "no-cors"
-      });
+    try { 
+      const ssl = window.location.protocol === "https";
+      const target = ssl ? "https://theshake/" : "http://www.findwaldo/";
+      const res = await fetch("https://theshake/");
       console.log(res)
       return res.status === 200;
     }
@@ -80,7 +80,7 @@ export default class resolverApp extends App {
   generateQR = address => {
     return new Promise(resolve => {
       QRCode.toDataURL(address, (err, url) => {
-        resolve(err ? err : url);
+        resolve(err?err:url);
       });
     });
   };
