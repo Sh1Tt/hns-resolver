@@ -44,12 +44,12 @@ const Home = () => {
 					</Section>
 					<Section>
 						<div className={[styles.Widget__wrapper]}>
-							<Exchange />
+							<Handycon />
 						</div>
 					</Section>
 					<Section>
 						<div className={[styles.Widget__wrapper]}>
-							<Handycon />
+							<Exchange />
 						</div>
 					</Section>
 				</>}
@@ -57,7 +57,7 @@ const Home = () => {
 					<div className={styles.Section__space}></div>
 				</Section>
 				<Section>
-					<div className={[styles.Section__two_col]}>
+					{/* <div className={[styles.Section__two_col]}>
 						<div className={[styles.Section__two_col__left]}>
 							<h4 className={[styles.Section__two_col__title]}>
 								News
@@ -74,7 +74,7 @@ const Home = () => {
 							
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</Section>
 				{w < 1260 && <>
 					<Section>
@@ -92,10 +92,10 @@ const Home = () => {
 							<Hns />
 						</div>
 						<div className={[styles.Widget__wrapper]}>
-							<Exchange />
+							<Handycon />
 						</div>
 						<div className={[styles.Widget__wrapper]}>
-							<Handycon />
+							<Exchange />
 						</div>
 					</div>
 				</div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Logo from "./Logo";
 import Resolver from "./form/Resolver";
@@ -9,7 +10,7 @@ import hns_logo from "../public/android-chrome-192x192.png";
 
 const mirror = process.env.MIRROR;
 
-const Nav = ({ user }) => {
+const Nav = () => {
 	const [menu, setMenu] = useState(false);
 	const toggleMenu = () => {
 		setMenu(!menu);
@@ -30,7 +31,10 @@ const Nav = ({ user }) => {
 						src={CMS.ICONS.MENU} 
 					/>
 				</span>
-				<div className={[styles.Menu, styles.Menu__options, !menu?'closed':''].join(` `)}>
+				<div 
+					className={[styles.Menu, styles.Menu__options, !menu?'closed':''].join(` `)}
+					onMouseLeave={toggleMenu}	
+				>
 					<div className={[styles.Menu__submenu].join(` ` )}>
 						<div className={[styles.Menu__option, styles.Menu__title].join(` `)}>
 							<span className={[styles.Menu__option_icon].join(` `)}>
@@ -44,6 +48,19 @@ const Nav = ({ user }) => {
 							<span className={[styles.Menu__option_icon].join(` `)}>
 								{/* <Image width={16} height={16} alt="icon <description_here>" src={hns_logo} /> */}
 							</span>
+							<Link href="/configure">
+								<a className={[styles.Menu__option_text].join(` `)}>
+									Settings
+								</a>
+							</Link>
+							<span className={[styles.Menu__option_btn].join(` `)}>
+								
+							</span>
+						</div>
+						{/* <div className={[styles.Menu__option, styles.Menu__path].join(` `)}>
+							<span className={[styles.Menu__option_icon].join(` `)}>
+								
+							</span>
 							<label htmlFor="dark_mode" className={[styles.Menu__option_text].join(` `)}>
 								Dark mode
 							</label>
@@ -53,7 +70,7 @@ const Nav = ({ user }) => {
 						</div>
 						<div className={[styles.Menu__option, styles.Menu__path].join(` `)}>
 							<span className={[styles.Menu__option_icon].join(` `)}>
-								{/* <Image width={16} height={16} alt="icon <description_here>" src={hns_logo} /> */}
+								
 							</span>
 							<label htmlFor="use_gateway" className={[styles.Menu__option_text].join(` `)}>
 								Use gateway
@@ -61,14 +78,27 @@ const Nav = ({ user }) => {
 							<span className={[styles.Menu__option_btn].join(` `)}>
 								<input id="use_gateway" type="checkbox" />
 							</span>
-						</div>
-
+						</div> */}
 						<div className={[styles.Menu__option, styles.Menu__title].join(` `)}>
 							<span className={[styles.Menu__option_icon].join(` `)}>
 								{/* <Image width={16} height={16} alt="icon <description_here>" src={hns_logo} /> */}
 							</span>
-							<span className={[styles.Menu__option_text].join(` `)}>
-								{user?user:`Log in`}
+							<span className={[styles.Menu__option_text, styles.Menu__unavailable].join(` `)}>
+								{/* {user?user:`Log in`} */}Log in
+							</span>
+						</div>
+						
+						<div className={[styles.Menu__option, styles.Menu__path].join(` `)}>
+							<span className={[styles.Menu__option_icon].join(` `)}>
+								{/* <Image width={16} height={16} alt="icon <description_here>" src={hns_logo} /> */}
+							</span>
+							<Link href="/">
+								<a className={[styles.Menu__option_text].join(` `)}>
+									Close
+								</a>
+							</Link>
+							<span className={[styles.Menu__option_btn].join(` `)}>
+								
 							</span>
 						</div>
 					</div>

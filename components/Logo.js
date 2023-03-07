@@ -1,13 +1,21 @@
+import Link from "next/link";
 import styles from "../styles/Logo.module.css";
 
-const Logo = ({ text }) => (
-	<div className={styles.wrapper}>
-		<h2 className={styles.logo}>
-			<span className={styles.text}>
-				{text}
-			</span>
-		</h2>
-	</div>
-);
+const Logo = ({ text }) => {
+	return (<>
+		<div className={styles.wrapper}>
+			<Link href="/">
+			<a className={styles.logo}>
+				<span 
+					className={styles.text}
+					
+				>
+					{text}
+				</span>
+			</a>
+			</Link>
+		</div>
+	</>);
+};
 
 export default Logo;
