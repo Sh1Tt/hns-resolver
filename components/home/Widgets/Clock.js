@@ -1,37 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import styles from "../../../styles/Home.module.css";
 
-const current = {
-	time: new Date().toLocaleString("en-US", {
-		hour: "2-digit",
-		minute: "2-digit",
-	}),
-	date: new Date().toLocaleString("en-US", {
-		day: "numeric",
-		month: "long",
-		year: "numeric",
-	}),
-	weekday: new Date().toLocaleString("en-US", {
-		weekday: "long",
-	}),
+const initial = {
+	state: {
+		time: "00:00 AM"
+	},
+	ref: {
+		clock: null
+	}
 };
 
 const Clock = () => {
-	const initial = {
-		state: {
-			time: "00:00 AM"
-		}
-	};
 	const [time, setTime] = useState(initial.state.time);
 
-	useEffect(() => {
-		const intRefId = setInterval(() => {
-			setTime(current.time);
-		}, 1_000);
+	const clock = useRef(initial.ref.clock);
 
+	useEffect(() => {
+		clock.current = setInterval(() => {
+			setTime(new Date().toLocaleString("en-US", {
+				hour: "2-digit",
+				minute: "2-digit"
+			}));
+		}, 1 * 1_000);
+		
 		return () => {
-			clearInterval(intRefId);
+			clearInterval(clock.current);
 		};
 	}, []);
 
