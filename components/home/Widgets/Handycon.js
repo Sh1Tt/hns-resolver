@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 
 import styles from "../../../styles/Home.module.css";
 
-const handycon_start = new Date(2023, 2, 9, 6, 0, 0,);
+const handycon_start = new Date(2023, 2, 8, 22, 0, 0,);
 
 const Handycon = () => {
     const initial = {

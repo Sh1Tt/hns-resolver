@@ -1,7 +1,7 @@
 import App from "next/app";
 import UserContext from "../components/context/User";
 import Nav from "../components/Nav";
-import { Hsd, Resolver, Auth } from "../utils";
+import { Resolver, Auth } from "../utils";
 
 import "../styles/theme.css";
 import "../styles/globals.css";

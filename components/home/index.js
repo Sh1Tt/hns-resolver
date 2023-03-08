@@ -2,7 +2,6 @@ import Visited from "./Visited";
 import Quickstart from "./Quickstart";
 import { useScreensize } from "../../hooks";
 import { Clock, Hns, Exchange, Handycon } from "./Widgets";
-import Hnschat from "../../utils/Hnschat";
 import Footer from "../footer";
 
 import styles from "../../styles/Home.module.css";
@@ -15,7 +14,6 @@ const Section = ({ children }) => (
 
 const Home = () => {
 	const { w } = useScreensize();
-	Hnschat.getUsers();
 	return(<>
 		<header className={styles.header}>
 			<h1>
