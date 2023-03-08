@@ -37,4 +37,3 @@ const Hns = () => {
 };
 
 export default Hns;
-
