@@ -15,10 +15,10 @@ const Section = ({ children }) => (
 const Home = () => {
 	const { w } = useScreensize();
 	const widgets = [
-		<Clock />,
-		<Hns />,
-		<Handycon />,
-		<Exchange />
+		<Clock key={`widget-0`} />,
+		<Hns key={`widget-1`} />,
+		<Handycon key={`widget-2`} />,
+		<Exchange key={`widget-3`} />
 	];
 	const mobileWidgets = widgets;
 
