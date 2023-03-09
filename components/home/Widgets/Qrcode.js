@@ -1,11 +1,43 @@
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/User";
+import Loader from "../../loader/";
 
 import styles from "../../../styles/Home.module.css";
 
 const QRcodes = () => {
-    const { qrcodes } = useContext(UserContext);
+    const qrcodes = [
+        {
+            name: "btc",
+            address: "bc19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
+            qrcode: ""
+        },
+        {
+            name: "eth",
+            address: "0x19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
+            qrcode: ""
+        },
+        {
+            name: "hns",
+            address: "hs19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
+            qrcode: ""
+        },
+        {
+            name: "btc",
+            address: "bc19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
+            qrcode: ""
+        },
+        {
+            name: "eth",
+            address: "0x19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
+            qrcode: ""
+        },
+        {
+            name: "hns",
+            address: "hs19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
+            qrcode: ""
+        }
+    ];
 
     const [qr, setQr] = useState("");
 	

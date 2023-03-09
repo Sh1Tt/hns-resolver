@@ -50,3 +50,8 @@ textarea {
   transform-style: preserve-3d;
   
 }
+
+:root {
+  /* Blocks__fill loader animation */
+--og-blocksize: 10;
+}

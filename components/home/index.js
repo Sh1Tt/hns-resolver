@@ -1,7 +1,7 @@
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
 import { useScreensize } from "../../hooks";
-import { Clock, Hns, Exchange, Handycon } from "./Widgets";
+import { Clock, Hns, Qrcode, Exchange, Handycon } from "./Widgets";
 import Footer from "../footer";
 
 import styles from "../../styles/Home.module.css";
@@ -14,6 +14,14 @@ const Section = ({ children }) => (
 
 const Home = () => {
 	const { w } = useScreensize();
+	const widgets = [
+		<Clock />,
+		<Hns />,
+		<Handycon />,
+		<Exchange />
+	];
+	const mobileWidgets = widgets;
+
 	return(<>
 		<header className={styles.header}>
 			<h1>
@@ -31,28 +39,13 @@ const Home = () => {
 				<Section>
 					<Quickstart />
 				</Section>
-				{w < 1260 && <>
+				{w < 1260 && widgets.map((w,i) => <>
 					<Section>
 						<div className={[styles.Widget__wrapper]}>
-							<Clock />
+							{w}
 						</div>
 					</Section>
-					<Section>
-						<div className={[styles.Widget__wrapper]}>
-							<Hns />
-						</div>
-					</Section>
-					<Section>
-						<div className={[styles.Widget__wrapper]}>
-							<Handycon />
-						</div>
-					</Section>
-					<Section>
-						<div className={[styles.Widget__wrapper]}>
-							<Exchange />
-						</div>
-					</Section>
-				</>}
+				</>)}
 				<Section>
 					<div className={styles.Section__space}></div>
 				</Section>
@@ -85,18 +78,11 @@ const Home = () => {
 			{w > 1260 && <>
 				<div className={[styles.aside]}>
 					<div className={[styles.Widgets__container]}>
-						<div className={[styles.Widget__wrapper]}>
-							<Clock />
-						</div>
-						<div className={[styles.Widget__wrapper]}>
-							<Hns />
-						</div>
-						<div className={[styles.Widget__wrapper]}>
-							<Handycon />
-						</div>
-						<div className={[styles.Widget__wrapper]}>
-							<Exchange />
-						</div>
+						{mobileWidgets.map((w,i) => <>
+							<div className={[styles.Widget__wrapper]}>
+								{w}
+							</div>
+						</>)}
 					</div>
 				</div>
 			</>}

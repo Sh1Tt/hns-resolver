@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Loader from "../../loader/";
 import Hsd from "../../../utils/Hsd";
 
 import styles from "../../../styles/Home.module.css";
@@ -22,8 +23,10 @@ const Quote = ({ token, value, i }) => (
 const Exchange = () => {
     const [asvt, setAsvt] = useState(0);
     const [quotes, setQuotes] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         const getAsvtquote = async () => {
             const data = await Hsd.getAsvt();
             setAsvt(await data);
@@ -47,12 +50,22 @@ const Exchange = () => {
                 else
                     setQuotes(prev => [...prev, <Quote key={i} i={i} token={token.replace("-network", "")} value={json[key].usd} />]);
             });
+            setLoading(false);
         };
 
-        if (typeof window !== "undefined")
+        if (typeof window !== "undefined"
+            && asvt > 0 
+        )
             getExchangedata();
 
     }, [asvt]);
+
+    if (loading)
+        return (<>
+            <div className={[styles.Widget__card]}>
+                <Loader />
+            </div>
+        </>);
 
     return (
         <div className={[styles.Widget__card]}>

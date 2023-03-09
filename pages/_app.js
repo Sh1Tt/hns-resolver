@@ -32,22 +32,28 @@ export default class resolverApp extends App {
   };
 
   componentDidMount = async () => {
-    const resolver = localStorage.getItem(this.store_id.manual) || await this.checkResolver();
+    const manual = localStorage.getItem(this.store_id.manual) || false;
     const history = localStorage.getItem(this.store_id.history) || null;
     const engine = localStorage.getItem(this.store_id.searchengine) || Object.keys(Resolver.searchEngines)[0];
 
-    this.setState({...this.state,
+    this.setState({
+      ...this.state,
       userHistory: history || this.initialState.userHistory,
-      native: resolver,
+      native: manual,
       searchengine: engine
     });
+
+    this.checkResolver();
   };
 
   checkResolver = async () => {
     try { 
       const res = await fetch("https://hnschat/favicon.ico", {});
       console.log(res)
-      return res.status === 200;
+      this.setState({
+        ...this.state,
+        native: res.status === 200
+      });
     }
     catch (err) {
       return false;
