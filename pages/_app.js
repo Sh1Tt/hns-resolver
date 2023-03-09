@@ -1,7 +1,7 @@
 import App from "next/app";
 import UserContext from "../components/context/User";
 import Nav from "../components/Nav";
-import { Resolver, Auth } from "../utils";
+import { Resolver } from "../utils";
 
 import "../styles/theme.css";
 import "../styles/globals.css";
@@ -17,7 +17,7 @@ export default class resolverApp extends App {
     userRawHistory: null,
     native: false,
     searchengine: null,
-    user: null
+    consent: null
   };
 
   state = this.initialState;
@@ -27,29 +27,45 @@ export default class resolverApp extends App {
     raw_history: "cool-raw-history",
     searchengine: "cool-searchengine",
     manual: "cool-resolve",
-    user: Auth.writeLabel("username-auth"),
-    seed: Auth.writeLabel("seed-auth")
+    consent: "cool-consent"
   };
 
   componentDidMount = async () => {
-    const manual = localStorage.getItem(this.store_id.manual) || false;
-    const history = localStorage.getItem(this.store_id.history) || null;
-    const engine = localStorage.getItem(this.store_id.searchengine) || Object.keys(Resolver.searchEngines)[0];
+    const history = localStorage.getItem(this.store_id.history)
+      || null;
+    
+    const manual = localStorage.getItem(this.store_id.manual) 
+      || false;
+    
+    const engine = localStorage.getItem(this.store_id.searchengine) 
+      || Object.keys(Resolver.searchEngines)[0];
 
-    this.setState({
-      ...this.state,
-      userHistory: history || this.initialState.userHistory,
-      native: manual,
-      searchengine: engine
-    });
+    const consent = localStorage.getItem(this.store_id.consent)
+      || null;
 
-    this.checkResolver();
+    if (consent)
+      this.setState({
+        ...this.state,
+        userHistory: history,
+        native: manual,
+        searchengine: engine,
+        consent: consent
+      });
+    else
+      this.setState({
+        ...this.state,
+        userHistory: history,
+        native: this.checkResolver(),
+        searchengine: engine
+      });
+
+
   };
 
   checkResolver = async () => {
     try { 
       const res = await fetch("https://hnschat/favicon.ico", {});
-      console.log(res)
+      console.log(res);
       this.setState({
         ...this.state,
         native: res.status === 200
@@ -63,8 +79,13 @@ export default class resolverApp extends App {
   rememberVisited = hnsname => {
     const history = localStorage.getItem(this.store_id.history) || null;
 
-    let hnsnames = history ? [...history.split(/,/).map(r => r.split(":")[0]) ] : [];
-    let visits =  history ? [...history.split(/,/).map(r => parseInt(r.split(":")[1])) ] : [];
+    let hnsnames = history 
+      ? [...history.split(/,/).map(r => r.split(":")[0]) ] 
+      : [];
+    
+    let visits =  history 
+      ? [...history.split(/,/).map(r => parseInt(r.split(":")[1])) ]
+      : [];
 
     if (hnsnames.indexOf(hnsname) >= 0) {
       visits[hnsnames.indexOf(hnsname)]++;
@@ -74,13 +95,13 @@ export default class resolverApp extends App {
       visits.push(1);
     };
     
-    const obj = [];
+    const arr = [];
     
     hnsnames.forEach((hnsname, i) => {
-      obj[hnsname] = visits[i];
+      arr[hnsname] = visits[i];
     });
 
-    const sorted = Object.keys(obj).sort((a, b) => obj[b] - obj[a]);
+    const sorted = Object.keys(arr).sort((a, b) => arr[b] - arr[a]);
     
     const coolStringify = (a, r, v) => a.map(n => `${n}:${v[r.indexOf(n)]}`).join();
     
@@ -91,8 +112,9 @@ export default class resolverApp extends App {
     localStorage.setItem(this.store_id.raw_history, userRawHistory);
     
     this.setState({
-      userHistory,
-      userRawHistory,
+      ...this.state,
+      userHistory: userHistory,
+      userRawHistory: userRawHistory,
     });
   };
 
@@ -115,23 +137,26 @@ export default class resolverApp extends App {
     localStorage.setItem(this.store_id.history, userHistory);
 
     this.setState({
-      userHistory
+      ...this.state,
+      userHistory: userHistory
     });
   };
 
   deleteHistory = () => {
     localStorage.removeItem(this.store_id.history);
     localStorage.removeItem(this.store_id.raw_history);
-    this.setState(this.initialState);
+    this.setState({
+      ...this.state,
+      userHistory: this.initialState.userHistory,
+      userRawHistory: this.initialState.userRawHistory
+    });
   };
 
   render() {
     const { Component, pageProps } = this.props;
     return (
       <UserContext.Provider value={{ 
-          userHistory: this.state.userHistory, 
-          history: this.state.userHistory, 
-          userRawHistory: this.state.userRawHistory,
+          userHistory: this.state.userHistory,
           native: this.state.native,
           searchengine: this.state.searchengine,
           rememberVisited: this.rememberVisited, 

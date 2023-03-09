@@ -156,7 +156,7 @@ const avatar = async domain => {
 };
 
 const readLabel = hash => base64.decode(hash);
-const writeLabel = text => base64.encode(text);
+const hashLabel = text => base64.encode(text);
 
 const Auth = {};
 Auth.hash = l4tree;
@@ -164,6 +164,6 @@ Auth.salt = randChar;
 Auth.login = login;
 Auth.avatar = avatar;
 Auth.readLabel = readLabel;
-Auth.writeLabel = writeLabel;
+Auth.hashLabel = hashLabel;
 
 export default Auth;
