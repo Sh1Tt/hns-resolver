@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
-import UserContext from "../../context/User";
-import Loader from "../../loader/";
+import { useEffect, useState } from "react";
 
 import styles from "../../../styles/Home.module.css";
 

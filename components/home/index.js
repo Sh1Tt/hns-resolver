@@ -40,7 +40,7 @@ const Home = () => {
 					<Quickstart />
 				</Section>
 				{w < 1260 && widgets.map((w,i) => <>
-					<Section>
+					<Section key={`widget_${i}`}>
 						<div className={[styles.Widget__wrapper]}>
 							{w}
 						</div>
@@ -79,7 +79,7 @@ const Home = () => {
 				<div className={[styles.aside]}>
 					<div className={[styles.Widgets__container]}>
 						{mobileWidgets.map((w,i) => <>
-							<div className={[styles.Widget__wrapper]}>
+							<div key={`widget_${i}`} className={[styles.Widget__wrapper]}>
 								{w}
 							</div>
 						</>)}
