@@ -1,7 +1,7 @@
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
 import { useScreensize } from "../../hooks";
-import { Clock, Hns, Qrcode, Exchange, Handycon } from "./Widgets";
+import { Clock, Hns, Exchange, Handycon } from "./Widgets";
 import Footer from "../footer";
 
 import styles from "../../styles/Home.module.css";
