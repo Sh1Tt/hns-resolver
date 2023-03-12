@@ -1,7 +1,7 @@
 import Visited from "./Visited";
 import Quickstart from "./Quickstart";
 import { useScreensize } from "../../hooks";
-import { Clock, Hns, Exchange, Handycon } from "./Widgets";
+import { Clock, Hns, Exchange, Qrcode } from "./Widgets";
 import Footer from "../footer";
 
 import styles from "../../styles/Home.module.css";
@@ -14,12 +14,22 @@ const Section = ({ children }) => (
 
 const Home = () => {
 	const { w } = useScreensize();
+	
 	const widgets = [
-		<Clock key={`widget-0`} />,
-		<Hns key={`widget-1`} />,
-		<Handycon key={`widget-2`} />,
-		<Exchange key={`widget-3`} />
+		<Clock 
+			key={`widget-0`} 
+		/>,
+		<Hns 
+			key={`widget-1`}
+		/>,
+		<Qrcode 
+			key={`widget-2`}
+		/>,
+		<Exchange
+			key={`widget-3`}
+		/>
 	];
+
 	const mobileWidgets = widgets;
 
 	return(<>

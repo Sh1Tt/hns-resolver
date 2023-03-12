@@ -110,6 +110,11 @@ const CMS = {
 			TITLE: "Another News | Handshake",
 			DESC: "An arweave based messaging service for the Handhsake community",
 			HEADER: "Another News",
+		},
+		GHOSTBUDDY: {
+			TITLE: "Ghostbuddy | Handshake",
+			DESC: "An handshake based gaming facility for GhostbuddyNFT holders",
+			HEADER: "Ghostbuddy",
 		}
 	},
 	FOOTER: {

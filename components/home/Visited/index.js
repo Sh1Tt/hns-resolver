@@ -19,8 +19,7 @@ const Visited = () => {
                             <Card
                                 key={`visited-${i}`}
                                 handshakename={name} 
-                                // visited={visits[names.indexOf(name)]}
-                                visited={visits[i]}
+                                visited={visits[names.indexOf(name)]}
                                 no={i}
                             />
                 ))}

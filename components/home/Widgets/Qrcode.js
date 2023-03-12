@@ -4,38 +4,9 @@ import { useEffect, useState } from "react";
 import styles from "../../../styles/Home.module.css";
 
 const QRcodes = () => {
-    const qrcodes = [
-        {
-            name: "btc",
-            address: "bc19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
-            qrcode: ""
-        },
-        {
-            name: "eth",
-            address: "0x19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
-            qrcode: ""
-        },
-        {
-            name: "hns",
-            address: "hs19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
-            qrcode: ""
-        },
-        {
-            name: "btc",
-            address: "bc19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
-            qrcode: ""
-        },
-        {
-            name: "eth",
-            address: "0x19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
-            qrcode: ""
-        },
-        {
-            name: "hns",
-            address: "hs19886sd8d87vfd7658d7vf76d4e76vdg90vhs986f58",
-            qrcode: ""
-        }
-    ];
+    const qrcodes = useFromMemory();
+
+    console.log("qrcodes", qrcodes)
 
     const [qr, setQr] = useState("");
 	
@@ -50,7 +21,7 @@ const QRcodes = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined")
-            setQr(qrcodes[0] ? qrcodes[0].qrcode : "");
+            setQr(qrcodes[0] ? qrcodes[0].url : "");
 
     }, [qrcodes]);
 
@@ -58,16 +29,16 @@ const QRcodes = () => {
         <div className={[styles.Widget__card]}>
             <div className={styles.Hns__addresses}>
                 <span className={styles.Hns__wallets}>
-                    {qrcodes.map((address, i) => (
+                    {(qrcodes || []).map((qr, i) => (
                         <div
                             className={[styles.Hns__option, i === 0 ? styles.Active : ""].join(" ")}
                             key={i}
                             onClick={e => {
-                                setQr(address.qrcode);
+                                setQr(qr.url);
                                 clickHandler(e);
                             }}
                         >
-                            {address.name}
+                            {qr.id}
                         </div>
                     ))}
                     <div 
@@ -91,6 +62,34 @@ const QRcodes = () => {
             </div>
         </div>
     </>);
+};
+
+const initialState = {
+    qrcodes: [
+        {id:"BTC",address:"B123",data:"B1_FD"},
+        {id:"HNS",address:"H123",data:"H1_FD"},
+        {id:"ETH",address:"E123",data:"E1_FD"},
+        {id:"LTC",address:"L123",data:"L1_FD"},
+        {id:"XMR",address:"X123",data:"X1_FD"},
+        {id:"XRP",address:"R123",data:"R1_FD"}
+    ]
+};
+
+const useFromMemory = () => {
+    const [qrcodes, setQrcodes] = useState(initialState.qrcodes);
+
+    useEffect(() => {
+        const getData = async () => {
+            const data = JSON.parse(localStorage.getItem("cool-qrcodes") || "[]");
+            setQrcodes(data);
+        };
+
+        if (typeof window !== "undefined")
+            getData();
+
+    }, []);
+
+    return qrcodes;
 };
 
 export default QRcodes;
