@@ -8,40 +8,40 @@ const store_id = {
 };
 
 const Qrcodes = () => {
-    const qrcodes = useQrcodes();
+    // const qrcodes = useQrcodes();
 
-    const input_wallet = qrcodes.map((_, i) => useRef(""));
-    const input_address = qrcodes.map((_, i) => useRef(""));
+    // const input_wallet = qrcodes.map((_, i) => useRef(""));
+    // const input_address = qrcodes.map((_, i) => useRef(""));
 
-    const submitHandler = async e => {
-        e.preventDefault();
+    // const submitHandler = async e => {
+    //     e.preventDefault();
 
-        const makeUrl = async address => await new Promise(resolve => {
-            QRCode.toDataURL(address)
-                .then(url => {
-                    resolve(url);
-                })
-                .catch(err => {
-                    console.log(err);
-                    resolve();
-                });
-        });
+    //     const makeUrl = async address => await new Promise(resolve => {
+    //         QRCode.toDataURL(address)
+    //             .then(url => {
+    //                 resolve(url);
+    //             })
+    //             .catch(err => {
+    //                 console.log(err);
+    //                 resolve();
+    //             });
+    //     });
 
-        const data = await Promise.all(
-            qrcodes.map((_, i) => {
-                const wallet = input_wallet[i].current.value || initialState.qrcodes[i].id;
-                const address = input_address[i].current.value || initialState.qrcodes[i].address;
-                return makeUrl(address)
-                    .then(url => ({id:wallet,address,url}));
-            })
-        );
+    //     const data = await Promise.all(
+    //         qrcodes.map((_, i) => {
+    //             const wallet = input_wallet[i].current.value || initialState.qrcodes[i].id;
+    //             const address = input_address[i].current.value || initialState.qrcodes[i].address;
+    //             return makeUrl(address)
+    //                 .then(url => ({id:wallet,address,url}));
+    //         })
+    //     );
 
-        localStorage.setItem(store_id.qrcodes, JSON.stringify(data));
-    };
+    //     localStorage.setItem(store_id.qrcodes, JSON.stringify(data));
+    // };
 
     return (<>
         <div className={[styles.Qrcodes]}>
-            <form
+            {/* <form
                 className={[styles.Form].join(" ")}
                 onSubmit={submitHandler}
                 autoComplete="off"
@@ -75,7 +75,7 @@ const Qrcodes = () => {
                 >
                     Save
                 </button>
-            </form>
+            </form> */}
         </div>
     </>);
 };
