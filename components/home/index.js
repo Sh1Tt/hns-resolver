@@ -22,9 +22,9 @@ const Home = () => {
 		<Hns 
 			key={`widget-1`}
 		/>,
-		<Qrcode 
-			key={`widget-2`}
-		/>,
+		// <Qrcode 
+		// 	key={`widget-2`}
+		// />,
 		<Exchange
 			key={`widget-3`}
 		/>

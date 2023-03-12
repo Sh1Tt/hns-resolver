@@ -1,4 +1,4 @@
-import Qrcodes from "./Qrcodes";
+// import Qrcodes from "./Qrcodes";
 
 import styles from "../../styles/Configure.module.css";
 
@@ -11,7 +11,7 @@ const Configure = () => {
                 </h1>
             </header>
             <main className={[styles.Main]}>
-                <Qrcodes />
+                {/* <Qrcodes /> */}
             </main>
         </div>
     );
