@@ -1,0 +1,156 @@
+.Wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--og-bg-primary);
+    color: var(--og-text-primary);
+    text-shadow: 
+        0px 1px 1px rgba(0, 0, 0, 0.13),
+        1px 2px 2px rgba(0, 0, 0, 0.13),
+        2px 4px 4px rgba(0, 0, 0, 0.13),
+        4px 8px 8px rgba(0, 0, 0, 0.13),
+        8px 16px 16px rgba(0, 0, 0, 0.13),
+        16px 32px 32px rgba(0, 0, 0, 0.13)
+    ;
+}
+
+.Container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--og-bg-primary);
+    color: var(--og-text-primary);
+}
+
+.Color__hilight {
+    color: rgba(255, 188, 3, 0.975);
+}
+
+.Header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5em 0;
+}
+
+.Header h1 {
+    font-family: var(--og-font-rareweave);
+    font-size: 170px;
+    font-weight: 400;
+    background: linear-gradient(84deg, rgba(0,0,0,0.975), rgba(137, 4, 226, 0.975) 0%, rgba(160, 32, 0, 0.975) 15%, rgba(238, 37, 171, 0.975) 50%, rgba(160, 32, 0, 0.975) 85%, rgba(255, 188, 3, 0.975) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: 9.9rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Description {
+    font-family: var(--og-font-secondary);
+    font-size: 38px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container__countdown {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 5rem 0;
+    background: linear-gradient(84deg, rgba(143, 9, 9, 0.975), rgba(137, 4, 226, 0.975) 15%, rgba(160, 32, 0, 0.975) 25%, rgba(238, 37, 171, 0.975) 50%, rgba(160, 32, 0, 0.975) 75%, rgba(255, 188, 3, 0.975) 85%, rgba(143, 9, 9, 0.975) 100%);
+    color: var(--og-bg-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Countdown__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 2.5rem 0;
+}
+
+.Countdown__value {
+    font-family: var(--og-font-rareweave);
+    font-size: 170px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    line-height: 170px;
+    background: linear-gradient(84deg, rgba(143, 9, 9, 0.975), rgba(137, 4, 226, 0.975), rgba(255, 245, 218, 0.975));
+    color: var(--og-bg-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: space-color 10s ease-in-out infinite;
+}
+
+.Countdown__label {
+    font-family: var(--og-font-secondary);
+    font-size: 38px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    line-height: normal;
+    background: linear-gradient(84deg, rgba(234,243,253,1), rgba(123,71,187,1));
+    color: var(--og-bg-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes space-color {
+    from {
+        background-position: 0 0;
+        background-size: 150% 150%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+        background-size: 350% 350%;
+    }
+
+    to {
+        background-position: 0 0;
+        background-size: 150% 150%;
+    }
+    
+}

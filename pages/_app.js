@@ -17,7 +17,8 @@ export default class resolverApp extends App {
     userRawHistory: null,
     native: false,
     searchengine: null,
-    consent: null
+    consent: null,
+    arJwk: null
   };
 
   state = this.initialState;
@@ -27,39 +28,34 @@ export default class resolverApp extends App {
     raw_history: "cool-raw-history",
     searchengine: "cool-searchengine",
     manual: "cool-resolve",
-    consent: "cool-consent"
+    consent: "cool-consent",
+    arJwk: "cool-arJwk"
   };
 
   componentDidMount = async () => {
     const history = localStorage.getItem(this.store_id.history)
-      || null;
+    || this.initialState.userHistory;
     
     const manual = localStorage.getItem(this.store_id.manual) 
-      || false;
+    || this.initialState.native;
     
     const engine = localStorage.getItem(this.store_id.searchengine) 
-      || Object.keys(Resolver.searchEngines)[0];
+    || Object.keys(Resolver.searchEngines)[0];
 
     const consent = localStorage.getItem(this.store_id.consent)
-      || null;
+    || this.initialState.consent;
 
-    if (consent)
-      this.setState({
-        ...this.state,
-        userHistory: history,
-        native: manual,
-        searchengine: engine,
-        consent: consent
-      });
-    else
-      this.setState({
-        ...this.state,
-        userHistory: history,
-        native: this.checkResolver(),
-        searchengine: engine
-      });
+    const arJwk = localStorage.getItem(this.store_id.arJwk)
+    || this.initialState.arJwk;
 
-
+    this.setState({
+      ...this.state,
+      userHistory: history,
+      native: manual,
+      searchengine: engine,
+      consent: consent || this.initialState.consent,
+      arJwk: arJwk || this.initialState.arJwk
+    });
   };
 
   checkResolver = async () => {
