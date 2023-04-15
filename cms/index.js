@@ -115,6 +115,21 @@ const CMS = {
 			TITLE: "Ghostbuddy | Handshake",
 			DESC: "An handshake based gaming facility for GhostbuddyNFT holders",
 			HEADER: "Ghostbuddy",
+		},
+		GAME: {
+			TITLE: "Findwaldo - The Game v1.0 | Handshake",
+			DESC: "An handshake based game with Findwaldo as the main character",
+			HEADER: "Findwaldo - The Game",
+		},
+		HNSCHAT: {
+			TITLE: "HNS Chat | Handshake",
+			DESC: "An handshake based messaging service for the Handhsake community",
+			HEADER: "HNS Chat",
+		},
+		RAREWEAVE: {
+			TITLE: "rareWeave release countdown",
+			DESC: "A simple countdown to the rareWeave release",
+			HEADER: "rareWeave release",
 		}
 	},
 	FOOTER: {

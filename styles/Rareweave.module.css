@@ -86,7 +86,7 @@
     height: 100%;
     padding: 0;
     margin: 5rem 0;
-    background: linear-gradient(84deg, rgba(143, 9, 9, 0.975), rgba(137, 4, 226, 0.975) 15%, rgba(160, 32, 0, 0.975) 25%, rgba(238, 37, 171, 0.975) 50%, rgba(160, 32, 0, 0.975) 75%, rgba(255, 188, 3, 0.975) 85%, rgba(143, 9, 9, 0.975) 100%);
+    background: linear-gradient(84deg, rgba(143, 9, 9, 0.975), rgba(137, 4, 226, 0.975) 10%, rgba(160, 32, 0, 0.975) 25%, rgba(238, 37, 171, 0.975) 50%, rgba(160, 32, 0, 0.975) 75%, rgba(255, 188, 3, 0.975) 85%, rgba(143, 9, 9, 0.975) 100%);
     color: var(--og-bg-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

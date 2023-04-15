@@ -48,6 +48,8 @@ export default class resolverApp extends App {
     const arJwk = localStorage.getItem(this.store_id.arJwk)
     || this.initialState.arJwk;
 
+    this.checkResolver();
+
     this.setState({
       ...this.state,
       userHistory: history,
