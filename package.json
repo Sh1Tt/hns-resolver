@@ -11,12 +11,16 @@
     "ardb": "^1.1.10",
     "arweave": "^1.13.0",
     "arweave-wallet-connector": "^1.0.0",
+    "axios": "^1.6.2",
     "fs": "^0.0.1-security",
+    "metascraper": "^5.41.0",
+    "net": "^1.0.2",
     "next": "^12.3.4",
     "punycode": "^2.1.1",
     "qrcode": "^1.5.1",
     "react-use-websocket": "^4.3.1",
-    "socket.io-client": "^4.6.1"
+    "socket.io-client": "^4.6.1",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "eslint": "8.6.0",

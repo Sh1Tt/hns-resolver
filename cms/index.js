@@ -28,121 +28,107 @@ const CMS = {
 			TITLE: pointerLogo(),
 			DESC: "Browse the web using handshakenames",
 			HEADER: pointerLogo(),
-			QUICKSTART: [
+			WEBSITES: [
 				{
 					name: `theshake/`,
 					link: `http://theshake.${mirror}/`,
-					icon: ``
-				},
-				{
-					name: `x/piring`,
-					link: `http://x.${mirror}/piring`,
+					hns: `https://theshake/`,
 					icon: ``
 				},
 				{
 					name: `niami/`,
 					link: `https://niami.io/`,
+					hns: `https://niami/`,
 					icon: ``
 				},
 				{
 					name: `nameserver`,
 					link: `https://nameserver.pages.dev`,
+					hns: `https://nameserver.pages.dev`,
 					icon: ``
 				},
 				{
 					name: `twitter`,
 					link: `https://twitter.com`,
+					hns: `https://twitter.com`,
 					icon: ``
 				},
 				{
 					name: `findwaldo/`,
 					link: `http://www.findwaldo.${mirror}/`,
+					hns: `http://www.findwaldo/`,
 					icon: ``
 				},
 				{
 					name: `hnsnetwork`,
 					link: `https://hnsnetwork.com`,
+					hns: `https://hnsnetwork.com`,
 					icon: ``
 				},
 				{
 					name: `blockclock/`,
 					link: `http://hns.blockclock.${mirror}/`,
+					hns: `https://hns.blockclock/`,
 					icon: ``
 				},
 				{
 					name: `hnschat/`,
 					link: `https://hns.chat/`,
+					hns: `https://hnschat/`,
 					icon: ``
 				},
 				{
 					name: `varo/`,
 					link: `https://varo.io/`,
+					hns: `https://varo/`,
 					icon: ``
 				},
 				{
 					name: `github`,
 					link: `https://github.com/`,
+					hns: `https://github.com/`,
 					icon: ``
 				},
 				{
 					name: `chatgpt`,
 					link: `https://chat.openai.com/`,
-					icon: ``
-				},
-				{
-					name: `hnssearch/`,
-					link: `https://hnssearch.io/`,
+					hns: `https://chat.openai.com/`,
 					icon: ``
 				},
 				{
 					name: `impervious`,
 					link: `https://impervious.com/`,
+					hns: `https://impervious.com/`,
 					icon: ``
 				},
 				{
-					name: `nftsarestupid`,
-					link: `https://nftsarestupid.com/`,
+					name: `htools`,
+					link: `https://htools.work/`,
+					hns: `https://htools.work/`,
+					icon: ``
+				},
+				{
+					name: `RareWeave`,
+					link: `https://rareweave.store/`,
+					hns: `https://rareweave/`,
 					icon: ``
 				}
-			]
+			],
 		},
-		NEWS: {
-			TITLE: "Another News | Handshake",
-			DESC: "An arweave based messaging service for the Handhsake community",
-			HEADER: "Another News",
-		},
-		GHOSTBUDDY: {
-			TITLE: "Ghostbuddy | Handshake",
-			DESC: "An handshake based gaming facility for GhostbuddyNFT holders",
-			HEADER: "Ghostbuddy",
-		},
-		GAME: {
-			TITLE: "Findwaldo - The Game v1.0 | Handshake",
-			DESC: "An handshake based game with Findwaldo as the main character",
-			HEADER: "Findwaldo - The Game",
-		},
-		HNSCHAT: {
-			TITLE: "HNS Chat | Handshake",
-			DESC: "An handshake based messaging service for the Handhsake community",
-			HEADER: "HNS Chat",
-		},
-		RAREWEAVE: {
-			TITLE: "rareWeave release countdown",
-			DESC: "A simple countdown to the rareWeave release",
-			HEADER: "rareWeave release",
-		}
 	},
 	FOOTER: {
 		DIRECTORS: [
 			{
 				name: `${director}`,
 				link: `https://twitter.com/${twitterhandle}`,
+				hns: ``,
 			}
 		],
 		ORGANISATIONS: [
 			{
 				name: `Another Software`,
 				link: `https://another.software/`,
+				hns: ``,
 				logo: <Image 
 					alt="Another software logo" 
 					width="24"

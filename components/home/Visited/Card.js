@@ -22,27 +22,21 @@ const Card = ({ handshakename, visited, no }) => {
             <div    
                 className={styles.visitedCard} 
                 data-bg={no}
-                onClick={e => {
-                    clickHandler(e);
-                }}
+                onClick={e => clickHandler(e)}
             >
                 <span>
                     {handshakename}/
                 </span>
-                {hasEmoji(handshakename)&&
-                    <code>
-                        {toAscii(handshakename)}
-                    </code>
-                }
+                {hasEmoji(handshakename) && <code>
+                    {toAscii(handshakename)}
+                </code>}
             </div>
             <input
                 type="button"
                 name={`forget_${handshakename}`}
                 className={styles.visitedForget}
                 value="x"
-                onClick={e => {
-                    forgetVisited(handshakename);
-                }}
+                onClick={e => forgetVisited(handshakename)}
             />
             <div className={styles.visitedCounter}>
                 visited: <code>{visited}</code>

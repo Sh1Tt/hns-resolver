@@ -6,7 +6,7 @@ import styles from "../../../styles/Home.module.css";
 
 const Fixed = n => n < 2 ? n.toFixed(8) : n.toFixed(2);
 
-const Quote = ({ token, value, i }) => (
+const Quote = ({ token, value, i }) => typeof value === "number" ? (
     <span 
         className={styles.Quotes__price}
         key={i}
@@ -14,11 +14,13 @@ const Quote = ({ token, value, i }) => (
         <span>
             {token}
         </span>
-        <span>
+        <span style={{
+            fontSize: "1rem",
+        }}>
             ${Fixed(value)}
         </span>
     </span>
-);
+) : "";
 
 const Exchange = () => {
     const [asvt, setAsvt] = useState(0);

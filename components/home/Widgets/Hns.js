@@ -5,43 +5,48 @@ import Loader from "../../loader/";
 
 import styles from "../../../styles/Home.module.css";
 
+const Reddot = () => (
+    <span className={[styles.Hns__dot, styles.Red].join(" ")}></span>
+);
+
+const Greendot = () => (
+    <span className={[styles.Hns__dot, styles.Green].join(" ")}></span>
+);
+
+const isClient = () => typeof window !== undefined;
+
 const Hns = () => {
     const { native } = useContext(UserContext);
 
 	const { height, loading } = useBlockheight();
 
-    const [halving, setHalving] = useState(false);
+    const [isAnniversary, setIsAnniversary] = useState(false);
 
     const [remaining, setRemaining] = useState(0);
 
     const [resolver, setResolver] = useState(
-        <span className={[styles.Hns__dot, styles.Red].join(" ")}></span>
+        Reddot()
     );
 
-    const nextHalving = 170000;
+    const anniversary = 210240;
     
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            if (native)
-                setResolver(<span className={[styles.Hns__dot, styles.Green].join(" ")}></span>);
-            else
-               setResolver(<span className={[styles.Hns__dot, styles.Red].join(" ")}></span>);
+        if (isClient())
+            setResolver(native ? Greendot()
+                : Reddot()
+            );
 
-        };
-
-        
     }, [native]);
     
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            setHalving(height >= nextHalving);
+        if (isClient()) {
+            setIsAnniversary(height >= anniversary);
             
-            if (!halving)
-                setRemaining(nextHalving - height);
+            if (!isAnniversary)
+                setRemaining(anniversary - height);
         };
     }, [height]);
                 
-
     return (<>
         <div className={[styles.Widget__card]}>
             {loading
@@ -49,22 +54,19 @@ const Hns = () => {
             : <>
                 <span className={styles.Hns__title}></span>
                 <span className={styles.Hns__height}>
-                    Current block: {height}
+                    Current block: {height} <br />
+                    <span style={{ fontSize: "0.8rem", color: "#999" }}>
+                        *A block takes about 10 minutes
+                    </span><br />
+                    {(!loading && !isAnniversary) && <span style={{ fontSize: "0.8rem" }}>
+                        Blocks to 4th anniversary: {remaining} {`(~${((remaining * 10 / 60) / 24).toFixed(0)} days)`}
+                    </span>}
                 </span>
                 <span className={styles.Hns__resolver}>
-                    Resolver detected: {resolver}
+                    Resolver detected:&nbsp;{resolver}
                 </span>
             </>}
         </div>
-        {(!loading && !halving) && <div className={[styles.Widget__card]}>
-            <span className={styles.Hns__title}></span>
-            <span className={styles.Hns__height}>
-                Blocks to next halving: {remaining}<br />
-                <span className={styles.Hns__small}>
-                    *A block takes about 10 minutes to mine.
-                </span>
-            </span>
-        </div>}
     </>);
 };
 

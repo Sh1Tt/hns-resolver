@@ -11,6 +11,8 @@ import "../styles/paralax.css";
 
 import "../styles/card-bg-gradients.css";
 
+const numberOfBackgrounds = 8;
+
 export default class resolverApp extends App {
   initialState = {
     userHistory: null,
@@ -50,13 +52,16 @@ export default class resolverApp extends App {
 
     this.checkResolver();
 
+    const bg = this.randBg();
+
     this.setState({
       ...this.state,
       userHistory: history,
       native: manual,
       searchengine: engine,
       consent: consent || this.initialState.consent,
-      arJwk: arJwk || this.initialState.arJwk
+      arJwk: arJwk || this.initialState.arJwk,
+      bg: bg
     });
   };
 
@@ -150,6 +155,8 @@ export default class resolverApp extends App {
     });
   };
 
+  randBg = () => parseInt(Math.floor(Math.random() * numberOfBackgrounds));
+
   render() {
     const { Component, pageProps } = this.props;
     return (
@@ -157,6 +164,7 @@ export default class resolverApp extends App {
           userHistory: this.state.userHistory,
           native: this.state.native,
           searchengine: this.state.searchengine,
+          backgroundSelection: this.state.bg,
           rememberVisited: this.rememberVisited, 
           forgetVisited: this.forgetVisited,
           deleteHistory: this.deleteHistory

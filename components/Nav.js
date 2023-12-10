@@ -17,7 +17,7 @@ const Nav = () => {
 	};
 	return (
 		<nav id="__nav">
-			<Logo text={mirror} />
+			<Logo text={`Handshake`} />
 			<Resolver />
 			<div className={[styles.Menu__container].join(` `)}>
 				<span

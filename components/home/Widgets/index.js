@@ -1,13 +1,11 @@
 import Clock from "./Clock";
 import Hns from "./Hns";
 import Exchange from "./Exchange";
-// import Handycon from "./Handycon";
-// import Qrcode from "./Qrcode";
+import Vavo from "./Vavo";
 
 export {
     Clock,
     Hns,
     Exchange,
-    // Handycon,
-    // Qrcode
+    Vavo,
 };
