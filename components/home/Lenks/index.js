@@ -106,7 +106,7 @@ const Lenks = props => {
                 description="The Holiday Special of 200,000 HNS has been granted to Rithvik Vibhu for his stateless DANE proposaL."
             />
             <HeroArticle
-                source="unvs.com"
+                source="https://unvs.com/"
                 image={unvs}
                 title="unvs.com"
                 description="Become a citizen of the UNVS.. "
