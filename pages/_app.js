@@ -157,6 +157,20 @@ export default class resolverApp extends App {
 
   randBg = () => parseInt(Math.floor(Math.random() * numberOfBackgrounds));
 
+  getFavorites() {
+    const favorites = localStorage.getItem(this.store_id.favorites) || null;
+    return favorites ? favorites.split(/,/) : [];
+  };
+
+  setFavorites(favorites) {
+    const parsed = `{${favorites.join("},{")}}`;
+    localStorage.setItem(this.store_id.favorites, parsed);
+  };
+
+  dropFavorites() {
+    localStorage.removeItem(this.store_id.favorites);
+  };
+
   render() {
     const { Component, pageProps } = this.props;
     return (
@@ -167,7 +181,10 @@ export default class resolverApp extends App {
           backgroundSelection: this.state.bg,
           rememberVisited: this.rememberVisited, 
           forgetVisited: this.forgetVisited,
-          deleteHistory: this.deleteHistory
+          deleteHistory: this.deleteHistory,
+          getFavorites: this.getFavorites,
+          setFavorites: this.setFavorites,
+          dropFavorites: this.dropFavorites,
         }}>
         <Nav />
         <Component {...pageProps} />

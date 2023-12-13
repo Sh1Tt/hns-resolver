@@ -21,6 +21,14 @@ const Vavo = () => <>
         <div>
             VAVortex AI ART Community
         </div>
+        <Link href="https://linktr.ee/vavortex">
+            <a style={{
+                color: "cornflowerblue",
+                textShadow: "0px 0px 5px #000"
+            }}>
+                @vavortex
+            </a>
+        </Link>
         <Link href="https://linktr.ee/johannanyqvist">
             <a style={{
                 color: "cornflowerblue",
